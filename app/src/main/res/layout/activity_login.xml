@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/square"
+        android:layout_width="320dp"
+        android:layout_height="538dp"
+        android:layout_marginStart="47dp"
+        android:src="@drawable/square"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/kotakSilang"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:src="@drawable/kotak_silang"
+        app:layout_constraintEnd_toEndOf="@id/square"
+        app:layout_constraintTop_toTopOf="@id/square" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_silang"
+        app:layout_constraintStart_toStartOf="@id/kotakSilang"
+        app:layout_constraintTop_toTopOf="@id/kotakSilang" />
+
+    <TextView
+        android:id="@+id/txtSelamatDatang"
+        android:layout_width="194dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/Inter_bold"
+        android:text="Hai, Selamat Datang!"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toTopOf="@id/square" />
+
+    <TextView
+        android:id="@+id/txtMasukAkun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="65dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Masuk ke akun anda"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toBottomOf="@id/txtSelamatDatang" />
+
+    <ImageView
+        android:id="@+id/txtSalahEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/peringatan_tidak_valid"
+        app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toBottomOf="@id/txtMasukAkun" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Email"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="@id/txtSelamatDatang"
+        app:layout_constraintTop_toBottomOf="@id/txtSalahEmail" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginHorizontal="14dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Ketik email anda disini"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/square"
+        app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toBottomOf="@id/txtEmail" />
+
+    <TextView
+        android:id="@+id/txtPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Kata Sandi"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="@id/txtSelamatDatang"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginHorizontal="14dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Masukan kata sandi anda"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/square"
+        app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toBottomOf="@id/txtPass" />
+
+    <TextView
+        android:id="@+id/txtLupaKataSandi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Lupa kata sandi"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="@id/txtSelamatDatang"
+        app:layout_constraintTop_toBottomOf="@id/password" />
+
+    <TextView
+        android:id="@+id/txtBelumPunya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Belum punya akun?"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toStartOf="@id/txtDaftarDisini"
+        app:layout_constraintTop_toBottomOf="@id/password" />
+
+    <TextView
+        android:id="@+id/txtDaftarDisini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Daftar disini"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/password" />
+
+    <Button
+        android:id="@+id/btnMasuk"
+        android:layout_width="292dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="58dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/Inter_bold"
+        android:text="Masuk"
+        android:textAllCaps="false"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/password" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
