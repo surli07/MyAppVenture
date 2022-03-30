@@ -36,10 +36,10 @@
         android:layout_height="58dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/Inter_bold"
+        android:fontFamily="@font/inter_bold"
         android:text="Hai, Selamat Datang!"
         android:textColor="@color/white"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@id/square"
         app:layout_constraintTop_toTopOf="@id/square" />
 
@@ -52,7 +52,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Masuk ke akun anda"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/square"
         app:layout_constraintTop_toBottomOf="@id/txtSelamatDatang" />
 
@@ -74,7 +74,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Email"
         android:textColor="@color/white"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/txtSelamatDatang"
         app:layout_constraintTop_toBottomOf="@id/txtSalahEmail" />
 
@@ -102,7 +102,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Kata Sandi"
         android:textColor="@color/white"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/txtSelamatDatang"
         app:layout_constraintTop_toBottomOf="@id/email" />
 
@@ -130,7 +130,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Lupa kata sandi"
         android:textColor="@color/white"
-        android:textSize="10dp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@id/txtSelamatDatang"
         app:layout_constraintTop_toBottomOf="@id/password" />
 
@@ -143,7 +143,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Belum punya akun?"
         android:textColor="@color/white"
-        android:textSize="10dp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@id/txtDaftarDisini"
         app:layout_constraintTop_toBottomOf="@id/password" />
 
@@ -155,7 +155,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Daftar disini"
         android:textColor="@color/white"
-        android:textSize="10dp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@id/password"
         app:layout_constraintTop_toBottomOf="@id/password" />
 
@@ -166,7 +166,7 @@
         android:layout_marginTop="58dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="@color/white"
-        android:fontFamily="@font/Inter_bold"
+        android:fontFamily="@font/inter_bold"
         android:text="Masuk"
         android:textAllCaps="false"
         android:textColor="@color/green"

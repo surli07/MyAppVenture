@@ -6,8 +6,8 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.myappventure.app.BuildConfig
 import com.myappventure.app.dialog.CustomLoadingDialog
+import com.orhanobut.hawk.BuildConfig
 
 abstract class BaseActivity : AppCompatActivity() {
 

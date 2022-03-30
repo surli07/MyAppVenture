@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/square"
+        android:layout_width="320dp"
+        android:layout_height="538dp"
+        android:layout_marginStart="47dp"
+        android:src="@drawable/square"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/kotakSilang"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:src="@drawable/kotak_silang"
+        app:layout_constraintEnd_toEndOf="@id/square"
+        app:layout_constraintTop_toTopOf="@id/square" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_silang"
+        app:layout_constraintStart_toStartOf="@id/kotakSilang"
+        app:layout_constraintTop_toTopOf="@id/kotakSilang" />
+
+    <TextView
+        android:id="@+id/txtSambutan"
+        android:layout_width="286dp"
+        android:layout_height="116dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="33dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Bergabung bersama Komunitas Pecinta Alam dengan mudah hanya di My Appventure"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toTopOf="@id/square" />
+
+    <ImageView
+        android:id="@+id/imgCamp"
+        android:layout_width="254dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/ic_camp"
+        app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toTopOf="@id/txtSambutan" />
+
+    <TextView
+        android:id="@+id/txtAjakan"
+        android:layout_width="285dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Ayo bergabung dengan my appventure untuk mengetahui berita dan update terbaru "
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/txtSambutan"
+        app:layout_constraintTop_toTopOf="@id/imgCamp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginHorizontal="14dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Ketik email anda disini"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintEnd_toEndOf="@id/square"
+        app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toBottomOf="@id/txtAjakan" />
+
+    <Button
+        android:id="@+id/btnMasuk"
+        android:layout_width="292dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/tosca"
+        android:fontFamily="@font/inter_bold"
+        android:text="Masuk"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/email"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
