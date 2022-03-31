@@ -11,7 +11,7 @@
         android:theme="@style/Theme.MyAppventure">
 
         <activity
-            android:name=".ui.register.RegisterActivity"
+            android:name=".ui.ui.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
