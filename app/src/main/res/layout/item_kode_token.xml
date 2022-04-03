@@ -10,14 +10,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:cardCornerRadius="6dp">
+
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:inputType="text"
             android:textSize="32dp"
             android:text="2"
+            android:background="@null"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/black"
-            android:fontFamily="@font/poppins_medium"
-            android:textAlignment="center" />
+            android:fontFamily="@font/poppins_medium"/>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

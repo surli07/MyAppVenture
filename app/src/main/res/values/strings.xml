@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Appventure</string>
     <string name="masuk"><u>Masuk</u></string>
+    <string name="kirim_ulang_kode_otp"><u>Kirim ulang kode OTP</u></string>
 </resources>

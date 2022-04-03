@@ -45,14 +45,57 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtVerifikasi"/>
 
+    <TextView
+        android:id="@+id/txtEmailUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="m**********na@gmail.com"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtKirimToken"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerKodeOTP"
         android:layout_width="292dp"
         android:layout_height="57dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/item_kode_token"
         app:spanCount="4"
+        android:layout_marginTop="32dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/txtKirimToken"/>
+        app:layout_constraintTop_toBottomOf="@id/txtEmailUser"/>
+
+    <TextView
+        android:id="@+id/txtKirimUlang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kirim_ulang_kode_otp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="73dp"
+        android:fontFamily="@font/poppins_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerKodeOTP"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="292dp"
+        android:layout_height="39dp"
+        android:text="Verifikasi"
+        app:cornerRadius="8dp"
+        android:textSize="14sp"
+        android:textColor="#457275"
+        android:theme="@style/buttonstyle1"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="59dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtKirimUlang"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
