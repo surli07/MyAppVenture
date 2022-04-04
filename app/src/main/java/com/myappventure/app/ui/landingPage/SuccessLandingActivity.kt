@@ -1,4 +1,4 @@
-package com.myappventure.app.ui
+package com.myappventure.app.ui.landingPage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

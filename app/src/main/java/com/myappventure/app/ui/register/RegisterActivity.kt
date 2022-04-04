@@ -1,4 +1,4 @@
-package com.myappventure.app.ui
+package com.myappventure.app.ui.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

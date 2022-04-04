@@ -1,4 +1,4 @@
-package com.myappventure.app.ui
+package com.myappventure.app.ui.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
