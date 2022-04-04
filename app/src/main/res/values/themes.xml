@@ -17,4 +17,8 @@
         <item name="colorControlHighlight">#008C96</item>
         <item name="colorButtonNormal">@color/white</item>
     </style>
+    <style name="buttonstyle2" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/tosca</item>
+        <item name="colorButtonNormal">@color/tosca</item>
+    </style>
 </resources>
