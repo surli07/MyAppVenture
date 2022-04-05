@@ -15,9 +15,10 @@ class LoadingActivity : AppCompatActivity() {
     }
 
     private fun goToLanding() {
-        Thread.sleep(3000)
+
         val i = Intent(this@LoadingActivity, RegisterActivity::class.java)
-        finish()
         startActivity(i)
+        Thread.sleep(3000)
+        finish()
     }
 }
