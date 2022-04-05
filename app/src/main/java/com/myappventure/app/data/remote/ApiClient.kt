@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ApiClient {
     val instance: ApiService by lazy {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://myappventure-api.herokuapp.com/api")
+            .baseUrl("https://myappventure-api.herokuapp.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory.create())
             .client(OkHttpClient.Builder().addInterceptor(logging).build())
