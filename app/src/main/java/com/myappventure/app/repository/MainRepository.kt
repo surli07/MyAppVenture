@@ -1,6 +1,7 @@
 package com.myappventure.app.repository
 
 import com.myappventure.app.data.remote.ApiService
+import com.myappventure.app.data.remote.register.RegisterBody
 import com.skydoves.sandwich.message
 import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
@@ -24,9 +25,9 @@ class MainRepository @Inject constructor(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-        query: String,
+        body: RegisterBody,
     ) = flow {
-        val response = apiService.registerUser(query)
+        val response = apiService.registerUser(body)
         response.suspendOnSuccess {
             emit(this.data)
         }.onError {

@@ -3,8 +3,11 @@ package com.myappventure.app.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.myappventure.app.R
 import com.myappventure.app.ui.register.RegisterActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class LoadingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,10 +18,11 @@ class LoadingActivity : AppCompatActivity() {
     }
 
     private fun goToLanding() {
-
-        val i = Intent(this@LoadingActivity, RegisterActivity::class.java)
-        startActivity(i)
-        Thread.sleep(3000)
-        finish()
+        lifecycleScope.launch {
+            delay(2000)
+            val i = Intent(this@LoadingActivity, RegisterActivity::class.java)
+            startActivity(i)
+            finish()
+        }
     }
 }

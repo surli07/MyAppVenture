@@ -230,6 +230,7 @@
                 android:layout_marginTop="78dp"
                 android:text="Daftar Sekarang"
                 android:textSize="14sp"
+                app:backgroundTint="@color/white"
                 android:fontFamily="@font/poppins_bold"
                 android:textColor="#457275"
                 app:layout_constraintStart_toStartOf="@id/cardPassword"
