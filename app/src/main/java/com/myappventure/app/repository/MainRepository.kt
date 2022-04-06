@@ -1,6 +1,7 @@
 package com.myappventure.app.repository
 
 import com.myappventure.app.data.remote.ApiService
+import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.register.RegisterBody
 import com.skydoves.sandwich.message
 import com.skydoves.sandwich.onError
@@ -41,4 +42,26 @@ class MainRepository @Inject constructor(
         .onStart { onStart() }
         .onCompletion { onComplete() }
         .flowOn(ioDispatcher)
+
+    suspend fun loginUser(
+        onStart: () -> Unit,
+        onComplete: () -> Unit,
+        onError: (String?) -> Unit,
+        body: LoginBody,
+    ) = flow {
+        val response = apiService.loginUser(body)
+        response.suspendOnSuccess {
+            emit(this.data)
+        }.onError {
+            Timber.e(this.message())
+            onError(this.message())
+        }.onException {
+            Timber.e(this.message())
+            onError(this.message())
+        }
+    }
+        .onStart { onStart() }
+        .onCompletion { onComplete() }
+        .flowOn(ioDispatcher)
+    
 }
