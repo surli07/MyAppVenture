@@ -61,13 +61,26 @@
         app:layout_constraintTop_toBottomOf="@id/txtSelamatDatang" />
 
     <ImageView
-        android:id="@+id/txtSalahEmail"
+        android:id="@+id/imgPeringatan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="11dp"
         android:layout_marginTop="14dp"
-        android:src="@drawable/peringatan_tidak_valid"
+        android:src="@drawable/ic_peringatan"
         app:layout_constraintStart_toStartOf="@id/square"
+        app:layout_constraintTop_toBottomOf="@id/txtMasukAkun" />
+
+    <TextView
+        android:id="@+id/txtPeringatan"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="14dp"
+        android:text="Alamat email yang Anda masukan tidak valid"
+        android:textSize="12sp"
+        android:textColor="@color/pink"
+        android:fontFamily="@font/poppins_semibold"
+        app:layout_constraintStart_toEndOf="@id/imgPeringatan"
         app:layout_constraintTop_toBottomOf="@id/txtMasukAkun" />
 
     <TextView
@@ -80,7 +93,7 @@
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/txtSelamatDatang"
-        app:layout_constraintTop_toBottomOf="@id/txtSalahEmail" />
+        app:layout_constraintTop_toBottomOf="@id/imgPeringatan" />
 
     <EditText
         android:id="@+id/email"
