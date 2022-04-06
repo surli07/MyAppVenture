@@ -14,15 +14,13 @@ import kotlinx.coroutines.flow.collect
 class RegisterViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : BaseViewModel() {
-
-    private lateinit var binding: ActivityRegisterBinding
     val registerResponse = MutableLiveData<RegisterResponse>()
 
-    suspend fun register() {
+    suspend fun register(email: String, username: String, password: String) {
         val body = RegisterBody(
-            binding.edtEmail.text.toString(),
-            binding.edtUsername.text.toString(),
-            binding.edtPassword.text.toString(),
+            email,
+            username,
+            password,
             ""
         )
         authRepository.registerUser(
