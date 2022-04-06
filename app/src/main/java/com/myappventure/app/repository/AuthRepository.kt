@@ -17,7 +17,7 @@ import okhttp3.RequestBody
 import timber.log.Timber
 import javax.inject.Inject
 
-class MainRepository @Inject constructor(
+class AuthRepository @Inject constructor(
     private val apiService: ApiService,
     private val ioDispatcher: CoroutineDispatcher
 ) {
@@ -63,5 +63,9 @@ class MainRepository @Inject constructor(
         .onStart { onStart() }
         .onCompletion { onComplete() }
         .flowOn(ioDispatcher)
-    
+
+
+
+
+
 }

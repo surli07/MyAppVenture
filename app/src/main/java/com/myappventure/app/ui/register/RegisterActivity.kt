@@ -1,12 +1,11 @@
 package com.myappventure.app.ui.register
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.activity.viewModels
-import com.myappventure.app.R
+import androidx.appcompat.app.AppCompatActivity
 import com.myappventure.app.databinding.ActivityRegisterBinding
-import com.myappventure.app.ui.login.LoginActivity
+
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -15,9 +14,20 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+
+        binding = ActivityRegisterBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
+
+        binding.btnRegister.setOnClickListener {
+            register()
+        }
+        binding.txtMasuk.setOnClickListener {
+
+        }
 
     }
 
+    private fun register() {
 
+    }
 }
