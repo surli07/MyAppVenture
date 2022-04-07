@@ -3,11 +3,12 @@ package com.myappventure.app.ui.register
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.myappventure.app.base.BaseActivity
-import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.databinding.ActivityRegisterBinding
+import com.myappventure.app.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -30,15 +31,18 @@ class RegisterActivity : BaseActivity() {
             val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
         }
+
     }
 
     override fun setupObserver() {
-        viewModel.message.observe(this) {
-            //TODO SHOW LINEAR LAYOUT DAN UBAH TEXTVIEW
-        }
         viewModel.loading.observe(this) {
             if (it) showLoading() else hideLoading()
         }
+        viewModel.message.observe(this) {
+            Toast.makeText(applicationContext, "Anda berhasil registrasi", Toast.LENGTH_SHORT)
+                .show()
+        }
+
     }
 
     private fun register() {
@@ -57,7 +61,9 @@ class RegisterActivity : BaseActivity() {
         } else {
             lifecycleScope.launch {
                 viewModel.startRegister(email, username, password)
+                setupObserver()
             }
+
         }
     }
 }
