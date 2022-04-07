@@ -2,6 +2,7 @@ package com.myappventure.app.ui.login
 
 import android.os.Bundle
 import android.os.Message
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -43,6 +44,7 @@ class LoginActivity : BaseActivity() {
     override fun setupObserver() {
         viewModel.message.observe(this) {
             //TODO SHOW LINEAR LAYOUT DAN UBAH TEXTVIEW
+            binding.linearPeringatan.visibility = View.VISIBLE
         }
         viewModel.loading.observe(this) {
             if (it) showLoading() else hideLoading()
