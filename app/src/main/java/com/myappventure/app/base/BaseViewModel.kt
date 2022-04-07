@@ -3,6 +3,7 @@ package com.myappventure.app.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.myappventure.app.data.remote.login.LoginResponse
 
 abstract class BaseViewModel: ViewModel()  {
 
