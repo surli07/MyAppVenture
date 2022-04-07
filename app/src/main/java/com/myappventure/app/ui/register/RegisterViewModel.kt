@@ -17,7 +17,7 @@ class RegisterViewModel @Inject constructor(
 
     val registerResponse = MutableLiveData<RegisterResponse>()
 
-    suspend fun startRegister(email: String, password: String, username: String) {
+    suspend fun startRegister(email: String, username: String, password: String) {
         val body = RegisterBody(email, username, password,  "")
         authRepository.registerUser(
             onStart = {},
