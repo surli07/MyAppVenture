@@ -235,7 +235,7 @@
                     android:layout_width="292dp"
                     android:layout_height="49dp"
                     app:cardCornerRadius="8dp"
-                    android:layout_marginTop="78dp"
+                    android:layout_marginTop="68dp"
                     android:text="Daftar Sekarang"
                     android:textSize="14sp"
                     app:backgroundTint="@color/white"
