@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityLoginBinding
+import com.myappventure.app.dialog.CustomLoadingDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -46,8 +47,9 @@ class LoginActivity : BaseActivity() {
             //TODO SHOW LINEAR LAYOUT DAN UBAH TEXTVIEW
             binding.linearPeringatan.visibility = View.VISIBLE
         }
+        val loadingUi = CustomLoadingDialog(this)
         viewModel.loading.observe(this) {
-            if (it) showLoading() else hideLoading()
+            if (it) loadingUi.show() else loadingUi.hide()
         }
     }
 }
