@@ -27,10 +27,10 @@ class LoginActivity : BaseActivity() {
             val password = binding.password.text.toString()
             when {
                 email.isEmpty() -> {
-                    //TODO SHOW ERROR EMAIL KOSONG
+                    binding.email.error = "Email tidak boleh kosong"
                 }
                 password.isEmpty() -> {
-                    //TODO SHOW ERROR PASS KOSONG
+                    binding.password.error = "Password tidak boleh kosong"
                 }
                 else -> {
                     lifecycleScope.launch {
