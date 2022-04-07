@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityLoginBinding
+import com.myappventure.app.dialog.CustomLoadingDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -27,10 +28,10 @@ class LoginActivity : BaseActivity() {
             val password = binding.password.text.toString()
             when {
                 email.isEmpty() -> {
-                    //TODO SHOW ERROR EMAIL KOSONG
+                    binding.email.error = "Email tidak boleh kosong"
                 }
                 password.isEmpty() -> {
-                    //TODO SHOW ERROR PASS KOSONG
+                    binding.password.error = "Password tidak boleh kosong"
                 }
                 else -> {
                     lifecycleScope.launch {
@@ -46,8 +47,9 @@ class LoginActivity : BaseActivity() {
             //TODO SHOW LINEAR LAYOUT DAN UBAH TEXTVIEW
             binding.linearPeringatan.visibility = View.VISIBLE
         }
+        val loadingUi = CustomLoadingDialog(this)
         viewModel.loading.observe(this) {
-            if (it) showLoading() else hideLoading()
+            if (it) loadingUi.show() else loadingUi.hide()
         }
     }
 }
