@@ -60,28 +60,34 @@
         app:layout_constraintStart_toStartOf="@id/square"
         app:layout_constraintTop_toBottomOf="@id/txtSelamatDatang" />
 
-    <ImageView
-        android:id="@+id/imgPeringatan"
+    <LinearLayout
+        android:id="@+id/linearPeringatan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
         android:layout_marginTop="14dp"
-        android:src="@drawable/ic_peringatan"
+        android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@id/square"
-        app:layout_constraintTop_toBottomOf="@id/txtMasukAkun" />
+        app:layout_constraintEnd_toEndOf="@id/square"
+        app:layout_constraintTop_toBottomOf="@id/txtMasukAkun">
+        <ImageView
+            android:id="@+id/imgPeringatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/ic_peringatan"/>
+        <TextView
+            android:id="@+id/txtPeringatan"
+            android:layout_width="257dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:text="Alamat email yang Anda masukan tidak valid"
+            android:textSize="12sp"
+            android:textColor="@color/pink"
+            android:fontFamily="@font/poppins_semibold" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtPeringatan"
-        android:layout_width="257dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="14dp"
-        android:text="Alamat email yang Anda masukan tidak valid"
-        android:textSize="12sp"
-        android:textColor="@color/pink"
-        android:fontFamily="@font/poppins_semibold"
-        app:layout_constraintStart_toEndOf="@id/imgPeringatan"
-        app:layout_constraintTop_toBottomOf="@id/txtMasukAkun" />
 
     <TextView
         android:id="@+id/txtEmail"
@@ -93,7 +99,7 @@
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/txtSelamatDatang"
-        app:layout_constraintTop_toBottomOf="@id/imgPeringatan" />
+        app:layout_constraintTop_toBottomOf="@id/linearPeringatan" />
 
     <EditText
         android:id="@+id/email"

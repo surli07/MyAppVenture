@@ -15,16 +15,10 @@ class RegisterViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : BaseViewModel() {
 
-    private lateinit var binding: ActivityRegisterBinding
     val registerResponse = MutableLiveData<RegisterResponse>()
 
-    suspend fun register() {
-        val body = RegisterBody(
-            binding.edtEmail.text.toString(),
-            binding.edtUsername.text.toString(),
-            binding.edtPassword.text.toString(),
-            ""
-        )
+    suspend fun startRegister(email: String, password: String, username: String) {
+        val body = RegisterBody(email, username, password,  "")
         authRepository.registerUser(
             onStart = {},
             onComplete = {},
