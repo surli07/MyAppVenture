@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
+            android:name=".ui.MainFollowActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.landingPage.SuccessLandingActivity"
             android:exported="false" />
         <activity

@@ -12,7 +12,6 @@ import com.orhanobut.hawk.BuildConfig
 abstract class BaseActivity : AppCompatActivity() {
 
     private var isAlertShow = false
-    private lateinit var loadingUI: CustomLoadingDialog
 
     override fun onStart() {
         super.onStart()
@@ -24,17 +23,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
 
-        loadingUI = CustomLoadingDialog(this)
-
         setupObserver()
-    }
-
-    protected fun showLoading() {
-        loadingUI.show()
-    }
-
-    protected fun hideLoading() {
-        loadingUI.hide()
     }
 
     protected fun showMessage(message: Message) {
