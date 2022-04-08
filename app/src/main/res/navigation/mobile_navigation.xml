@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.myappventure.app.ui.navigation.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.myappventure.app.ui.navigation.ui.map.MapFragment"
+        android:label="map"
+        tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/navigation_addPost"
+        android:name="com.myappventure.app.ui.navigation.ui.create.AddPostFragment"
+        android:label="Create Post"
+        tools:layout="@layout/fragment_add_post" />
+
+    <fragment
+        android:id="@+id/navigation_likes"
+        android:name="com.myappventure.app.ui.navigation.ui.likes.LikesPostFragment"
+        android:label="Like"
+        tools:layout="@layout/fragment_likes_post" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.myappventure.app.ui.navigation.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
