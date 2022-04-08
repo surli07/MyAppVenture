@@ -1,5 +1,6 @@
 package com.myappventure.app.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Message
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityLoginBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
+import com.myappventure.app.ui.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -39,6 +41,11 @@ class LoginActivity : BaseActivity() {
                     }
                 }
             }
+        }
+        binding.txtDaftarDisini.setOnClickListener {
+            val i = Intent(this, RegisterActivity::class.java)
+            startActivity(i)
+            finish()
         }
     }
 

@@ -35,6 +35,9 @@
             android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.landingPage.LandingPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.LoadingActivity"
             android:exported="true">
             <intent-filter>
