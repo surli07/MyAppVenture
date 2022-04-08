@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.myappventure.app.R
-import com.myappventure.app.ui.register.RegisterActivity
+import com.myappventure.app.ui.landingPage.LandingPageActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -22,7 +22,7 @@ class LoadingActivity : AppCompatActivity() {
     private fun goToLanding() {
         lifecycleScope.launch {
             delay(2000)
-            val i = Intent(this@LoadingActivity, RegisterActivity::class.java)
+            val i = Intent(this@LoadingActivity, LandingPageActivity::class.java)
             startActivity(i)
             finish()
         }
