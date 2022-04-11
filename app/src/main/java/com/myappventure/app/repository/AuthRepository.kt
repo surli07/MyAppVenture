@@ -3,10 +3,7 @@ package com.myappventure.app.repository
 import com.myappventure.app.data.remote.ApiService
 import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.register.RegisterBody
-import com.skydoves.sandwich.message
-import com.skydoves.sandwich.onError
-import com.skydoves.sandwich.onException
-import com.skydoves.sandwich.suspendOnSuccess
+import com.skydoves.sandwich.*
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -48,13 +45,16 @@ class AuthRepository @Inject constructor(
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
         body: LoginBody,
+        statusCode: (code: Int) -> Unit,
     ) = flow {
         val response = apiService.loginUser(body)
         response.suspendOnSuccess {
+            statusCode(this.statusCode.code)
             emit(this.data)
         }.onError {
             Timber.e(this.message())
             onError(this.message())
+            statusCode(this.statusCode.code)
         }.onException {
             Timber.e(this.message())
             onError(this.message())
@@ -63,9 +63,4 @@ class AuthRepository @Inject constructor(
         .onStart { onStart() }
         .onCompletion { onComplete() }
         .flowOn(ioDispatcher)
-
-
-
-
-
 }

@@ -64,5 +64,20 @@
         android:fontFamily="@font/poppins_regular"
         android:textSize="12sp"/>
 
+    <Button
+        android:id="@+id/btnMengikuti"
+        android:layout_width="82dp"
+        android:layout_height="42dp"
+        android:text="Mengikuti"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/green"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="8sp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
