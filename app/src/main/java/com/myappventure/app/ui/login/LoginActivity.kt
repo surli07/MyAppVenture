@@ -18,7 +18,6 @@ import kotlinx.coroutines.launch
 class LoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private var statusCode = 0
     private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,20 +38,9 @@ class LoginActivity : BaseActivity() {
                     binding.password.error = "Password tidak boleh kosong"
                 }
                 else -> {
-            lifecycleScope.launch {
-                setupObserver()
-                viewModel.startLogin(email, password) {
-                    if (statusCode == 200) {
-                        val i = Intent(this@LoginActivity, ProfileActivity::class.java)
-                        startActivity(i)
-                        finish()
-                    } else {
-                        runOnUiThread {
-                            showError(true)
-                        }
+                    lifecycleScope.launch {
+                        viewModel.startLogin(email, password)
                     }
-                }
-            }
                 }
             }
         }
@@ -66,6 +54,7 @@ class LoginActivity : BaseActivity() {
             startActivity(i)
             finish()
         }
+        setupObserver()
     }
 
     private fun showError(state: Boolean) {
@@ -77,12 +66,17 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setupObserver() {
-        viewModel.statusCode.observe(this) {
-            statusCode = it
-        }
         val loadingUi = CustomLoadingDialog(this)
         viewModel.loading.observe(this) {
-            if (it) loadingUi.show() else loadingUi.hide()
+            if (it) loadingUi.show() else loadingUi.dismiss()
+        }
+        viewModel.message.observe(this) {
+            showError(true)
+        }
+        viewModel.loginResponse.observe(this) {
+            val i = Intent(this@LoginActivity, ProfileActivity::class.java)
+            startActivity(i)
+            finish()
         }
     }
 }

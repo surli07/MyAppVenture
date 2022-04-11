@@ -17,7 +17,7 @@ class LoginViewModel @Inject constructor(
 
     val loginResponse = MutableLiveData<LoginResponse>()
 
-    suspend fun startLogin(email: String, password: String, onComplete: () -> Unit) {
+    suspend fun startLogin(email: String, password: String) {
         val loginBody = LoginBody(email, password)
         authRepository.loginUser(
             onStart = {
@@ -25,10 +25,9 @@ class LoginViewModel @Inject constructor(
             },
             onComplete = {
                 hideLoading()
-                onComplete()
             },
             onError = {
-                println(it.toString())
+                _message.postValue(it)
             },
             statusCode = {
                 _statusCode.postValue(it)
@@ -36,6 +35,7 @@ class LoginViewModel @Inject constructor(
             body = loginBody
         ).collect {
             MySharedPref.isLoggedIn = true
+            MySharedPref.userToken = it.accessToken
             loginResponse.postValue(it)
         }
     }

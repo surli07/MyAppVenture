@@ -86,8 +86,9 @@
             app:layout_constraintStart_toStartOf="@id/imgProfile">
 
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:id="@+id/edtFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="9dp"
                 android:src="@drawable/penupload" />
 
