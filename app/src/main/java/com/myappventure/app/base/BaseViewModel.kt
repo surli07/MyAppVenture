@@ -12,6 +12,8 @@ abstract class BaseViewModel: ViewModel()  {
     protected val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
 
+    val statusCode = MutableLiveData<Int>()
+
     protected fun showLoading() {
         _loading.postValue(true)
     }
