@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityLandingPageBinding
 import com.myappventure.app.ui.navigation.NavigationActivity
+import com.myappventure.app.ui.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,7 +20,7 @@ class LandingPageActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.kotakSilang.setOnClickListener {
-            val i = Intent(this, NavigationActivity::class.java)
+            val i = Intent(this, RegisterActivity::class.java)
             startActivity(i)
             finish()
         }

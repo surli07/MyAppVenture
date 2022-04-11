@@ -40,9 +40,12 @@ class LoginActivity : BaseActivity() {
                 }
                 else -> {
             lifecycleScope.launch {
+                setupObserver()
                 viewModel.startLogin(email, password) {
                     if (statusCode == 200) {
-                        startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
+                        val i = Intent(this@LoginActivity, ProfileActivity::class.java)
+                        startActivity(i)
+                        finish()
                     } else {
                         runOnUiThread {
                             showError(true)
@@ -74,7 +77,9 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setupObserver() {
-        viewModel.statusCode.observe(this) { statusCode = it }
+        viewModel.statusCode.observe(this) {
+            statusCode = it
+        }
         val loadingUi = CustomLoadingDialog(this)
         viewModel.loading.observe(this) {
             if (it) loadingUi.show() else loadingUi.hide()

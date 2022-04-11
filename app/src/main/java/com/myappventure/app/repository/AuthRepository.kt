@@ -44,8 +44,8 @@ class AuthRepository @Inject constructor(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-        body: LoginBody,
         statusCode: (code: Int) -> Unit,
+        body: LoginBody,
     ) = flow {
         val response = apiService.loginUser(body)
         response.suspendOnSuccess {
