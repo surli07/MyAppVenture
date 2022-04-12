@@ -61,7 +61,7 @@
             android:layout_height="90dp"
             android:layout_marginStart="155dp"
             android:layout_marginTop="36dp"
-            app:cardCornerRadius="165dp"
+            app:cardCornerRadius="45dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header">
 
@@ -81,7 +81,7 @@
             android:layout_marginStart="78dp"
             android:layout_marginBottom="4dp"
             app:cardBackgroundColor="#329D9C"
-            app:cardCornerRadius="100dp"
+            app:cardCornerRadius="14dp"
             app:layout_constraintBottom_toBottomOf="@id/imgProfile"
             app:layout_constraintStart_toStartOf="@id/imgProfile">
 

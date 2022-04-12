@@ -31,7 +31,7 @@ class ForYouFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerForYou.apply {
-//            this.adapter = ChatsAdapter(chatsDataDummy())
+            this.adapter = PostinganAdapter(postinganDataDummy())
             this.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }

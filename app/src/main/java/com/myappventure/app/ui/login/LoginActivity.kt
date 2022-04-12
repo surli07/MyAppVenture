@@ -9,7 +9,8 @@ import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityLoginBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.ForgotPasswordActivity
-import com.myappventure.app.ui.profile.ProfileActivity
+import com.myappventure.app.ui.navigation.NavigationActivity
+import com.myappventure.app.ui.navigation.ui.home.HomeFragment
 import com.myappventure.app.ui.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -74,7 +75,7 @@ class LoginActivity : BaseActivity() {
             showError(true)
         }
         viewModel.loginResponse.observe(this) {
-            val i = Intent(this@LoginActivity, ProfileActivity::class.java)
+            val i = Intent(this@LoginActivity, NavigationActivity::class.java)
             startActivity(i)
             finish()
         }
