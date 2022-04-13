@@ -2,7 +2,6 @@ package com.myappventure.app.ui.register
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.myappventure.app.base.BaseActivity
@@ -35,6 +34,7 @@ class RegisterActivity : BaseActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.btnRegister.setOnClickListener {
             register()
         }
@@ -48,13 +48,12 @@ class RegisterActivity : BaseActivity() {
     override fun setupObserver() {
         val loadingUi = CustomLoadingDialog(this)
         viewModel.loading.observe(this) {
-            if (it) loadingUi.show() else loadingUi.hide()
+            if (it) loadingUi.show() else loadingUi.dismiss()
         }
         viewModel.message.observe(this) {
-            Toast.makeText(applicationContext, "Anda berhasil registrasi", Toast.LENGTH_SHORT)
-                .show()
+            showMessageToast(it)
         }
-        val i = Intent(this, LoginActivity::class.java)
+        val i = Intent(this, SuksesRegisterActivity::class.java)
         startActivity(i)
         finish()
 

@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
-            android:name=".ui.navigation.ui.mengikuti.MengikutiFragment"
+            android:name=".ui.register.SuksesRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.NavigationActivity"

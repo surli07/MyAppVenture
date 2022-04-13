@@ -9,7 +9,7 @@ import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityLoginBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.ForgotPasswordActivity
-import com.myappventure.app.ui.profile.ProfileActivity
+import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -40,6 +40,7 @@ class LoginActivity : BaseActivity() {
                 else -> {
                     lifecycleScope.launch {
                         viewModel.startLogin(email, password)
+
                     }
                 }
             }
@@ -59,6 +60,7 @@ class LoginActivity : BaseActivity() {
 
     private fun showError(state: Boolean) {
         if (state) {
+            binding.txtPeringatan.text = viewModel.message.toString()
             binding.linearPeringatan.visibility = View.VISIBLE
         } else {
             binding.linearPeringatan.visibility = View.GONE
@@ -73,10 +75,15 @@ class LoginActivity : BaseActivity() {
         viewModel.message.observe(this) {
             showError(true)
         }
-        viewModel.loginResponse.observe(this) {
-            val i = Intent(this@LoginActivity, ProfileActivity::class.java)
-            startActivity(i)
-            finish()
+        viewModel.loginResponse.observe(this){
+            if(it.accessToken == null){
+                showError(true)
+            } else {
+                val i = Intent(this@LoginActivity, NavigationActivity::class.java)
+                startActivity(i)
+                finish()
+            }
         }
+
     }
 }

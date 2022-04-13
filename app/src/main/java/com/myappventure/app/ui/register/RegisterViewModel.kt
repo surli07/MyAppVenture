@@ -20,8 +20,12 @@ class RegisterViewModel @Inject constructor(
     suspend fun startRegister(email: String, username: String, password: String) {
         val body = RegisterBody(email, username, password,  "")
         authRepository.registerUser(
-            onStart = {},
-            onComplete = {},
+            onStart = {
+                showLoading()
+            },
+            onComplete = {
+                hideLoading()
+            },
             onError = {
                 _message.postValue(it)
             },
