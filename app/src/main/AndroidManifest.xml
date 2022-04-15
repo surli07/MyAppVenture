@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
+            android:name=".ui.navigation.ui.OnBoarding1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.navigation.ui.postingan.NewPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.navigation.ui.community.NewCommunityActivity"
             android:exported="false" />
         <activity
