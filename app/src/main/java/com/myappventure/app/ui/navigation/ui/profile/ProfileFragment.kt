@@ -38,20 +38,26 @@ class ProfileFragment : Fragment() {
             }
         }.attach()
 
-        binding.txtMengikuti.setOnClickListener {
-            val intent = Intent(requireContext(), FragmentMengikutiBinding::class.java)
-            startActivity(intent)
-        }
-        binding.txtPengikut.setOnClickListener {
-            val intent = Intent(requireContext(), FragmentPengikutBinding::class.java)
-            startActivity(intent)
-        }
+        binding.txtMengikuti.setOnClickListener { showTab(true) }
+        binding.txtPengikut.setOnClickListener { showTab(true) }
         binding.edtFoto.setOnClickListener {
         }
         setupObserver()
+
+    }
+
+    private fun showTab(isShow: Boolean) {
+        if (isShow) {
+            binding.linearLayout.visibility = View.VISIBLE
+            binding.viewPager.visibility = View.VISIBLE
+        } else {
+            binding.linearLayout.visibility = View.GONE
+            binding.viewPager.visibility = View.GONE
+        }
     }
 
     private fun setupObserver() {
 
     }
+
 }

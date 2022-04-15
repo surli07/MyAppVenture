@@ -15,7 +15,7 @@ class RecyclerMengikutiAdapter : RecyclerView.Adapter<RecyclerMengikutiAdapter.V
     }
 
     override fun onBindViewHolder(holder: RecyclerMengikutiAdapter.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+//        TODO("Not yet implemented")
     }
 
     override fun getItemCount(): Int = 12
