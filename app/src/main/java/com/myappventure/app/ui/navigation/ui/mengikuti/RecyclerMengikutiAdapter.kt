@@ -1,6 +1,7 @@
 package com.myappventure.app.ui.navigation.ui.mengikuti
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.myappventure.app.databinding.ItemMengikutiBinding
@@ -15,7 +16,14 @@ class RecyclerMengikutiAdapter : RecyclerView.Adapter<RecyclerMengikutiAdapter.V
     }
 
     override fun onBindViewHolder(holder: RecyclerMengikutiAdapter.ViewHolder, position: Int) {
-//        TODO("Not yet implemented")
+        holder.binding.btnIkuti.setOnClickListener {
+            holder.binding.btnMengikuti.visibility = View.VISIBLE
+            holder.binding.btnIkuti.visibility = View.GONE
+        }
+        holder.binding.btnMengikuti.setOnClickListener {
+            holder.binding.btnIkuti.visibility = View.VISIBLE
+            holder.binding.btnMengikuti.visibility = View.GONE
+        }
     }
 
     override fun getItemCount(): Int = 12

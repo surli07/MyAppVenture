@@ -13,6 +13,8 @@ class MengikutiFragment : Fragment() {
     private var _binding: FragmentMengikutiBinding? = null
     private val binding get() = _binding!!
 
+    private var isFollowed = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,4 +35,5 @@ class MengikutiFragment : Fragment() {
             layoutManager = LinearLayoutManager(view.context)
         }
     }
+
 }
