@@ -61,6 +61,7 @@
         android:text="Ikuti"
         android:textAllCaps="false"
         android:textSize="12sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,7 +77,6 @@
         android:textAllCaps="false"
         android:textColor="@color/green"
         android:textSize="8sp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -16,7 +16,6 @@ import com.myappventure.app.ui.register.RegisterActivity
 
 class HomeFragment : Fragment() {
 
-
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 

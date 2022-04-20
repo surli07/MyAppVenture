@@ -17,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
+            android:name=".ui.navigation.ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.navigation.ui.postingan.NewPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.navigation.ui.community.NewCommunityActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.register.SuksesRegisterActivity"
             android:exported="false" />
         <activity
@@ -31,9 +40,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.KodeOtpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.profile.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ForgotPasswordActivity"
