@@ -52,9 +52,8 @@ class HomeFragment : Fragment() {
         }
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "For You"
-                1 -> "Follow"
-                else -> "Tantangan"
+                0 -> "Untuk Kamu"
+                else -> "Diikuti"
             }
         }.attach()
 

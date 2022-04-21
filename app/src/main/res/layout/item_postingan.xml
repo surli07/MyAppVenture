@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="8dp"
     android:layout_marginTop="18dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -78,7 +80,10 @@
             android:layout_height="17dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="13dp"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtDeskripsi">
             <ImageView
                 android:id="@+id/imgLike"
@@ -102,6 +107,8 @@
             android:layout_height="17dp"
             android:layout_marginStart="17dp"
             android:layout_marginTop="13dp"
+            android:background="@null"
+            android:layout_marginBottom="10dp"
             app:layout_constraintStart_toEndOf="@id/cardLike"
             app:layout_constraintTop_toBottomOf="@id/txtDeskripsi">
             <ImageView
@@ -126,6 +133,8 @@
             android:layout_height="17dp"
             android:layout_marginStart="17dp"
             android:layout_marginTop="13dp"
+            android:background="@null"
+            android:layout_marginBottom="10dp"
             app:layout_constraintStart_toEndOf="@id/cardKomentar"
             app:layout_constraintTop_toBottomOf="@id/txtDeskripsi">
             <ImageView
