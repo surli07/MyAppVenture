@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
-            android:name=".ui.navigation.ui.profile.ProfileActivity"
+            android:name=".ui.OnboardingActivity"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.postingan.NewPostActivity"

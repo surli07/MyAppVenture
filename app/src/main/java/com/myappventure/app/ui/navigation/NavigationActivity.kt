@@ -1,11 +1,10 @@
 package com.myappventure.app.ui.navigation
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.shape.CornerFamily
+import com.google.android.material.shape.MaterialShapeDrawable
 import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityNavigationBinding
@@ -24,6 +23,15 @@ class NavigationActivity : BaseActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_activity_navigation)
         binding.navView.setupWithNavController(navController)
+
+        val radius = resources.getDimension(R.dimen.radius_small)
+        val bottomNavigation = binding.navView.background as MaterialShapeDrawable
+        bottomNavigation.shapeAppearanceModel =
+            bottomNavigation.shapeAppearanceModel.toBuilder()
+                .setTopRightCorner(CornerFamily.ROUNDED, radius)
+                .setTopLeftCorner(CornerFamily.ROUNDED, radius)
+                .build()
+
     }
 
     override fun setupObserver() {
