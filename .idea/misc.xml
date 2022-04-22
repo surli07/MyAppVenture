@@ -7,13 +7,8 @@
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_landing_page.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_loading.xml" value="0.18" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_login.xml" value="0.14814814814814814" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_onboarding.xml" value="0.15925925925925927" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_success_landing.xml" value="0.14814814814814814" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_kategori.xml" value="0.15925925925925927" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_postingan.xml" value="0.33" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/menu/bottom_nav_menu.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppventure/app/src/main/res/layout/loading_dialog.xml" value="0.1" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/background.xml" value="0.1515" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/border_gradient.xml" value="0.123" />
@@ -33,10 +28,11 @@
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_main_follow.xml" value="0.25" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_mengikuti_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_navigation.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_new_community.xml" value="0.2" />
+        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_new_community.xml" value="0.33" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_new_post.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_on_boarding1.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_profile2.xml" value="0.22" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_success_landing.xml" value="0.2" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_sukses_register.xml" value="0.20416666666666666" />
@@ -50,6 +46,8 @@
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_pengikut.xml" value="0.22" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_tantangan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_achievement.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_kategori.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_kode_token.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_mengikuti.xml" value="0.11979166666666667" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_pengikut.xml" value="0.5" />

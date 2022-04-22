@@ -14,6 +14,7 @@ import com.myappventure.app.ui.MainFollowActivity
 import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.ui.navigation.ui.mengikuti.MengikutiFragment
 import com.myappventure.app.ui.navigation.ui.pengikut.PengikutFragment
+import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileActivity
 import com.myappventure.app.ui.register.RegisterActivity
 
 class ProfileFragment : Fragment() {
@@ -40,6 +41,14 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
         binding.edtFoto.setOnClickListener {
+        }
+        binding.icNextP.setOnClickListener {
+            val intent = Intent(requireContext(), ProfileActivity                                                         ::class.java)
+            startActivity(intent)
+        }
+        binding.txtProfil.setOnClickListener {
+            val intent = Intent(requireContext(), ProfileActivity                                                         ::class.java)
+            startActivity(intent)
         }
         setupObserver()
 
