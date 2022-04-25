@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.navigation.ui.profile.profile.ProfileProfileActivity">
+
+    <ImageView
+        android:id="@+id/btnKembali"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/arrow_left_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtProfileSaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Profil Saya"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnKembali" />
+
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Username"
+        android:textColor="#329D9C"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/btnKembali"
+        app:layout_constraintTop_toBottomOf="@id/btnKembali"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/round_btn"
+        android:drawableEnd="@drawable/ic_edit_text"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Ketik username anda disini"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txtEmail"
+        app:layout_constraintTop_toBottomOf="@id/txtUserName" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Email"
+        android:textColor="#329D9C"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/btnKembali"
+        app:layout_constraintTop_toBottomOf="@id/username" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/round_btn"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Ketik email anda disini"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txtEmail"
+        app:layout_constraintTop_toBottomOf="@id/txtEmail" />
+
+    <TextView
+        android:id="@+id/txtKataSandi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Kata Sandi"
+        android:textColor="#329D9C"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/btnKembali"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+
+    <EditText
+        android:id="@+id/kataSandi"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/round_btn"
+        android:drawableEnd="@drawable/ic_edit_text"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Ketik kata sandi anda disini"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txtEmail"
+        app:layout_constraintTop_toBottomOf="@id/txtKataSandi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

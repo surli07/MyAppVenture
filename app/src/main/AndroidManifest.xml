@@ -17,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
+            android:name=".ui.navigation.ui.profile.pencapaian.PencapaianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.navigation.ui.profile.komunitas.KomunitasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.navigation.ui.profile.profile.ProfileProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.OnboardingActivity"
             android:exported="false" />
         <activity
