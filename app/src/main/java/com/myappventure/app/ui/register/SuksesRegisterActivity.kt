@@ -17,7 +17,7 @@ class SuksesRegisterActivity : AppCompatActivity() {
         binding = ActivitySuksesRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.kotakSilang.setOnClickListener {
+        binding.txtOkedeh.setOnClickListener {
             val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
             finish()

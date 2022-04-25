@@ -1,84 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:background="@drawable/bg"
+    tools:context=".ui.register.RegisterActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg"
-        tools:context=".ui.register.RegisterActivity">
+    <ImageView
+        android:id="@+id/imgBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/arrow_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardRegister"
-            android:layout_width="320dp"
-            android:layout_height="672dp"
-            app:cardBackgroundColor="#457275"
-            app:cardCornerRadius="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardRegister"
+        android:layout_width="320dp"
+        android:layout_height="672dp"
+        android:layout_marginTop="109dp"
+        app:cardBackgroundColor="#457275"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtHai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="23dp"
+            android:fontFamily="@font/inter_reguler"
+            android:text="@string/hai_belum_punya_akun"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="126dp"
+            android:fillViewport="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/kotakSilang"
-                    android:layout_width="33dp"
-                    android:layout_height="33dp"
-                    android:src="@drawable/kotak_silang"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:src="@drawable/ic_silang"
-                    app:layout_constraintStart_toStartOf="@id/kotakSilang"
-                    app:layout_constraintTop_toTopOf="@id/kotakSilang" />
-
-                <TextView
-                    android:id="@+id/txtHai"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginTop="23dp"
-                    android:fontFamily="@font/inter_reguler"
-                    android:text="Hai,"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txtBelumPunya"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="Belum punya akun?"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="@id/txtHai"
-                    app:layout_constraintTop_toBottomOf="@id/txtHai" />
-
                 <TextView
                     android:id="@+id/txtYukDaftar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="Yuk Daftar!"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txtBelumPunya" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardUploadFoto"
@@ -122,12 +103,13 @@
                     android:id="@+id/txtUsername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
                     android:layout_marginTop="51dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="Username"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@id/txtBelumPunya"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cardUploadFoto" />
 
                 <androidx.cardview.widget.CardView
@@ -155,6 +137,16 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
+                    android:id="@+id/txtErorUsername"
+                    android:layout_width="207dp"
+                    android:layout_height="wrap_content"
+                    android:text="Username gunakan 3-15 karakter Huruf kecil semua"
+                    android:textColor="@color/redEror"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/cardUsername"
+                    app:layout_constraintTop_toBottomOf="@id/cardUsername" />
+
+                <TextView
                     android:id="@+id/txtEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -163,8 +155,8 @@
                     android:text="Email"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@id/cardUsername"
-                    app:layout_constraintTop_toBottomOf="@id/cardUsername" />
+                    app:layout_constraintStart_toStartOf="@id/txtErorUsername"
+                    app:layout_constraintTop_toBottomOf="@id/txtErorUsername" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardEmail"
@@ -191,6 +183,16 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
+                    android:id="@+id/txtErorEmail"
+                    android:layout_width="207dp"
+                    android:layout_height="wrap_content"
+                    android:text="Email tidak dapat dirubah"
+                    android:textColor="@color/redEror"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/cardUsername"
+                    app:layout_constraintTop_toBottomOf="@id/cardEmail" />
+
+                <TextView
                     android:id="@+id/txtPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -200,14 +202,14 @@
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="@id/cardEmail"
-                    app:layout_constraintTop_toBottomOf="@id/cardEmail" />
+                    app:layout_constraintTop_toBottomOf="@id/txtErorEmail" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardPassword"
                     android:layout_width="292dp"
                     android:layout_height="39dp"
                     app:cardCornerRadius="8dp"
-                    app:layout_constraintStart_toStartOf="@id/txtPassword"
+                    app:layout_constraintStart_toStartOf="@id/cardUsername"
                     app:layout_constraintTop_toBottomOf="@id/txtPassword">
 
                     <EditText
@@ -226,27 +228,48 @@
                         android:textSize="14sp" />
 
                     <ImageView
+                        android:id="@+id/imgLockPass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="264dp"
                         android:layout_marginTop="11dp"
                         android:src="@drawable/eye_hide_password" />
+
+                    <ImageView
+                        android:id="@+id/imgOpenPass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="264dp"
+                        android:visibility="gone"
+                        android:layout_marginTop="11dp"
+                        android:src="@drawable/eyepassword" />
                 </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/txtErorPass"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:text="Kata sandi gunakan 6-10 karakter Tanpa menggunakan spasi"
+                    android:textColor="@color/redEror"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/cardUsername"
+                    app:layout_constraintTop_toBottomOf="@id/cardPassword" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnRegister"
                     android:layout_width="292dp"
                     android:layout_height="49dp"
-                    android:layout_marginTop="68dp"
+                    android:layout_marginTop="54dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Daftar Sekarang"
                     android:textAllCaps="false"
-                    android:textColor="#457275"
+                    android:textColor="@color/green"
                     android:textSize="14sp"
-                    app:backgroundTint="@color/white"
+                    android:enabled="false"
+                    app:backgroundTint="@color/button_login_register"
                     app:cardCornerRadius="8dp"
-                    app:layout_constraintStart_toStartOf="@id/cardPassword"
-                    app:layout_constraintTop_toBottomOf="@id/cardPassword" />
+                    app:layout_constraintStart_toStartOf="@id/cardUsername"
+                    app:layout_constraintTop_toBottomOf="@id/txtErorPass" />
 
                 <TextView
                     android:id="@+id/txtSudahPunya"
@@ -258,7 +281,7 @@
                     android:text="Sudah Punya Akun?"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@id/btnRegister"
+                    app:layout_constraintStart_toStartOf="@id/cardUsername"
                     app:layout_constraintTop_toBottomOf="@id/btnRegister" />
 
 
@@ -274,12 +297,9 @@
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@id/txtSudahPunya"
                     app:layout_constraintTop_toBottomOf="@id/btnRegister" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
 

@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityLoginBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
@@ -26,23 +28,27 @@ class LoginActivity : BaseActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var email = binding.email.text.toString()
+        var password = binding.password.text.toString()
+        when {
+            email.isEmpty() -> {
+                binding.btnMasuk.isEnabled = false
+                binding.btnMasuk.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
+            }
+            password.isEmpty() -> {
+                binding.btnMasuk.isEnabled = false
+                binding.btnMasuk.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
+            }
+            else -> {
+                binding.btnMasuk.isEnabled = true
+                binding.btnMasuk.setTextColor(ContextCompat.getColor(applicationContext, R.color.white))
+            }
+
+        }
         binding.btnMasuk.setOnClickListener {
             showError(false)
-            val email = binding.email.text.toString()
-            val password = binding.password.text.toString()
-            when {
-                email.isEmpty() -> {
-                    binding.email.error = "Email tidak boleh kosong"
-                }
-                password.isEmpty() -> {
-                    binding.password.error = "Password tidak boleh kosong"
-                }
-                else -> {
-                    lifecycleScope.launch {
-                        viewModel.startLogin(email, password)
-
-                    }
-                }
+            lifecycleScope.launch {
+                viewModel.startLogin(email, password)
             }
         }
         binding.txtDaftarDisini.setOnClickListener {
@@ -55,12 +61,26 @@ class LoginActivity : BaseActivity() {
             startActivity(i)
             finish()
         }
+        binding.imgBack.setOnClickListener {
+            val i = Intent(this, NavigationActivity::class.java)
+            startActivity(i)
+        }
+        binding.imgLockPass.setOnClickListener {
+            binding.password.inputType = View.AUTOFILL_TYPE_TEXT
+            binding.imgLockPass.visibility = View.GONE
+            binding.imgOpenPass.visibility = View.VISIBLE
+        }
+        binding.imgOpenPass.setOnClickListener {
+            //TODO SET INPUT TYPE
+            binding.imgLockPass.visibility = View.VISIBLE
+            binding.imgOpenPass.visibility = View.GONE
+        }
+
         setupObserver()
     }
 
     private fun showError(state: Boolean) {
         if (state) {
-            binding.txtPeringatan.text = viewModel.message.toString()
             binding.linearPeringatan.visibility = View.VISIBLE
         } else {
             binding.linearPeringatan.visibility = View.GONE

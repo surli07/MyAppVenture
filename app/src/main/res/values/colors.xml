@@ -13,5 +13,6 @@
     <color name="pink">#FF8181</color>
     <color name="yellow">#FEC868</color>
     <color name="accent">#008C96</color>
+    <color name="redEror">#FF8181</color>
 
 </resources>
