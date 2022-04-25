@@ -40,7 +40,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtPencapaianSaya"
         app:spanCount="3"
-        android:layout_gravity="center_horizontal"
         tools:itemCount="30"
         tools:listitem="@layout/item_pencapaian" />
 
