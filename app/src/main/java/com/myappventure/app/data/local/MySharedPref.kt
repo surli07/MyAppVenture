@@ -8,6 +8,8 @@ object MySharedPref {
     private const val USER_ID = "userId"
     private const val USER_EMAIL = "userEmail"
     private const val IS_LOGIN = "isLogin"
+    // TODO REFRESH TOKEN DAN USERNAME
+    // TODO URL PHOTO USER
 
     fun appInit(application: Application) {
         Hawk.init(application).build()

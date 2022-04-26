@@ -36,6 +36,8 @@ class LoginViewModel @Inject constructor(
         ).collect {
             MySharedPref.isLoggedIn = true
             MySharedPref.userToken = it.accessToken
+            // TODO REFRESH TOKEN
+            // TODO USERNAME USER
             loginResponse.postValue(it)
         }
     }
