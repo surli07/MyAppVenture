@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.navigation.ui.penggunaLain.PenggunaLainActivity">
+
+    <ImageView
+        android:id="@+id/btnKembali"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/arrow_left_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtKomunitasSaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Bae_Jinyoung"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnKembali" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgPenggunaLain"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="36dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="@id/btnKembali"
+        app:layout_constraintTop_toBottomOf="@id/btnKembali" />
+
+    <TextView
+        android:id="@+id/txtJumlahUnggahan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="2"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/imgPenggunaLain"
+        app:layout_constraintTop_toTopOf="@id/imgPenggunaLain" />
+
+    <TextView
+        android:id="@+id/txtUnggahan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Unggahan"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/imgPenggunaLain"
+        app:layout_constraintTop_toBottomOf="@id/txtJumlahUnggahan" />
+
+    <TextView
+        android:id="@+id/txtJumlahMengikuti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="8"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/txtJumlahUnggahan"
+        app:layout_constraintTop_toTopOf="@id/imgPenggunaLain" />
+
+    <TextView
+        android:id="@+id/txtMengikuti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Mengikuti"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/txtUnggahan"
+        app:layout_constraintTop_toBottomOf="@id/txtJumlahUnggahan" />
+
+    <TextView
+        android:id="@+id/txtJumlahPengikut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="2"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/txtJumlahMengikuti"
+        app:layout_constraintTop_toTopOf="@id/imgPenggunaLain" />
+
+    <TextView
+        android:id="@+id/txtPengikut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Pengikut"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/txtMengikuti"
+        app:layout_constraintTop_toBottomOf="@id/txtJumlahUnggahan" />
+
+    <ImageView
+        android:id="@+id/imgLencana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_lencana"
+        app:layout_constraintStart_toStartOf="@id/txtUnggahan"
+        app:layout_constraintTop_toBottomOf="@id/txtUnggahan" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="82 Tantangan diselesaikan"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/imgLencana"
+        app:layout_constraintTop_toTopOf="@id/imgLencana" />
+
+    <Button
+        android:id="@+id/btnIkuti"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="#457275"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Ikuti"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgLencana" />
+
+    <Button
+        android:id="@+id/btnMengikuti"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Mengikuti"
+        android:textAllCaps="false"
+        android:textColor="@color/green"
+        android:textSize="8sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnIkuti" />
+
+    <TextView
+        android:id="@+id/txtKomunitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Komunitas"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/imgPenggunaLain"
+        app:layout_constraintTop_toBottomOf="@id/btnIkuti" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerKomunitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:nestedScrollingEnabled="true"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="@id/txtKomunitas"
+        app:layout_constraintTop_toBottomOf="@id/txtKomunitas"
+        tools:listitem="@layout/item_komunitas" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerKomunitas" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

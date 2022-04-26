@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
+            android:name=".ui.navigation.ui.penggunaLain.PenggunaLainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.navigation.ui.profile.pencapaian.PencapaianActivity"
             android:exported="false" />
         <activity

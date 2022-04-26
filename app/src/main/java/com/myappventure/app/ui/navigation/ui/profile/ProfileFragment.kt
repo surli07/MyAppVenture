@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.myappventure.app.databinding.FragmentProfileBinding
 import com.myappventure.app.ui.MainFollowActivity
+import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
+import com.myappventure.app.ui.navigation.ui.profile.pencapaian.PencapaianActivity
 import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
 
 class ProfileFragment : Fragment() {
@@ -42,6 +44,22 @@ class ProfileFragment : Fragment() {
         }
         binding.txtProfil.setOnClickListener {
             val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
+            startActivity(intent)
+        }
+        binding.icNextYC.setOnClickListener {
+            val intent = Intent(requireContext(), KomunitasActivity::class.java)
+            startActivity(intent)
+        }
+        binding.txtYourCommunity.setOnClickListener {
+            val intent = Intent(requireContext(), KomunitasActivity::class.java)
+            startActivity(intent)
+        }
+        binding.icNextPencapaian.setOnClickListener {
+            val intent = Intent(requireContext(), PencapaianActivity::class.java)
+            startActivity(intent)
+        }
+        binding.txtPencapaianSaya.setOnClickListener {
+            val intent = Intent(requireContext(), PencapaianActivity::class.java)
             startActivity(intent)
         }
         setupObserver()
