@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.navigation.ui.destinasi.DetailDestinasiActivity">
+
+    <ImageView
+        android:id="@+id/btnKembali"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/arrow_left_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtJudulDestinasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Pantai Kuta"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnKembali" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgDestinasi"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtJudulDestinasi">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_pantai_kuta" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/txtDestinasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Pantai Kuta"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/btnKembali"
+        app:layout_constraintTop_toBottomOf="@id/imgDestinasi" />
+
+    <TextView
+        android:id="@+id/txtDetailDestinasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/poppins_regular"
+        android:justificationMode="inter_word"
+        android:text="Pantai Kuta adalah sebuah tempat pariwisata yang terletak di kecamatan Kuta, sebelah selatan Kota Denpasar, Bali, Indonesia. Daerah ini merupakan sebuah tujuan wisata turis mancanegara dan telah menjadi objek wisata andalan Pulau Bali sejak awal tahun 1970-an. Pantai Kuta sering pula disebut sebagai pantai matahari terbenam (sunset beach) sebagai lawan dari pantai Sanur."
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtDestinasi" />
+
+    <TextView
+        android:id="@+id/txtHargaTiket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Harga Tiket"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/txtDestinasi"
+        app:layout_constraintTop_toBottomOf="@id/txtDetailDestinasi" />
+
+    <TextView
+        android:id="@+id/txtHarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="GRATIS"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/txtDestinasi"
+        app:layout_constraintTop_toBottomOf="@id/txtHargaTiket" />
+
+    <TextView
+        android:id="@+id/txtJamOperasional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Jam Operasional"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/txtDestinasi"
+        app:layout_constraintTop_toBottomOf="@id/txtHarga" />
+
+    <TextView
+        android:id="@+id/txtJam"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Senin - Jum’at : 10.00 - 18.00 WIB. Sabtu - Mingu  : 24 Jam  "
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/txtDestinasi"
+        app:layout_constraintTop_toBottomOf="@id/txtJamOperasional" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
