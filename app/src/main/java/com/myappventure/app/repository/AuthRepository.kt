@@ -23,9 +23,18 @@ class AuthRepository @Inject constructor(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-        body: RegisterBody,
+        file: MultipartBody.Part?,
+        email: RequestBody,
+        username: RequestBody,
+        password: RequestBody,
+        fullname: RequestBody
     ) = flow {
-        val response = apiService.registerUser(body)
+        val response = apiService.registerUser(
+            file,
+            email,
+            username,
+            password,
+            fullname)
         response.suspendOnSuccess {
             emit(this.data)
         }.onError {
