@@ -104,7 +104,7 @@ class LoginActivity : BaseActivity() {
             showError(true)
         }
         viewModel.loginResponse.observe(this) {
-            if (it.accessToken == null) {
+            if (it.data?.accessToken == null) {
                 showError(true)
             } else {
                 val i = Intent(this@LoginActivity, NavigationActivity::class.java)

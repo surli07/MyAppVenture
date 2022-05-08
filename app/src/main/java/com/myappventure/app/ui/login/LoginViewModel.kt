@@ -33,12 +33,19 @@ class LoginViewModel @Inject constructor(
                 _statusCode.postValue(it)
             },
             body = loginBody
-        ).collect {
-            MySharedPref.isLoggedIn = true
-            MySharedPref.userToken = it.accessToken
-            // TODO REFRESH TOKEN
-            // TODO USERNAME USER
-            loginResponse.postValue(it)
+        ).collect { response ->
+            response.data?.let {
+                MySharedPref.isLoggedIn = true
+                MySharedPref.userToken = it.accessToken
+                MySharedPref.userEmail = it.email
+//                MySharedPref.userId = it.username
+                // TODO REFRESH TOKEN
+                // TODO USERNAME USER
+                loginResponse.postValue(response)
+            }
+            if (response.status != "200") {
+                _message.postValue(response.message)
+            }
         }
     }
 }
