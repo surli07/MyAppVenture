@@ -109,7 +109,7 @@ class LoginActivity : BaseActivity() {
             } else {
                 val i = Intent(this@LoginActivity, NavigationActivity::class.java)
                 startActivity(i)
-                finish()
+                finishAffinity()
             }
         }
 

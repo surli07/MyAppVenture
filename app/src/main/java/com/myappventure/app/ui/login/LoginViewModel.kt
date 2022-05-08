@@ -39,9 +39,8 @@ class LoginViewModel @Inject constructor(
                 MySharedPref.userToken = it.accessToken
                 MySharedPref.refreshToken = it.refreshToken
                 MySharedPref.userEmail = it.email
-//                MySharedPref.userId = it.username
-                // TODO REFRESH TOKEN
-                // TODO USERNAME USER
+                MySharedPref.userName = it.username
+                MySharedPref.userFilename = it.filename
                 loginResponse.postValue(response)
             }
             if (response.status != "200") {
