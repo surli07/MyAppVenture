@@ -1,21 +1,19 @@
 package com.myappventure.app.ui.navigation.ui.home
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.myappventure.app.ui.navigation.ui.home.challenge.TantanganFragment
-import com.myappventure.app.ui.navigation.ui.home.follow.FollowFragment
 import com.myappventure.app.ui.navigation.ui.home.foryou.ForYouFragment
 
-class ViewPagerAdapter (fragment: Fragment) :
-    FragmentStateAdapter(fragment) {
-    override fun getItemCount() = 3
+class ViewPagerAdapter (fragment: Fragment) : FragmentStateAdapter(fragment) {
+
+    override fun getItemCount() = 2
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> ForYouFragment()
-            1 -> FollowFragment()
             else -> TantanganFragment()
         }
     }
 }
+

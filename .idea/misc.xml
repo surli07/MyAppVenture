@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/square.xml" value="0.109" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_create_postingan.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_forgot_password.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_landing_page.xml" value="0.14814814814814814" />
@@ -26,6 +25,7 @@
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/border_white.xml" value="0.123" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/eyepassword.xml" value="0.177" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/header.xml" value="0.177" />
+        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/ic_following.xml" value="0.119" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/ic_lencana.xml" value="0.1535" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/ic_your_post.xml" value="0.177" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/round_btn.xml" value="0.1" />

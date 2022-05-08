@@ -7,6 +7,7 @@ object MySharedPref {
     private const val USER_TOKEN = "userToken"
     private const val USER_ID = "userId"
     private const val USER_EMAIL = "userEmail"
+    private const val REFRESH_TOKEN = "refreshToken"
     private const val IS_LOGIN = "isLogin"
     // TODO REFRESH TOKEN DAN USERNAME
     // TODO URL PHOTO USER
@@ -19,6 +20,13 @@ object MySharedPref {
         get() = Hawk.get(USER_TOKEN)
         set(value) {
             Hawk.put(USER_TOKEN, value)
+            field = value
+        }
+
+    var refreshToken: String? = null
+        get() = Hawk.get(REFRESH_TOKEN)
+        set(value) {
+            Hawk.put(REFRESH_TOKEN, value)
             field = value
         }
 
