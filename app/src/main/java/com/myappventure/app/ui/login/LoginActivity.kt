@@ -2,9 +2,12 @@ package com.myappventure.app.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
+import android.text.method.SingleLineTransformationMethod
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
@@ -28,26 +31,16 @@ class LoginActivity : BaseActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var email = binding.email.text.toString()
-        var password = binding.password.text.toString()
-        when {
-            email.isEmpty() -> {
-                binding.btnMasuk.isEnabled = false
-                binding.btnMasuk.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
-            }
-            password.isEmpty() -> {
-                binding.btnMasuk.isEnabled = false
-                binding.btnMasuk.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
-            }
-            else -> {
-                binding.btnMasuk.isEnabled = true
-                binding.btnMasuk.setTextColor(ContextCompat.getColor(applicationContext, R.color.white))
-            }
-
+        binding.email.addTextChangedListener {
+            validateLoginForm()
+        }
+        binding.password.addTextChangedListener {
+            validateLoginForm()
         }
         binding.btnMasuk.setOnClickListener {
-            showError(false)
             lifecycleScope.launch {
+                val email = binding.email.text.toString().trim()
+                val password = binding.password.text.toString().trim()
                 viewModel.startLogin(email, password)
             }
         }
@@ -62,16 +55,15 @@ class LoginActivity : BaseActivity() {
             finish()
         }
         binding.imgBack.setOnClickListener {
-            val i = Intent(this, NavigationActivity::class.java)
-            startActivity(i)
+            finish()
         }
         binding.imgLockPass.setOnClickListener {
-            binding.password.inputType = View.AUTOFILL_TYPE_TEXT
+            binding.password.transformationMethod = SingleLineTransformationMethod()
             binding.imgLockPass.visibility = View.GONE
             binding.imgOpenPass.visibility = View.VISIBLE
         }
         binding.imgOpenPass.setOnClickListener {
-            //TODO SET INPUT TYPE
+            binding.password.transformationMethod = PasswordTransformationMethod()
             binding.imgLockPass.visibility = View.VISIBLE
             binding.imgOpenPass.visibility = View.GONE
         }
@@ -79,24 +71,40 @@ class LoginActivity : BaseActivity() {
         setupObserver()
     }
 
-    private fun showError(state: Boolean) {
-        if (state) {
-            binding.linearPeringatan.visibility = View.VISIBLE
-        } else {
-            binding.linearPeringatan.visibility = View.GONE
+    private fun validateLoginForm() {
+        val email = binding.email.text.toString().trim()
+        val password = binding.password.text.toString().trim()
+        when {
+            email.isEmpty() -> {
+                binding.btnMasuk.isEnabled = false
+                binding.btnMasuk.setTextColor(ContextCompat.getColor(this, R.color.green))
+            }
+            password.isEmpty() -> {
+                binding.btnMasuk.isEnabled = false
+                binding.btnMasuk.setTextColor(ContextCompat.getColor(this, R.color.green))
+            }
+            else -> {
+                showError(false)
+                binding.btnMasuk.isEnabled = true
+                binding.btnMasuk.setTextColor(ContextCompat.getColor(this, R.color.white))
+            }
         }
     }
 
+    private fun showError(state: Boolean) {
+        binding.txtPeringatan.visibility = if (state) View.VISIBLE else View.INVISIBLE
+    }
     override fun setupObserver() {
         val loadingUi = CustomLoadingDialog(this)
         viewModel.loading.observe(this) {
             if (it) loadingUi.show() else loadingUi.dismiss()
         }
         viewModel.message.observe(this) {
+            binding.txtPeringatan.text = it
             showError(true)
         }
-        viewModel.loginResponse.observe(this){
-            if(it.accessToken == null){
+        viewModel.loginResponse.observe(this) {
+            if (it.accessToken == null) {
                 showError(true)
             } else {
                 val i = Intent(this@LoginActivity, NavigationActivity::class.java)
@@ -107,3 +115,4 @@ class LoginActivity : BaseActivity() {
 
     }
 }
+
