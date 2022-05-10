@@ -5,11 +5,11 @@ import com.orhanobut.hawk.Hawk
 
 object MySharedPref {
     private const val USER_TOKEN = "userToken"
-    private const val USER_ID = "userId"
     private const val USER_EMAIL = "userEmail"
+    private const val USER_NAME = "userName"
+    private const val USER_FILENAME = "userFilename"
+    private const val REFRESH_TOKEN = "refreshToken"
     private const val IS_LOGIN = "isLogin"
-    // TODO REFRESH TOKEN DAN USERNAME
-    // TODO URL PHOTO USER
 
     fun appInit(application: Application) {
         Hawk.init(application).build()
@@ -22,10 +22,10 @@ object MySharedPref {
             field = value
         }
 
-    var userId: Int? = null
-        get() = Hawk.get(USER_ID)
+    var refreshToken: String? = null
+        get() = Hawk.get(REFRESH_TOKEN)
         set(value) {
-            Hawk.put(USER_ID, value)
+            Hawk.put(REFRESH_TOKEN, value)
             field = value
         }
 
@@ -36,6 +36,20 @@ object MySharedPref {
             field = value
         }
 
+    var userName: String? = null
+        get() = Hawk.get(USER_NAME)
+        set(value) {
+            Hawk.put(USER_NAME, value)
+            field = value
+        }
+
+    var userFilename: String? = null
+        get() = Hawk.get(USER_FILENAME)
+        set(value) {
+            Hawk.put(USER_FILENAME, value)
+            field = value
+        }
+
     var isLoggedIn: Boolean = false
         get() = Hawk.get(IS_LOGIN, false)
         set(value) {
@@ -43,7 +57,7 @@ object MySharedPref {
             field = value
         }
 
-    fun clear() {
+    fun logout() {
         Hawk.deleteAll()
     }
 }

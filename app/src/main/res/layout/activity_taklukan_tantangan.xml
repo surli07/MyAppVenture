@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.navigation.ui.home.challenge.TaklukanTantanganActivity">
+
+    <ImageView
+        android:id="@+id/btnKembali"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/arrow_left_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTaklukanTantangan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Taklukan Tantangan"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnKembali" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/txtTaklukanTantangan">
+
+        <TextView
+            android:id="@+id/buktiFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="1. Upload bukti foto"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/btnKembali"
+            app:layout_constraintTop_toBottomOf="@id/btnKembali" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutUpload"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginHorizontal="25dp"
+            android:background="@drawable/dotted"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buktiFoto">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="36dp"
+                android:layout_marginHorizontal="155dp"
+                android:layout_marginTop="70dp"
+                android:src="@drawable/ic_uploadfoto" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="75dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Ambil dan Letakan foto mu disini"
+                android:textColor="#C4C4C4"
+                android:textSize="12sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMasuk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="120dp"
+                android:backgroundTint="#008C96"
+                android:enabled="false"
+                android:fontFamily="@font/inter_regular"
+                android:text="Upload Foto"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/txtDeskripsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="2. Deskripsi"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/btnKembali"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutUpload" />
+
+        <EditText
+            android:id="@+id/Deskripsi"
+            android:layout_width="0dp"
+            android:layout_height="177dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/border_gradient"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="top"
+            android:hint="Tuliskan keterangan mu disini ....."
+            android:inputType="textMultiLine"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDeskripsi" />
+
+        <TextView
+            android:id="@+id/txtJudulFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="3. Judul foto"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/btnKembali"
+            app:layout_constraintTop_toBottomOf="@id/Deskripsi" />
+
+        <EditText
+            android:id="@+id/JudulFoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/border_gradient"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="top"
+            android:hint="Judul foto pertama"
+            android:inputType="textMultiLine"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtJudulFoto" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutJudul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:background="@drawable/dotted"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/JudulFoto">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_tambah_judul" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Tambah judul foto "
+                android:textColor="#008C96"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
