@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.myappventure.app.databinding.ItemPostinganBinding
 
-class PostinganAdapter(
+sealed class PostinganAdapter(
     private val postingan: List<PostinganDataDummy>
 ) : RecyclerView.Adapter<PostinganAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPostinganBinding) : RecyclerView.ViewHolder(binding.root)

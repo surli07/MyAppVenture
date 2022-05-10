@@ -9,13 +9,12 @@ import com.myappventure.app.ui.navigation.ui.home.foryou.ForYouFragment
 
 class ViewPagerAdapter (fragment: Fragment) :
     FragmentStateAdapter(fragment) {
-    override fun getItemCount() = 3
+    override fun getItemCount() = 2
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> ForYouFragment()
-            1 -> FollowFragment()
-            else -> TantanganFragment()
+            else  -> FollowFragment()
         }
     }
 }
