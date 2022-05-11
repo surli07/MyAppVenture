@@ -6,58 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".ui.navigation.ui.home.HomeFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#457275"
+        android:elevation="4dp"
+        android:gravity="end|center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="#457275"/>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardLogin"
-                android:layout_width="63dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#329D9C"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="12dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/white"
-                    android:text="Masuk"/>
-            </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/txtRegister"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="Daftar"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cardLogin"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLogin"
+            android:layout_width="63dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#329D9C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/txtRegister"
-                android:layout_width="67dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Daftar"
+                android:layout_gravity="center"
                 android:fontFamily="@font/poppins_semibold"
-                android:gravity="center"
-                android:textSize="12dp"
+                android:text="Masuk"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/cardLogin"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+                android:textSize="12dp" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardImage"
@@ -67,95 +59,96 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@drawable/bg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/bg">
+
             <TextView
                 android:id="@+id/mulaiPetualangan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mulai Petualanganmu Sakarang!"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="14dp"
                 android:layout_marginTop="75dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Mulai Petualanganmu Sakarang!"
+                android:textColor="@color/white"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textColor="@color/white"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/txtSelamatDatang"
                 android:layout_width="338dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
-                android:textSize="12dp"
-                android:text="Selamat Datang di My Appventure, Platform online bagi seluruh komunitas pecinta alam di Indonesia."
                 android:gravity="center"
+                android:text="Selamat Datang di My Appventure, Platform online bagi seluruh komunitas pecinta alam di Indonesia."
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mulaiPetualangan" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSearch"
                 android:layout_width="320dp"
                 android:layout_height="22dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtSelamatDatang"
                 android:layout_marginTop="11dp"
+                app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:cardCornerRadius="10dp">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtSelamatDatang">
+
                 <ImageView
                     android:id="@+id/imgSearch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="9dp"
                     android:layout_marginTop="5dp"
-                    android:src="@drawable/ic_search"/>
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_search" />
+
                 <EditText
+                    android:id="@+id/edtSearch"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="3dp"
                     android:layout_marginStart="24dp"
+                    android:layout_marginTop="3dp"
                     android:layout_marginEnd="12dp"
-                    android:textSize="12dp"
-                    android:fontFamily="@font/poppins_regular"
                     android:background="@null"
-                    android:hint="Cari komunitas dan pengguna lainnya"/>
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="Cari komunitas dan pengguna lainnya"
+                    android:importantForAutofill="no"
+                    android:inputType="none"
+                    android:textSize="12sp" />
             </androidx.cardview.widget.CardView>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerKategori"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
-                tools:listitem="@layout/item_kategori"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardSearch"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardSearch"
+                tools:listitem="@layout/item_kategori" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-    
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="18dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="17dp"
-        app:tabIndicatorColor="@color/accent"
-        app:tabSelectedTextColor="@color/accent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardImage">
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Untuk Kamu"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Diikuti"/>
-    </com.google.android.material.tabs.TabLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardImage"
+        app:tabIndicatorColor="@color/accent"
+        app:tabInlineLabel="true"
+        app:tabSelectedTextColor="@color/accent"
+        app:tabTextAppearance="@style/TabTextAppearance" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -164,3 +157,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

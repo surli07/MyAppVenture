@@ -4,7 +4,6 @@ package com.myappventure.app.data.remote
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
 import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
-import com.myappventure.app.data.remote.register.RegisterBody
 import com.myappventure.app.data.remote.register.RegisterResponse
 import com.skydoves.sandwich.ApiResponse
 import okhttp3.MultipartBody

@@ -95,367 +95,379 @@
             app:layout_constraintTop_toBottomOf="@id/txtUserName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/recProfile"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bg" />
-
-    <ImageView
-        android:id="@+id/icProfil"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_profile"
-        app:layout_constraintStart_toStartOf="@id/recProfile"
-        app:layout_constraintTop_toTopOf="@id/recProfile" />
-
-    <TextView
-        android:id="@+id/txtProfil"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Profil Saya"
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icProfil"
-        app:layout_constraintTop_toTopOf="@id/icProfil" />
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/bg">
 
-    <ImageView
-        android:id="@+id/icNextP"
-        android:layout_width="8dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recProfile"
-        app:layout_constraintTop_toTopOf="@id/icProfil" />
-
-    <ImageView
-        android:id="@+id/recYourPost"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recProfile" />
-
-    <ImageView
-        android:id="@+id/icYourPost"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_your_post"
-        app:layout_constraintStart_toStartOf="@id/recYourPost"
-        app:layout_constraintTop_toTopOf="@id/recYourPost" />
-
-    <TextView
-        android:id="@+id/txtYourPost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Unggahan Saya"
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icYourPost"
-        app:layout_constraintTop_toTopOf="@id/icYourPost" />
-
-    <ImageView
-        android:id="@+id/icNextYP"
-        android:layout_width="7dp"
-        android:layout_height="12dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recYourPost"
-        app:layout_constraintTop_toTopOf="@id/icYourPost" />
-
-    <ImageView
-        android:id="@+id/recYourCommunity"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recYourPost" />
-
-    <ImageView
-        android:id="@+id/icYourCommunity"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_your_community"
-        app:layout_constraintStart_toStartOf="@id/recYourCommunity"
-        app:layout_constraintTop_toTopOf="@id/recYourCommunity" />
-
-    <TextView
-        android:id="@+id/txtYourCommunity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Komunitas Saya"
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icYourCommunity"
-        app:layout_constraintTop_toTopOf="@id/icYourCommunity" />
-
-    <ImageView
-        android:id="@+id/icNextYC"
-        android:layout_width="8dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recYourCommunity"
-        app:layout_constraintTop_toTopOf="@id/icYourCommunity" />
-
-    <ImageView
-        android:id="@+id/recYourBill"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recYourCommunity" />
-
-    <ImageView
-        android:id="@+id/icYourBill"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_your_bill"
-        app:layout_constraintStart_toStartOf="@id/recYourBill"
-        app:layout_constraintTop_toTopOf="@id/recYourBill" />
-
-    <TextView
-        android:id="@+id/txtYourBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Transaksi Saya "
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icYourBill"
-        app:layout_constraintTop_toTopOf="@id/icYourBill" />
-
-    <ImageView
-        android:id="@+id/icNextYB"
-        android:layout_width="8dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recYourBill"
-        app:layout_constraintTop_toTopOf="@id/icYourBill" />
-
-    <ImageView
-        android:id="@+id/recMembership"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recYourBill" />
-
-    <ImageView
-        android:id="@+id/icMembership"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/loyalty"
-        app:layout_constraintStart_toStartOf="@id/recMembership"
-        app:layout_constraintTop_toTopOf="@id/recMembership" />
-
-    <TextView
-        android:id="@+id/txtMembership"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Membership"
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icMembership"
-        app:layout_constraintTop_toTopOf="@id/icMembership" />
-
-    <ImageView
-        android:id="@+id/icNextM"
-        android:layout_width="8dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recMembership"
-        app:layout_constraintTop_toTopOf="@id/icMembership" />
-
-    <ImageView
-        android:id="@+id/recPencapaian"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recMembership" />
-
-    <ImageView
-        android:id="@+id/icPencapaian"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/award"
-        app:layout_constraintStart_toStartOf="@id/recPencapaian"
-        app:layout_constraintTop_toTopOf="@id/recPencapaian" />
-
-    <TextView
-        android:id="@+id/txtPencapaianSaya"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Pencapaian Saya"
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icPencapaian"
-        app:layout_constraintTop_toTopOf="@id/icPencapaian" />
-
-    <ImageView
-        android:id="@+id/icNextPencapaian"
-        android:layout_width="8dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recPencapaian"
-        app:layout_constraintTop_toTopOf="@id/icPencapaian" />
-
-    <ImageView
-        android:id="@+id/recUbahSandi"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recPencapaian" />
-
-    <ImageView
-        android:id="@+id/icUbahSandi"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/award"
-        app:layout_constraintStart_toStartOf="@id/recUbahSandi"
-        app:layout_constraintTop_toTopOf="@id/recUbahSandi" />
-
-    <TextView
-        android:id="@+id/txtUbahSandi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Ubah Kata Sandi"
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icUbahSandi"
-        app:layout_constraintTop_toTopOf="@id/icUbahSandi" />
-
-    <ImageView
-        android:id="@+id/icNextUbahSandi"
-        android:layout_width="8dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recUbahSandi"
-        app:layout_constraintTop_toTopOf="@id/icUbahSandi" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/AboutUs"
-        android:layout_width="299dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="@color/tosca"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recUbahSandi">
-
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:paddingHorizontal="98dp"
-            android:text="About Us"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/Invite"
-        android:layout_width="299dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="@color/tosca"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/AboutUs">
+            <ImageView
+                android:id="@+id/recProfile"
+                android:layout_width="299dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/rec_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:paddingHorizontal="98dp"
-            android:text="Invite Friend"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/icProfil"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintStart_toStartOf="@id/recProfile"
+                app:layout_constraintTop_toTopOf="@id/recProfile" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/Logout"
-        android:layout_width="299dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="110dp"
-        android:backgroundTint="@color/tosca"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Invite">
+            <TextView
+                android:id="@+id/txtProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Profil Saya"
+                android:textColor="@color/tosca"
+                app:layout_constraintStart_toEndOf="@id/icProfil"
+                app:layout_constraintTop_toTopOf="@id/icProfil" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:paddingHorizontal="120dp"
-            android:text="Logout"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/icNextP"
+                android:layout_width="8dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/recProfile"
+                app:layout_constraintTop_toTopOf="@id/icProfil" />
 
+            <ImageView
+                android:id="@+id/recYourPost"
+                android:layout_width="299dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/rec_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recProfile" />
+
+            <ImageView
+                android:id="@+id/icYourPost"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_your_post"
+                app:layout_constraintStart_toStartOf="@id/recYourPost"
+                app:layout_constraintTop_toTopOf="@id/recYourPost" />
+
+            <TextView
+                android:id="@+id/txtYourPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Unggahan Saya"
+                android:textColor="@color/tosca"
+                app:layout_constraintStart_toEndOf="@id/icYourPost"
+                app:layout_constraintTop_toTopOf="@id/icYourPost" />
+
+            <ImageView
+                android:id="@+id/icNextYP"
+                android:layout_width="7dp"
+                android:layout_height="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/recYourPost"
+                app:layout_constraintTop_toTopOf="@id/icYourPost" />
+
+            <ImageView
+                android:id="@+id/recYourCommunity"
+                android:layout_width="299dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/rec_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recYourPost" />
+
+            <ImageView
+                android:id="@+id/icYourCommunity"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_your_community"
+                app:layout_constraintStart_toStartOf="@id/recYourCommunity"
+                app:layout_constraintTop_toTopOf="@id/recYourCommunity" />
+
+            <TextView
+                android:id="@+id/txtYourCommunity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Komunitas Saya"
+                android:textColor="@color/tosca"
+                app:layout_constraintStart_toEndOf="@id/icYourCommunity"
+                app:layout_constraintTop_toTopOf="@id/icYourCommunity" />
+
+            <ImageView
+                android:id="@+id/icNextYC"
+                android:layout_width="8dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/recYourCommunity"
+                app:layout_constraintTop_toTopOf="@id/icYourCommunity" />
+
+            <ImageView
+                android:id="@+id/recYourBill"
+                android:layout_width="299dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/rec_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recYourCommunity" />
+
+            <ImageView
+                android:id="@+id/icYourBill"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_your_bill"
+                app:layout_constraintStart_toStartOf="@id/recYourBill"
+                app:layout_constraintTop_toTopOf="@id/recYourBill" />
+
+            <TextView
+                android:id="@+id/txtYourBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Transaksi Saya "
+                android:textColor="@color/tosca"
+                app:layout_constraintStart_toEndOf="@id/icYourBill"
+                app:layout_constraintTop_toTopOf="@id/icYourBill" />
+
+            <ImageView
+                android:id="@+id/icNextYB"
+                android:layout_width="8dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/recYourBill"
+                app:layout_constraintTop_toTopOf="@id/icYourBill" />
+
+            <ImageView
+                android:id="@+id/recMembership"
+                android:layout_width="299dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/rec_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recYourBill" />
+
+            <ImageView
+                android:id="@+id/icMembership"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/loyalty"
+                app:layout_constraintStart_toStartOf="@id/recMembership"
+                app:layout_constraintTop_toTopOf="@id/recMembership" />
+
+            <TextView
+                android:id="@+id/txtMembership"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Membership"
+                android:textColor="@color/tosca"
+                app:layout_constraintStart_toEndOf="@id/icMembership"
+                app:layout_constraintTop_toTopOf="@id/icMembership" />
+
+            <ImageView
+                android:id="@+id/icNextM"
+                android:layout_width="8dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/recMembership"
+                app:layout_constraintTop_toTopOf="@id/icMembership" />
+
+            <ImageView
+                android:id="@+id/recPencapaian"
+                android:layout_width="299dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/rec_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recMembership" />
+
+            <ImageView
+                android:id="@+id/icPencapaian"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/award"
+                app:layout_constraintStart_toStartOf="@id/recPencapaian"
+                app:layout_constraintTop_toTopOf="@id/recPencapaian" />
+
+            <TextView
+                android:id="@+id/txtPencapaianSaya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Pencapaian Saya"
+                android:textColor="@color/tosca"
+                app:layout_constraintStart_toEndOf="@id/icPencapaian"
+                app:layout_constraintTop_toTopOf="@id/icPencapaian" />
+
+            <ImageView
+                android:id="@+id/icNextPencapaian"
+                android:layout_width="8dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/recPencapaian"
+                app:layout_constraintTop_toTopOf="@id/icPencapaian" />
+
+            <ImageView
+                android:id="@+id/recUbahSandi"
+                android:layout_width="299dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/rec_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recPencapaian" />
+
+            <ImageView
+                android:id="@+id/icUbahSandi"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/award"
+                app:layout_constraintStart_toStartOf="@id/recUbahSandi"
+                app:layout_constraintTop_toTopOf="@id/recUbahSandi" />
+
+            <TextView
+                android:id="@+id/txtUbahSandi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Ubah Kata Sandi"
+                android:textColor="@color/tosca"
+                app:layout_constraintStart_toEndOf="@id/icUbahSandi"
+                app:layout_constraintTop_toTopOf="@id/icUbahSandi" />
+
+            <ImageView
+                android:id="@+id/icNextUbahSandi"
+                android:layout_width="8dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintEnd_toEndOf="@id/recUbahSandi"
+                app:layout_constraintTop_toTopOf="@id/icUbahSandi" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/AboutUs"
+                android:layout_width="299dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="@color/tosca"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recUbahSandi">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingHorizontal="98dp"
+                    android:text="About Us"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Invite"
+                android:layout_width="299dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="@color/tosca"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/AboutUs">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingHorizontal="98dp"
+                    android:text="Invite Friend"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Logout"
+                android:layout_width="299dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="110dp"
+                android:backgroundTint="@color/tosca"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Invite">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingHorizontal="120dp"
+                    android:text="Logout"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

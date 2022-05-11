@@ -23,6 +23,7 @@ class LandingPageActivity : BaseActivity() {
         binding.kotakSilang.setOnClickListener {
             val i = Intent(this, NavigationActivity::class.java)
             startActivity(i)
+            finish()
         }
     }
 
