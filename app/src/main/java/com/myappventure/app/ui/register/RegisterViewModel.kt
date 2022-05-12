@@ -3,7 +3,6 @@ package com.myappventure.app.ui.register
 import android.webkit.MimeTypeMap
 import androidx.lifecycle.MutableLiveData
 import com.myappventure.app.base.BaseViewModel
-import com.myappventure.app.data.remote.register.RegisterBody
 import com.myappventure.app.data.remote.register.RegisterResponse
 import com.myappventure.app.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

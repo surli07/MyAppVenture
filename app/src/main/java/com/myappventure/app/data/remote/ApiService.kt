@@ -31,5 +31,5 @@ interface ApiService {
     suspend fun getAllPostingan(
         @Query("page") page: Int,
         @Query("size") size: Int,
-    ) : ApiResponse<AllPostinganResponse>
+    ): ApiResponse<AllPostinganResponse>
 }
