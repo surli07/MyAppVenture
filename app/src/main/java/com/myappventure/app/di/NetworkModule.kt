@@ -1,14 +1,12 @@
 package com.myappventure.app.di
 
 import android.app.Application
-import com.myappventure.app.data.remote.ApiClient
-import com.myappventure.app.data.remote.ApiService
-import com.myappventure.app.data.remote.NetworkStateManager
-import com.myappventure.app.data.remote.NetworkStateManagerImpl
+import com.myappventure.app.data.remote.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 @Module
@@ -17,8 +15,10 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(): ApiService {
-        return ApiClient.instance
+    fun provideApiService(
+        okHttpClient: OkHttpClient
+    ): ApiService {
+        return ApiClient(okHttpClient).instance()
     }
 
     @Provides
@@ -26,4 +26,9 @@ object NetworkModule {
     fun provideNetworkStateManager(application: Application): NetworkStateManager {
         return NetworkStateManagerImpl(application)
     }
+
+    @Provides
+    fun provideOkHttpClient(
+        authInterceptor: AuthInterceptor
+    ) : OkHttpClient = okHttpClient(authInterceptor)
 }

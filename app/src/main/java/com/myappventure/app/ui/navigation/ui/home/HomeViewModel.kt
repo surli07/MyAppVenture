@@ -1,13 +1,16 @@
 package com.myappventure.app.ui.navigation.ui.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.myappventure.app.base.BaseViewModel
+import com.myappventure.app.data.remote.getAllPostingan.Content
+import com.myappventure.app.data.remote.getAllPostingan.Data
+import com.myappventure.app.repository.PostinganRepository
+import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+class HomeViewModel @Inject constructor(
+) : BaseViewModel() {
+
+
 }

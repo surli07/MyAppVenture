@@ -5,25 +5,36 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-object ApiClient {
-    val instance: ApiService by lazy {
+class ApiClient @Inject constructor(
+    private val okHttpClient: OkHttpClient
+) {
+    fun instance(): ApiService {
         val retrofit = Retrofit.Builder()
+            .client(okHttpClient)
             .baseUrl("https://myappventure-api.herokuapp.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory.create())
-            .client(OkHttpClient.Builder().addInterceptor(logging).build())
             .build()
 
-        retrofit.create(ApiService::class.java)
+        return retrofit.create(ApiService::class.java)
+    }
+}
+
+fun okHttpClient(authInterceptor: AuthInterceptor): OkHttpClient =
+    OkHttpClient.Builder()
+        .addInterceptor(authInterceptor)
+        .addInterceptor(logging)
+        .build()
+
+private val logging: HttpLoggingInterceptor
+    get() {
+
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        return httpLoggingInterceptor.apply {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        }
     }
 
-    private val logging: HttpLoggingInterceptor
-        get() {
-            val httpLoggingInterceptor = HttpLoggingInterceptor()
-            return httpLoggingInterceptor.apply {
-                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-            }
-        }
 
-}
