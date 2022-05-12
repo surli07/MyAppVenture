@@ -12,7 +12,7 @@ data class Role(
     @SerializedName("name")
     val name: String,
     @SerializedName("rolePaths")
-    val rolePaths: RolePathX,
+    val rolePaths: List<RolePathX>,
     @SerializedName("type")
     val type: String
 ) : Parcelable

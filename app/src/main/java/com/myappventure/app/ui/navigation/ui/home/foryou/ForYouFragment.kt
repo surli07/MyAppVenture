@@ -10,9 +10,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myappventure.app.databinding.FragmentForYouBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class ForYouFragment : Fragment() {
 
     private var _binding: FragmentForYouBinding? = null
@@ -43,12 +44,14 @@ class ForYouFragment : Fragment() {
             )
             adapter = postinganAdapter
         }
+
         setupObserver()
     }
 
     private fun setupObserver() {
         postinganViewModel.postinganResult.observe(viewLifecycleOwner) {
-            postinganAdapter.postingan.add(it)
+            postinganAdapter.postingan.clear()
+            postinganAdapter.postingan.addAll(it)
             postinganAdapter.notifyDataSetChanged()
         }
     }

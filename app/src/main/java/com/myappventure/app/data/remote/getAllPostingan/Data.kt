@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Data(
     @SerializedName("content")
-    val content: Content,
+    val content: List<Content>,
     @SerializedName("empty")
     val empty: Boolean,
     @SerializedName("first")

@@ -12,7 +12,7 @@ data class Authority(
     @SerializedName("name")
     val name: String,
     @SerializedName("rolePaths")
-    val rolePaths: RolePath,
+    val rolePaths: List<RolePath>,
     @SerializedName("type")
     val type: String
 ) : Parcelable

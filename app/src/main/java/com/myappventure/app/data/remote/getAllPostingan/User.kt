@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class User(
     @SerializedName("authorities")
-    val authorities: Authority,
+    val authorities: List<Authority>,
     @SerializedName("fileName")
     val fileName: String?,
     @SerializedName("id")
@@ -20,7 +20,7 @@ data class User(
     @SerializedName("otpExpiredDate")
     val otpExpiredDate: String,
     @SerializedName("roles")
-    val roles: Role,
+    val roles: List<Role>,
     @SerializedName("urlFileName")
     val urlFileName: String,
     @SerializedName("username")

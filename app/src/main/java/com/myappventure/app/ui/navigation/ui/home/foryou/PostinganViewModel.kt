@@ -4,14 +4,16 @@ import androidx.lifecycle.MutableLiveData
 import com.myappventure.app.base.BaseViewModel
 import com.myappventure.app.data.remote.getAllPostingan.Content
 import com.myappventure.app.repository.PostinganRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
+@HiltViewModel
 class PostinganViewModel @Inject constructor(
     private val postinganRepository: PostinganRepository
 ) : BaseViewModel() {
 
-    val postinganResult = MutableLiveData<Content>()
+    val postinganResult = MutableLiveData<List<Content>>()
 
     suspend fun getAllPost() {
         postinganRepository.getAllPostingan(
