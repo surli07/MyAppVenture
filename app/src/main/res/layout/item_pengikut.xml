@@ -60,7 +60,8 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Ikuti"
         android:textAllCaps="false"
-        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:textSize="9sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
