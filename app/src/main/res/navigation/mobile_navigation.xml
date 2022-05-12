@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_komunitas"
-        android:name="com.myappventure.app.ui.navigation.ui.map.MapFragment"
+        android:name="com.myappventure.app.ui.navigation.ui.komunitas.KomunitasFragment"
         android:label="Komunitas"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_destinasi" />
 
     <fragment
         android:id="@+id/navigation_tantangan"
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_destinasi"
-        android:name="com.myappventure.app.ui.navigation.ui.likes.LikesPostFragment"
+        android:name="com.myappventure.app.ui.navigation.ui.destinasi.DestinasiFragment"
         android:label="Destinasi"
         tools:layout="@layout/fragment_likes_post" />
 
