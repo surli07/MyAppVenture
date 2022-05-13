@@ -1,13 +1,17 @@
 package com.myappventure.app.ui.navigation.ui.home.follow
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.myappventure.app.databinding.FragmentFollowBinding
+import com.myappventure.app.ui.login.LoginActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class FollowFragment : Fragment() {
 
     private var _binding: FragmentFollowBinding? = null
@@ -24,5 +28,19 @@ class FollowFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.txtYukBergabung.setOnClickListener {
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+        setupObserver()
+    }
+
+    private fun setupObserver() {
+
     }
 }

@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (MySharedPref.isLoggedIn) binding.linearLayout.visibility = View.GONE
+//        if (MySharedPref.isLoggedIn) binding.linearLayout.visibility = View.GONE
 
         binding.recyclerKategori.apply {
             this.layoutManager = GridLayoutManager(context, 4)
@@ -63,15 +63,6 @@ class HomeFragment : Fragment() {
             )
             tab.icon?.colorFilter = colorFilter
         }.attach()
-
-        binding.txtRegister.setOnClickListener {
-            val intent = Intent(requireContext(), RegisterActivity::class.java)
-            startActivity(intent)
-        }
-        binding.cardLogin.setOnClickListener {
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-            startActivity(intent)
-        }
         setupObserver()
     }
 

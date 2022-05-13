@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentProfileBinding
 import com.myappventure.app.ui.MainFollowActivity
+import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
 import com.myappventure.app.ui.navigation.ui.profile.pencapaian.PencapaianActivity
 import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
@@ -28,44 +29,122 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val username = MySharedPref.userName
-        binding.txtUserName.text = username
+        if (MySharedPref.isLoggedIn) {
+            val username = MySharedPref.userName
+            binding.txtUserName.text = username
 
-        binding.txtPengikut.setOnClickListener {
-            val intent = Intent(requireContext(), MainFollowActivity::class.java)
-            startActivity(intent)
-        }
-        binding.txtMengikuti.setOnClickListener {
-            val intent = Intent(requireContext(), MainFollowActivity::class.java)
-            startActivity(intent)
-        }
-        binding.edtFoto.setOnClickListener {
-        }
-        binding.icNextP.setOnClickListener {
-            val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
-            startActivity(intent)
-        }
-        binding.txtProfil.setOnClickListener {
-            val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
-            startActivity(intent)
-        }
-        binding.icNextYC.setOnClickListener {
-            val intent = Intent(requireContext(), KomunitasActivity::class.java)
-            startActivity(intent)
-        }
-        binding.txtYourCommunity.setOnClickListener {
-            val intent = Intent(requireContext(), KomunitasActivity::class.java)
-            startActivity(intent)
-        }
-        binding.icNextPencapaian.setOnClickListener {
-            val intent = Intent(requireContext(), PencapaianActivity::class.java)
-            startActivity(intent)
-        }
-        binding.txtPencapaianSaya.setOnClickListener {
-            val intent = Intent(requireContext(), PencapaianActivity::class.java)
-            startActivity(intent)
-        }
+            binding.cardPenUpload.visibility = View.VISIBLE
+            binding.AboutUs.visibility = View.VISIBLE
+            binding.Invite.visibility = View.VISIBLE
+            binding.Logout.visibility = View.VISIBLE
+            binding.recProfile.visibility = View.VISIBLE
+            binding.icProfil.visibility = View.VISIBLE
+            binding.txtProfil.visibility = View.VISIBLE
+            binding.icNextP.visibility = View.VISIBLE
+            binding.recYourPost.visibility = View.VISIBLE
+            binding.icNextYP.visibility = View.VISIBLE
+            binding.txtYourPost.visibility = View.VISIBLE
+            binding.icYourPost.visibility = View.VISIBLE
+            binding.recYourCommunity.visibility = View.VISIBLE
+            binding.icYourCommunity.visibility = View.VISIBLE
+            binding.txtYourCommunity.visibility = View.VISIBLE
+            binding.icNextYC.visibility = View.VISIBLE
+            binding.recYourBill.visibility = View.VISIBLE
+            binding.icYourBill.visibility = View.VISIBLE
+            binding.txtYourBill.visibility = View.VISIBLE
+            binding.icNextYB.visibility = View.VISIBLE
+            binding.recMembership.visibility = View.VISIBLE
+            binding.icMembership.visibility = View.VISIBLE
+            binding.txtMembership.visibility = View.VISIBLE
+            binding.icNextM.visibility = View.VISIBLE
+            binding.recPencapaian.visibility = View.VISIBLE
+            binding.icPencapaian.visibility = View.VISIBLE
+            binding.txtPencapaianSaya.visibility = View.VISIBLE
+            binding.icNextPencapaian.visibility = View.VISIBLE
+            binding.recUbahSandi.visibility = View.VISIBLE
+            binding.icUbahSandi.visibility = View.VISIBLE
+            binding.txtUbahSandi.visibility = View.VISIBLE
+            binding.icNextUbahSandi.visibility = View.VISIBLE
+            binding.imgBelumIkuti.visibility = View.GONE
+            binding.txtAndaBelum.visibility = View.GONE
+            binding.txtYukBergabung.visibility = View.GONE
 
+            binding.txtPengikut.setOnClickListener {
+                val intent = Intent(requireContext(), MainFollowActivity::class.java)
+                startActivity(intent)
+            }
+            binding.txtMengikuti.setOnClickListener {
+                val intent = Intent(requireContext(), MainFollowActivity::class.java)
+                startActivity(intent)
+            }
+            binding.edtFoto.setOnClickListener {
+            }
+            binding.icNextP.setOnClickListener {
+                val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
+                startActivity(intent)
+            }
+            binding.txtProfil.setOnClickListener {
+                val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
+                startActivity(intent)
+            }
+            binding.icNextYC.setOnClickListener {
+                val intent = Intent(requireContext(), KomunitasActivity::class.java)
+                startActivity(intent)
+            }
+            binding.txtYourCommunity.setOnClickListener {
+                val intent = Intent(requireContext(), KomunitasActivity::class.java)
+                startActivity(intent)
+            }
+            binding.icNextPencapaian.setOnClickListener {
+                val intent = Intent(requireContext(), PencapaianActivity::class.java)
+                startActivity(intent)
+            }
+            binding.txtPencapaianSaya.setOnClickListener {
+                val intent = Intent(requireContext(), PencapaianActivity::class.java)
+                startActivity(intent)
+            }
+        } else{
+            binding.txtYukBergabung.setOnClickListener {
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                startActivity(intent)
+            }
+
+            binding.AboutUs.visibility = View.GONE
+            binding.Invite.visibility = View.GONE
+            binding.Logout.visibility = View.GONE
+            binding.recProfile.visibility = View.GONE
+            binding.icProfil.visibility = View.GONE
+            binding.txtProfil.visibility = View.GONE
+            binding.icNextP.visibility = View.GONE
+            binding.recYourPost.visibility = View.GONE
+            binding.icNextYP.visibility = View.GONE
+            binding.txtYourPost.visibility = View.GONE
+            binding.icYourPost.visibility = View.GONE
+            binding.recYourCommunity.visibility = View.GONE
+            binding.icYourCommunity.visibility = View.GONE
+            binding.txtYourCommunity.visibility = View.GONE
+            binding.icNextYC.visibility = View.GONE
+            binding.recYourBill.visibility = View.GONE
+            binding.icYourBill.visibility = View.GONE
+            binding.txtYourBill.visibility = View.GONE
+            binding.icNextYB.visibility = View.GONE
+            binding.recMembership.visibility = View.GONE
+            binding.icMembership.visibility = View.GONE
+            binding.txtMembership.visibility = View.GONE
+            binding.icNextM.visibility = View.GONE
+            binding.recPencapaian.visibility = View.GONE
+            binding.icPencapaian.visibility = View.GONE
+            binding.txtPencapaianSaya.visibility = View.GONE
+            binding.icNextPencapaian.visibility = View.GONE
+            binding.recUbahSandi.visibility = View.GONE
+            binding.icUbahSandi.visibility = View.GONE
+            binding.txtUbahSandi.visibility = View.GONE
+            binding.icNextUbahSandi.visibility = View.GONE
+            binding.imgBelumIkuti.visibility = View.VISIBLE
+            binding.txtAndaBelum.visibility = View.VISIBLE
+            binding.txtYukBergabung.visibility = View.VISIBLE
+        }
+//            binding.linearLayout.visibility = View.GONE
         setupObserver()
     }
 

@@ -36,6 +36,7 @@
             android:layout_width="29dp"
             android:layout_height="29dp"
             android:layout_marginStart="78dp"
+            android:visibility="invisible"
             android:layout_marginBottom="4dp"
             app:cardBackgroundColor="#329D9C"
             app:cardCornerRadius="15dp"
@@ -57,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="riyeell"
+            android:text="Annonymous"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="800 Mengikuti"
+            android:text="0 Mengikuti"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@id/txtPengikut"
@@ -86,7 +87,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="9dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="1.000 Pengikut"
+            android:text="0 Pengikut"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -467,7 +468,41 @@
                     android:textColor="@color/white"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/imgBelumIkuti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="63dp"
+                android:src="@drawable/profile_sebelum_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/txtAndaBelum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Silahkan masuk terlebih dahulu"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgBelumIkuti" />
+
+            <TextView
+                android:id="@+id/txtYukBergabung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/yuk_bergabung"
+                android:textColor="@color/accent"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtAndaBelum" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
