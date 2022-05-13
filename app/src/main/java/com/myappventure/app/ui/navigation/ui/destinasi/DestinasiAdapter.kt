@@ -3,6 +3,8 @@ package com.myappventure.app.ui.navigation.ui.destinasi
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.myappventure.app.R
 import com.myappventure.app.data.remote.destinasi.AllListDestinasi.Content
 import com.myappventure.app.databinding.ItemDestinasiBinding
 
@@ -19,7 +21,12 @@ class DestinasiAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val destinasi = destinasi[position]
-        holder.binding.txtLokasi.text = destinasi.lokasi.toString()
+        holder.binding.txtLokasi.text = destinasi.lokasi
+        holder.binding.txtJudul.text = destinasi.nama
+        Glide.with(holder.itemView)
+            .load(destinasi.urlFileName)
+            .error(R.drawable.ic_launcher_background)
+            .into(holder.binding.imgItemDestinasi)
     }
 
     override fun getItemCount() = destinasi.size

@@ -38,7 +38,7 @@ class DestinasiFragment : Fragment() {
         binding.recyclerPopularDestination.apply {
             layoutManager = LinearLayoutManager(
                 context,
-                RecyclerView.VERTICAL,
+                RecyclerView.HORIZONTAL,
                 false
             )
             adapter = destinasiAdapter
