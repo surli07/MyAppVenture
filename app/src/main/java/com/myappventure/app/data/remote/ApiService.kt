@@ -1,6 +1,8 @@
 package com.myappventure.app.data.remote
 
 
+import com.myappventure.app.data.remote.destinasi.AllListDestinasi.AllDestinasiResponse
+import com.myappventure.app.data.remote.destinasi.jakartaDestinasi.JakartaDestinasiResponse
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
 import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
@@ -32,4 +34,10 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("size") size: Int,
     ): ApiResponse<AllPostinganResponse>
+
+    @GET ("destinasi/list")
+    suspend fun getAllDestinasi(
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+    ): ApiResponse<AllDestinasiResponse>
 }
