@@ -3,7 +3,7 @@ package com.myappventure.app.ui.navigation.ui.destinasi
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.myappventure.app.data.remote.getAllPostingan.Content
+import com.myappventure.app.data.remote.destinasi.AllListDestinasi.Content
 import com.myappventure.app.databinding.ItemDestinasiBinding
 
 class DestinasiAdapter(
@@ -18,10 +18,9 @@ class DestinasiAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val destinasi = destinasi[position]
+        holder.binding.txtLokasi.text = destinasi.lokasi.toString()
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = destinasi.size
 }
