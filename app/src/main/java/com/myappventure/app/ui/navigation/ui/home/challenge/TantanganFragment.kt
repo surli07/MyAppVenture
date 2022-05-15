@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.myappventure.app.databinding.FragmentTantanganBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class TantanganFragment : Fragment() {
 
     private var _binding: FragmentTantanganBinding? = null

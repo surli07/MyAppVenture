@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.myappventure.app.databinding.FragmentDestinasiBinding
 import com.myappventure.app.databinding.FragmentKomunitasBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class KomunitasFragment : Fragment() {
 
         private var _binding: FragmentKomunitasBinding? = null

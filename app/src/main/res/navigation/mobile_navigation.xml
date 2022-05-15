@@ -15,19 +15,19 @@
         android:id="@+id/navigation_komunitas"
         android:name="com.myappventure.app.ui.navigation.ui.komunitas.KomunitasFragment"
         android:label="Komunitas"
-        tools:layout="@layout/fragment_destinasi" />
+        tools:layout="@layout/fragment_komunitas" />
 
     <fragment
         android:id="@+id/navigation_tantangan"
-        android:name="com.myappventure.app.ui.navigation.ui.create.AddPostFragment"
+        android:name="com.myappventure.app.ui.navigation.ui.home.challenge.TantanganFragment"
         android:label="Tantangan"
-        tools:layout="@layout/fragment_add_post" />
+        tools:layout="@layout/fragment_tantangan" />
 
     <fragment
         android:id="@+id/navigation_destinasi"
         android:name="com.myappventure.app.ui.navigation.ui.destinasi.DestinasiFragment"
         android:label="Destinasi"
-        tools:layout="@layout/fragment_likes_post" />
+        tools:layout="@layout/fragment_destinasi" />
 
     <fragment
         android:id="@+id/navigation_profile"

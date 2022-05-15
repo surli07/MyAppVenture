@@ -45,6 +45,8 @@ android {
 }
 
 dependencies {
+    //uwMediaPicker
+    implementation 'com.github.AnilFurkanOkcun:UWMediaPicker-Android:1.3.3'
     // OsmDroid
     implementation 'org.osmdroid:osmdroid-android:6.1.11'
 

@@ -14,21 +14,19 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/imgProfile"
-            android:layout_width="91dp"
+            android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginStart="155dp"
             android:layout_marginTop="40dp"
             app:cardCornerRadius="45dp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <ImageView
                 android:id="@+id/imgFoto"
-                android:layout_width="91dp"
-                android:layout_height="91dp"
-                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="0dp"
                 android:src="@mipmap/ic_launcher" />
-
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -415,9 +413,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="7dp"
+                    android:textAlignment="center"
                     android:fontFamily="@font/poppins_semibold"
-                    android:paddingHorizontal="98dp"
                     android:text="About Us"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
@@ -438,9 +436,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="7dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:paddingHorizontal="98dp"
+                    android:textAlignment="center"
                     android:text="Invite Friend"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
@@ -461,9 +459,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="7dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:paddingHorizontal="120dp"
+                    android:textAlignment="center"
                     android:text="Logout"
                     android:textColor="@color/white"
                     android:textSize="16sp" />

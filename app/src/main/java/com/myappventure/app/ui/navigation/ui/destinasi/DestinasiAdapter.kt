@@ -25,7 +25,6 @@ class DestinasiAdapter(
         holder.binding.txtJudul.text = destinasi.nama
         Glide.with(holder.itemView)
             .load(destinasi.urlFileName)
-            .error(R.drawable.ic_launcher_background)
             .into(holder.binding.imgItemDestinasi)
     }
 

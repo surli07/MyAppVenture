@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardImage"
         android:layout_width="match_parent"
-        android:layout_height="232dp"
+        android:layout_height="211dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,7 +22,7 @@
                 android:id="@+id/mulaiPetualangan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="34dp"
+                android:layout_marginTop="35dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Mulai Petualanganmu Sakarang!"
                 android:textColor="@color/white"
@@ -40,6 +40,7 @@
                 android:text="Selamat Datang di My Appventure, Platform online bagi seluruh komunitas pecinta alam di Indonesia."
                 android:textColor="@color/white"
                 android:textSize="12sp"
+                android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mulaiPetualangan" />
@@ -47,7 +48,7 @@
                 android:id="@+id/cardSearch"
                 android:layout_width="320dp"
                 android:layout_height="22dp"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="17dp"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +72,7 @@
                     android:layout_marginEnd="12dp"
                     android:background="@null"
                     android:fontFamily="@font/poppins_regular"
-                    android:hint="Cari komunitas dan pengguna lainnya"
+                    android:hint="Komunitas dan pengguna lainnya"
                     android:importantForAutofill="no"
                     android:inputType="none"
                     android:textSize="12sp" />
@@ -81,7 +82,7 @@
                 android:id="@+id/recyclerKategori"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -110,6 +111,20 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+        app:layout_constraintTop_toBottomOf="@id/tabLayout">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <ImageView
+        android:id="@+id/imgCreate"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:src="@drawable/ic_create"
+        android:layout_marginBottom="120dp"
+        android:layout_marginEnd="24dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/viewPager"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
