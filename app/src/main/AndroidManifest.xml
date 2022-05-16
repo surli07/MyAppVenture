@@ -17,19 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
-            android:name=".ui.navigation.ui.komunitas.KomunitasFragment"
-            android:exported="false" />
-        <activity
-            android:name=".ui.navigation.ui.destinasi.DestinasiFragment"
-            android:exported="false" />
-        <activity
-            android:name=".ui.navigation.ui.profile.ProfileSebelumLoginActivity"
+            android:name=".ui.navigation.ui.home.create_postingan.CreatePostinganActivity"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.home.challenge.TaklukanTantanganActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TaklukanTantanganActivity"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.komunitas.DetailKomunitasActivity"

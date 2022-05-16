@@ -7,7 +7,7 @@
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/border_gradient.xml" value="0.106" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/header.xml" value="0.106" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/header_tantangan.xml" value="0.1" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_create_postingan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_create_postingan.xml" value="0.22" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_forgot_password.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_landing_page.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_loading.xml" value="0.18" />
@@ -27,6 +27,7 @@
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_tantangan.xml" value="0.22" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_destinasi.xml" value="0.25" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_image_create_post.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_kategori.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_postingan.xml" value="0.67" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/menu/bottom_nav_menu.xml" value="0.15925925925925927" />

@@ -1,5 +1,6 @@
 package com.myappventure.app.ui.navigation.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentHomeBinding
+import com.myappventure.app.ui.navigation.NavigationActivity
+import com.myappventure.app.ui.navigation.ui.home.create_postingan.CreatePostinganActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -46,6 +49,10 @@ class HomeFragment : Fragment() {
         }
         binding.viewPager.apply {
             this.adapter = ViewPagerAdapter(this@HomeFragment)
+        }
+        binding.imgCreate.setOnClickListener {
+            val i = Intent(requireContext(), CreatePostinganActivity::class.java)
+            startActivity(i)
         }
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             if (position == 0) {
