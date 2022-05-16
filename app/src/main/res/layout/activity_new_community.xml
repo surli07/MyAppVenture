@@ -6,66 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.navigation.ui.community.NewCommunityActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:background="#457275"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imgMenu"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginBottom="13dp"
-                android:src="@drawable/ic_menu"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txtNama"
-                android:layout_width="77dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="25dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Hai, riyell.."
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/imgMenu" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="32dp"
         android:src="@drawable/panah_kiri"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtBuatKomunitas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Buat Komunitas Baru"
         android:textColor="@color/black"
@@ -73,153 +28,163 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/imgProfile"
-        android:layout_width="149dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="98dp"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBuatKomunitas">
 
-        <ImageView
-            android:id="@+id/imgFoto"
-            android:layout_width="149dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgProfile"
+                android:layout_width="149dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="30dp"
+                app:cardCornerRadius="75dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardPenUpload"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginBottom="11dp"
-        app:cardBackgroundColor="#329D9C"
-        app:cardCornerRadius="23dp"
-        app:layout_constraintBottom_toBottomOf="@id/imgProfile"
-        app:layout_constraintStart_toStartOf="@id/imgProfile">
+                <ImageView
+                    android:id="@+id/imgFoto"
+                    android:layout_width="149dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher" />
 
-        <ImageView
-            android:id="@+id/edtFoto"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/penupload" />
-    </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/txtNamaKomunitas"
-        android:layout_width="123dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Nama Komunitas"
-        android:textColor="#3D3D3D"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPenUpload"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="105dp"
+                android:layout_marginBottom="11dp"
+                app:cardBackgroundColor="#329D9C"
+                app:cardCornerRadius="23dp"
+                app:layout_constraintBottom_toBottomOf="@id/imgProfile"
+                app:layout_constraintStart_toStartOf="@id/imgProfile">
 
-    <EditText
-        android:id="@+id/namaKomunitas"
-        android:layout_width="0dp"
-        android:layout_height="34dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/border_gradient"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="Isi nama kamunitas kamu..."
-        android:inputType="text"
-        android:paddingHorizontal="12dp"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNamaKomunitas" />
+                <ImageView
+                    android:id="@+id/edtFoto"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/penupload" />
+            </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/txtLinkGrup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Link Grup Komunitas"
-        android:textColor="#3D3D3D"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/namaKomunitas" />
+            <TextView
+                android:id="@+id/txtNamaKomunitas"
+                android:layout_width="123dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Nama Komunitas"
+                android:textColor="#3D3D3D"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
-    <EditText
-        android:id="@+id/linkGrup"
-        android:layout_width="0dp"
-        android:layout_height="34dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/border_gradient"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="Grup whatsapp, telegram, dll"
-        android:inputType="textUri"
-        android:paddingHorizontal="12dp"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtLinkGrup" />
+            <EditText
+                android:id="@+id/namaKomunitas"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/border_gradient"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Isi nama kamunitas kamu..."
+                android:inputType="text"
+                android:paddingHorizontal="12dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtNamaKomunitas" />
 
-    <TextView
-        android:id="@+id/txtDeskripsi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Deskripsi"
-        android:textColor="#3D3D3D"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linkGrup" />
+            <TextView
+                android:id="@+id/txtLinkGrup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Link Grup Komunitas"
+                android:textColor="#3D3D3D"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/namaKomunitas" />
 
-    <EditText
-        android:id="@+id/Deskripsi"
-        android:layout_width="0dp"
-        android:layout_height="144dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/border_gradient"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="Isi deskripsi komunitas kamu..."
-        android:inputType="textMultiLine"
-        android:gravity="top"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="8dp"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtDeskripsi" />
+            <EditText
+                android:id="@+id/linkGrup"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/border_gradient"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Grup whatsapp, telegram, dll"
+                android:inputType="textUri"
+                android:paddingHorizontal="12dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLinkGrup" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnBuatKomunitas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Buat Komunitas"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:theme="@style/buttonstyle1"
-        android:backgroundTint="@color/green"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/Deskripsi" />
+            <TextView
+                android:id="@+id/txtDeskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Deskripsi"
+                android:textColor="#3D3D3D"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linkGrup" />
 
+            <EditText
+                android:id="@+id/Deskripsi"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/border_gradient"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="top"
+                android:hint="Isi deskripsi komunitas kamu..."
+                android:inputType="textMultiLine"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDeskripsi" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBuatKomunitas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/green"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Buat Komunitas"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:theme="@style/buttonstyle1"
+                app:cornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Deskripsi" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

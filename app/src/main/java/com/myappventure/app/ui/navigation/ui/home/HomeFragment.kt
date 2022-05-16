@@ -1,5 +1,6 @@
 package com.myappventure.app.ui.navigation.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentHomeBinding
+import com.myappventure.app.ui.navigation.ui.community.NewCommunityActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

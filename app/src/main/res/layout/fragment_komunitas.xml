@@ -91,4 +91,14 @@
                 tools:listitem="@layout/item_kategori" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/imgCreate"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:src="@drawable/ic_create"
+        android:layout_marginBottom="120dp"
+        android:layout_marginEnd="24dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
