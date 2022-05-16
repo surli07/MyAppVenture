@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
+            android:name=".ui.navigation.ui.community.SuksesNewCommunityActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.navigation.ui.komunitas.KomunitasFragment"
             android:exported="false" />
         <activity
