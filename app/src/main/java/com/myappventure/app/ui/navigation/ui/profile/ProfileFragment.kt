@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentProfileBinding
 import com.myappventure.app.ui.MainFollowActivity
@@ -31,7 +33,14 @@ class ProfileFragment : Fragment() {
 
         if (MySharedPref.isLoggedIn) {
             val username = MySharedPref.userName
+            val photo = MySharedPref.userFilename
             binding.txtUserName.text = username
+//            binding.imgFoto.visibility = View.INVISIBLE
+//            binding.imgPhotoUser.visibility = View.VISIBLE
+//            Glide.with(requireContext())
+//                .load(photo)
+//                .error(R.drawable.ic_launcher_foreground)
+//                .into(binding.imgPhotoUser)
 
             binding.cardPenUpload.visibility = View.VISIBLE
             binding.AboutUs.visibility = View.VISIBLE
@@ -103,7 +112,7 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), PencapaianActivity::class.java)
                 startActivity(intent)
             }
-        } else{
+        } else {
             binding.txtYukBergabung.setOnClickListener {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 startActivity(intent)

@@ -1,9 +1,9 @@
-package com.myappventure.app.data.remote.login
+package com.myappventure.app.data.remote.create_postingan
 
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse(
+data class Create_Postingan_Response(
     @SerializedName("data")
     val `data`: Data,
     @SerializedName("message")
