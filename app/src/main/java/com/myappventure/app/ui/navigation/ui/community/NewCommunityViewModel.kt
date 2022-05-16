@@ -3,6 +3,7 @@ package com.myappventure.app.ui.navigation.ui.community
 import android.webkit.MimeTypeMap
 import androidx.lifecycle.MutableLiveData
 import com.myappventure.app.base.BaseViewModel
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
 import com.myappventure.app.repository.KomunitasRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,9 +24,9 @@ class NewCommunityViewModel @Inject constructor(
 
     suspend fun startCreateKomunitas(
         file: File,
-        namakomunitas: String,
-        link: String,
-        deskripsi: String
+        namaKomunitas: String,
+        linkKomunitas: String,
+        deskripsi: String,
     ) {
         val fileRequestBody = file.asRequestBody(
             getMimeType(file.path)!!.toMediaType()
@@ -33,9 +34,10 @@ class NewCommunityViewModel @Inject constructor(
         val fileMultiPart = MultipartBody.Part.create(
             fileRequestBody
         )
-        val namakomunitasPart = namakomunitas.toRequestBody("text/plain".toMediaType())
-        val linkPart = link.toRequestBody("text/plain".toMediaType())
+        val namakomunitasPart = namaKomunitas.toRequestBody("text/plain".toMediaType())
+        val linkKomunitasPart = linkKomunitas.toRequestBody("text/plain".toMediaType())
         val deskripsiPart = deskripsi.toRequestBody("text/plain".toMediaType())
+        val idUserPart = MySharedPref.idUser.toString().toRequestBody("text/plain".toMediaType())
         komunitasRepository.createKomunitas(
             onStart = {
                 showLoading()
@@ -48,8 +50,9 @@ class NewCommunityViewModel @Inject constructor(
             },
             fileMultiPart,
             namakomunitasPart,
-            linkPart,
-            deskripsiPart
+            linkKomunitasPart,
+            deskripsiPart,
+            idUserPart
         ).collect {
             createKomunitasResponse.postValue(it)
         }

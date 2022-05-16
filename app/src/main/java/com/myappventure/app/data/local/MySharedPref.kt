@@ -10,6 +10,7 @@ object MySharedPref {
     private const val USER_FILENAME = "userFilename"
     private const val REFRESH_TOKEN = "refreshToken"
     private const val IS_LOGIN = "isLogin"
+    private const val ID_USER = "idUser"
 
     fun appInit(application: Application) {
         Hawk.init(application).build()
@@ -47,6 +48,13 @@ object MySharedPref {
         get() = Hawk.get(USER_FILENAME)
         set(value) {
             Hawk.put(USER_FILENAME, value)
+            field = value
+        }
+
+    var idUser: Int? = null
+        get() = Hawk.get(ID_USER)
+        set(value) {
+            Hawk.put(ID_USER, value)
             field = value
         }
 

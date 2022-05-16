@@ -25,15 +25,18 @@ class KomunitasRepository @Inject constructor(
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
         file: MultipartBody.Part?,
-        namakomunitas: RequestBody,
-        link: RequestBody,
-        deskripsi: RequestBody
+        namaKomunitas: RequestBody,
+        linkKomunitas: RequestBody,
+        deskripsi: RequestBody,
+        idUser: RequestBody
     ) = flow {
         val response = apiService.newKomunitas(
             file,
-            namakomunitas,
-            link,
-            deskripsi)
+            namaKomunitas,
+            linkKomunitas,
+            deskripsi,
+            idUser
+        )
         response.suspendOnSuccess {
             emit(this.data)
         }.onError {

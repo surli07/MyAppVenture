@@ -41,12 +41,13 @@ interface ApiService {
         @Query("size") size: Int,
     ): ApiResponse<AllDestinasiResponse>
 
-    @POST("komunitas/newkomunitas")
+    @POST("komunitas/create")
     @Multipart
     suspend fun newKomunitas(
         @Part file: MultipartBody.Part?,
-        @Part("namakomunitas") namakomunitas: RequestBody,
-        @Part("link") link: RequestBody,
+        @Part("namaKomunitas") namakomunitas: RequestBody,
+        @Part("linkKomunitas") link: RequestBody,
         @Part("deskripsi") deskripsi: RequestBody,
+        @Part("idUser") idUser: RequestBody,
     ): ApiResponse<CreateKomunitasResponse>
 }
