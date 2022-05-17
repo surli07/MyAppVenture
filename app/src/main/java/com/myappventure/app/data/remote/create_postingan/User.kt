@@ -1,13 +1,13 @@
-package com.myappventure.app.data.remote.register
+package com.myappventure.app.data.remote.create_postingan
 
 
 import com.google.gson.annotations.SerializedName
 
-data class DataX(
+data class User(
     @SerializedName("authorities")
     val authorities: List<Authority>,
     @SerializedName("fileName")
-    val fileName: String?,
+    val fileName: String,
     @SerializedName("id")
     val id: Int,
     @SerializedName("nama")

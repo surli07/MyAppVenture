@@ -24,7 +24,6 @@ import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.ui.navigation.NavigationActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import org.w3c.dom.Text
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -45,6 +44,7 @@ class RegisterActivity : BaseActivity() {
             selectedUri?.let { uri ->
                 binding.imgPhotoUser.setImageURI(uri)
                 binding.imgPhotoUser.visibility = View.VISIBLE
+                binding.imgPhoto.visibility = View.GONE
                 createFileBeforeUpload(uri)
             }
         } else {
@@ -67,7 +67,7 @@ class RegisterActivity : BaseActivity() {
     )
     private val usernameRegex = Pattern.compile("[a-z]{3,15}")
     private val passwordREGEX = Pattern.compile("(?=\\S+$).{6,}$")
-    var file = File("")
+    private var file = File("")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -246,18 +246,19 @@ class RegisterActivity : BaseActivity() {
 
 
             binding.btnRegister.isEnabled = username && email && password
-            binding.btnRegister.setTextColor(ContextCompat.getColor(applicationContext, R.color.white))
-            binding.btnRegister.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
 
     }
 
     private fun register() {
-        val email = binding.edtEmail.text.toString()
-        val username = binding.edtUsername.text.toString()
-        val password = binding.edtPassword.text.toString()
-
         lifecycleScope.launch {
-            viewModel.startRegister(file, email, username, password)
+            val email = binding.edtEmail.text.toString().trim()
+            val username = binding.edtUsername.text.toString().trim()
+            val password = binding.edtPassword.text.toString()
+            if(file.isFile){
+                viewModel.startRegister(file, email, username, password)
+            }else{
+                viewModel.startRegister(null, email, username, password)
+            }
             setupObserver()
         }
     }

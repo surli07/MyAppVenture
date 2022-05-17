@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
-            android:name=".ui.navigation.ui.community.SuksesNewCommunityActivity"
+            android:name=".ui.navigation.ui.home.create_postingan.CreatePostinganActivity"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.home.challenge.TaklukanTantanganActivity"

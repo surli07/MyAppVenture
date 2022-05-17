@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_create_postingan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/award.xml" value="0.106" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/border_gradient.xml" value="0.106" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/header.xml" value="0.106" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/header_tantangan.xml" value="0.1" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_create_postingan.xml" value="0.22" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_forgot_password.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_landing_page.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_loading.xml" value="0.18" />
@@ -14,12 +18,18 @@
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_register.xml" value="0.18" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_success_landing.xml" value="0.14814814814814814" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_sukses_register.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_taklukan_tantangan.xml" value="0.1" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_destinasi.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_follow.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_for_you.xml" value="0.1" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_likes_post.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_tantangan.xml" value="0.22" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_destinasi.xml" value="0.25" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_image_create_post.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_kategori.xml" value="0.15925925925925927" />
-        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_postingan.xml" value="0.33" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_postingan.xml" value="0.67" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppVenture/app/src/main/res/menu/bottom_nav_menu.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/OS/AndroidStudioProjects/MyAppventure/app/src/main/res/layout/loading_dialog.xml" value="0.1" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/drawable/background.xml" value="0.1515" />
@@ -58,7 +68,6 @@
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_profile_sebelum_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_success_landing.xml" value="0.2" />
-        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_sukses_new_community.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_sukses_register.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/activity_taklukan_tantangan.xml" value="0.22" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_add_post.xml" value="0.20416666666666666" />
@@ -74,7 +83,7 @@
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_tantangan.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_destinasi.xml" value="0.5" />
+        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_destinasi.xml" value="0.25" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_kode_token.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_komunitas.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_mengikuti.xml" value="0.11979166666666667" />

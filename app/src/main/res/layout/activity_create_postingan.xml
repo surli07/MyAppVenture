@@ -10,78 +10,116 @@
         android:id="@+id/imgBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_black"
-        android:layout_marginTop="28dp"
         android:layout_marginStart="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="Buat Postingan Baru"
         android:textColor="@color/black"
-        android:fontFamily="@font/poppins_medium"
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@id/imgBack"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="47dp"
-        app:layout_constraintTop_toBottomOf="@id/imgBack"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginEnd="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgBack">
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/imgUser"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            app:cardCornerRadius="17dp"
+            android:layout_marginStart="11dp"
             android:layout_marginTop="11dp"
-            android:layout_marginStart="11dp">
+            app:cardCornerRadius="17dp">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher_round"/>
+                android:src="@mipmap/ic_launcher_round" />
         </androidx.cardview.widget.CardView>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama User"
-            android:fontFamily="@font/poppins_medium"
-            android:textSize="14sp"
-            android:textColor="@color/black"
+            android:layout_marginStart="51dp"
             android:layout_marginTop="17dp"
-            android:layout_marginStart="51dp"/>
+            android:fontFamily="@font/poppins_medium"
+            android:text="Nama User"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="54dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet pellentesque volutpat sed convallis urna suspendisse. Tincidunt posuere risus accumsan fermentum mauris mi sed viverra vulputate. Nibh vitae sed diam morbi pellentesque. Commodo justo morbi lacinia quam non, id est quis commodo. Purus quis nibh metus elementum interdum diam odio porttitor. Eget sit adipiscing enim varius."
-            android:layout_marginStart="11dp"
-            android:layout_marginEnd="11dp"
-            android:fontFamily="@font/poppins_regular"
-            android:textSize="12sp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_upload_image"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="236dp"/>
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="96dp"
-            android:layout_height="37dp"
-            android:backgroundTint="@color/green"
-            android:text="Posting"
-            android:textSize="14sp"
-            android:layout_marginStart="223dp"
-            android:layout_marginTop="229dp"
-            android:fontFamily="@font/poppins_regular"
-            android:textAllCaps="false"
-            android:textColor="@color/white"/>
-    </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content">
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollPostingan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="54dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtPostingan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginEnd="11dp"
+                        android:layout_marginTop="9dp"
+                        android:background="@null"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet pellentesque volutpat sed convallis urna suspendisse. Tincidunt posuere risus accumsan fermentum mauris mi sed viverra vulputate. Nibh vitae sed diam morbi pellentesque. Commodo justo morbi lacinia quam non, id est quis commodo. Purus quis nibh metus elementum interdum diam odio porttitor. Eget sit adipiscing enim varius."
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="11dp"
+                        android:layout_marginTop="16dp"
+                        tools:listitem="@layout/item_image_create_post"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtPostingan" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_upload_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollPostingan"/>
 
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="96dp"
+                android:layout_height="37dp"
+                android:backgroundTint="@color/green"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Posting"
+                android:layout_marginEnd="11dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollPostingan"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

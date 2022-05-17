@@ -21,12 +21,14 @@ class RegisterViewModel @Inject constructor(
 
     val registerResponse = MutableLiveData<RegisterResponse>()
 
-    suspend fun startRegister(file: File, email: String, username: String, password: String) {
+    suspend fun startRegister(file: File?, email: String, username: String, password: String) {
         val fullname = ""
-        val fileRequestBody = file.asRequestBody(
-            getMimeType(file.path)!!.toMediaType())
+
+        val fileRequestBody = file?.asRequestBody(
+            getMimeType(file?.path)!!.toMediaType()
+        )
         val fileMultiPart = MultipartBody.Part.create(
-            fileRequestBody
+            fileRequestBody!!
         )
         val emailPart = email.toRequestBody("text/plain".toMediaType())
         val usernamePart = username.toRequestBody("text/plain".toMediaType())
