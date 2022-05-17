@@ -41,6 +41,7 @@ class LoginViewModel @Inject constructor(
                 MySharedPref.userEmail = it.email
                 MySharedPref.userName = it.username
                 MySharedPref.userFilename = it.filename
+                MySharedPref.idUser = it.id
                 loginResponse.postValue(response)
             }
             if (response.status != "200") {

@@ -50,6 +50,9 @@
             android:name=".ui.navigation.ui.community.NewCommunityActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.navigation.ui.community.SuksesNewCommunityActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.register.SuksesRegisterActivity"
             android:exported="false" />
         <activity
