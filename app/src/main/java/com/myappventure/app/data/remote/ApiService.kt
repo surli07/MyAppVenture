@@ -3,6 +3,7 @@ package com.myappventure.app.data.remote
 
 import com.myappventure.app.data.remote.destinasi.AllListDestinasi.AllDestinasiResponse
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
+import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
 import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
 import com.myappventure.app.data.remote.register.RegisterResponse
@@ -34,9 +35,19 @@ interface ApiService {
         @Query("size") size: Int,
     ): ApiResponse<AllPostinganResponse>
 
-    @GET ("destinasi/list")
+    @GET("destinasi/list")
     suspend fun getAllDestinasi(
         @Query("page") page: Int,
         @Query("size") size: Int,
     ): ApiResponse<AllDestinasiResponse>
+
+    @POST("komunitas/create")
+    @Multipart
+    suspend fun newKomunitas(
+        @Part file: MultipartBody.Part?,
+        @Part("namaKomunitas") namakomunitas: RequestBody,
+        @Part("linkKomunitas") link: RequestBody,
+        @Part("deskripsi") deskripsi: RequestBody,
+        @Part("idUser") idUser: RequestBody,
+    ): ApiResponse<CreateKomunitasResponse>
 }
