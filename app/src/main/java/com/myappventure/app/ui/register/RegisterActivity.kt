@@ -1,18 +1,13 @@
 package com.myappventure.app.ui.register
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.text.method.SingleLineTransformationMethod
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,7 +15,6 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.anilokcun.uwmediapicker.UwMediaPicker
 import com.bumptech.glide.Glide
-import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityRegisterBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
@@ -28,38 +22,14 @@ import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.ui.navigation.NavigationActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.io.ByteArrayOutputStream
 import java.io.File
-import java.io.FileOutputStream
 import java.util.regex.Pattern
-import kotlin.math.roundToInt
-import kotlin.math.sqrt
 
 @AndroidEntryPoint
 class RegisterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private val viewModel: RegisterViewModel by viewModels()
-//    private val requestGetPhoto = registerForActivityResult(
-//        ActivityResultContracts.StartActivityForResult()
-//    ) { result ->
-//        if (result.resultCode == Activity.RESULT_OK) {
-//            val selectedUri: Uri? = result.data?.data
-//            selectedUri?.let { uri ->
-//                binding.imgPhotoUser.setImageURI(uri)
-//                binding.imgPhotoUser.visibility = View.VISIBLE
-//                binding.imgPhoto.visibility = View.GONE
-//                createFileBeforeUpload(uri)
-//            }
-//        } else {
-//            binding.imgPhotoUser.visibility = View.GONE
-//            Toast.makeText(
-//                this,
-//                "Pemilihan gambar dibatalkan",
-//                Toast.LENGTH_LONG
-//            ).show()
-//        }
-//    }
     private val emailPattern = Pattern.compile(
         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                 "\\@" +
@@ -183,7 +153,7 @@ class RegisterActivity : BaseActivity() {
         viewModel.message.observe(this) {
             showMessageToast(it)
         }
-        viewModel.registerResponse.observe(this){
+        viewModel.registerResponse.observe(this) {
             val i = Intent(this@RegisterActivity, SuksesRegisterActivity::class.java)
             startActivity(i)
             finish()
@@ -227,7 +197,7 @@ class RegisterActivity : BaseActivity() {
         var password = checkPasssword()
 
 
-            binding.btnRegister.isEnabled = username && email && password
+        binding.btnRegister.isEnabled = username && email && password
 
     }
 
@@ -236,9 +206,9 @@ class RegisterActivity : BaseActivity() {
             val email = binding.edtEmail.text.toString().trim()
             val username = binding.edtUsername.text.toString().trim()
             val password = binding.edtPassword.text.toString()
-            if(file != null){
+            if (file != null) {
                 viewModel.startRegister(file, email, username, password)
-            }else{
+            } else {
                 viewModel.startRegister(null, email, username, password)
             }
             setupObserver()
