@@ -6,13 +6,13 @@ import com.myappventure.app.base.BaseViewModel
 import com.myappventure.app.data.remote.register.RegisterResponse
 import com.myappventure.app.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.collect
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
+import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
@@ -25,11 +25,9 @@ class RegisterViewModel @Inject constructor(
         val fullname = ""
 
         val fileRequestBody = file?.asRequestBody(
-            getMimeType(file?.path)!!.toMediaType()
+            getMimeType(file.path)!!.toMediaType()
         )
-        val fileMultiPart = MultipartBody.Part.create(
-            fileRequestBody!!
-        )
+        val fileMultiPart = if (fileRequestBody != null ) MultipartBody.Part.create(fileRequestBody) else null
         val emailPart = email.toRequestBody("text/plain".toMediaType())
         val usernamePart = username.toRequestBody("text/plain".toMediaType())
         val passwordPart = password.toRequestBody("text/plain".toMediaType())

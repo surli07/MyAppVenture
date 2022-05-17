@@ -8,6 +8,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
+import android.text.method.SingleLineTransformationMethod
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,6 +18,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
+import com.anilokcun.uwmediapicker.UwMediaPicker
+import com.bumptech.glide.Glide
 import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityRegisterBinding
@@ -36,26 +40,26 @@ class RegisterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private val viewModel: RegisterViewModel by viewModels()
-    private val requestGetPhoto = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val selectedUri: Uri? = result.data?.data
-            selectedUri?.let { uri ->
-                binding.imgPhotoUser.setImageURI(uri)
-                binding.imgPhotoUser.visibility = View.VISIBLE
-                binding.imgPhoto.visibility = View.GONE
-                createFileBeforeUpload(uri)
-            }
-        } else {
-            binding.imgPhotoUser.visibility = View.GONE
-            Toast.makeText(
-                this,
-                "Pemilihan gambar dibatalkan",
-                Toast.LENGTH_LONG
-            ).show()
-        }
-    }
+//    private val requestGetPhoto = registerForActivityResult(
+//        ActivityResultContracts.StartActivityForResult()
+//    ) { result ->
+//        if (result.resultCode == Activity.RESULT_OK) {
+//            val selectedUri: Uri? = result.data?.data
+//            selectedUri?.let { uri ->
+//                binding.imgPhotoUser.setImageURI(uri)
+//                binding.imgPhotoUser.visibility = View.VISIBLE
+//                binding.imgPhoto.visibility = View.GONE
+//                createFileBeforeUpload(uri)
+//            }
+//        } else {
+//            binding.imgPhotoUser.visibility = View.GONE
+//            Toast.makeText(
+//                this,
+//                "Pemilihan gambar dibatalkan",
+//                Toast.LENGTH_LONG
+//            ).show()
+//        }
+//    }
     private val emailPattern = Pattern.compile(
         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                 "\\@" +
@@ -67,7 +71,7 @@ class RegisterActivity : BaseActivity() {
     )
     private val usernameRegex = Pattern.compile("[a-z]{3,15}")
     private val passwordREGEX = Pattern.compile("(?=\\S+$).{6,}$")
-    private var file = File("")
+    var file: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,12 +103,12 @@ class RegisterActivity : BaseActivity() {
             startActivity(i)
         }
         binding.imgLockPass.setOnClickListener {
-            binding.edtPassword.inputType = View.AUTOFILL_TYPE_TEXT
+            binding.edtPassword.transformationMethod = SingleLineTransformationMethod()
             binding.imgLockPass.visibility = View.GONE
             binding.imgOpenPass.visibility = View.VISIBLE
         }
         binding.imgOpenPass.setOnClickListener {
-            binding.edtPassword.inputType = View.AUTOFILL_HINT_PASSWORD.toInt()
+            binding.edtPassword.transformationMethod = PasswordTransformationMethod()
             binding.imgLockPass.visibility = View.VISIBLE
             binding.imgOpenPass.visibility = View.GONE
         }
@@ -130,67 +134,45 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun selectFileForUpload() {
-        val i = Intent().apply {
-            type = "image/*"
-            action = Intent.ACTION_GET_CONTENT
-        }
-        requestGetPhoto.launch(Intent.createChooser(i, "Select Picture"))
-    }
-
-    private fun createFileBeforeUpload(uri: Uri) {
-        lifecycleScope.launch {
-            kotlin.runCatching {
-                try {
-                    val targetOriginal =
-                        BitmapFactory.decodeStream(
-                            this@RegisterActivity.contentResolver.openInputStream(
-                                uri
-                            )
-                        )
-                    val targetCompressed = reduceBitmapSize(targetOriginal)
-                    val bos = ByteArrayOutputStream()
-                    targetCompressed.compress(Bitmap.CompressFormat.JPEG, 0, bos)
-                    val bitmapData = bos.toByteArray()
-
-                    file = File(
-                        this@RegisterActivity.filesDir.path,
-                        "${System.currentTimeMillis()}_compressed.jpeg"
-                    )
-                    file.createNewFile()
-                    val fos = FileOutputStream(file)
-                    fos.write(bitmapData)
-                    fos.flush()
-                    fos.close()
-
-                    // lempar file ke view model untuk diupload retrofit
-
-                } catch (e: Exception) {
-                    this@RegisterActivity.runOnUiThread {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Terjadi kesalahan saat menulis file",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
+        UwMediaPicker
+            .with(this)
+            .setGalleryMode(UwMediaPicker.GalleryMode.ImageGallery)
+            .setGridColumnCount(3)
+            .setMaxSelectableMediaCount(1)
+            .setLightStatusBar(true)
+            .enableImageCompression(true)
+            .setCompressionQuality(50)
+            .setCompressedFileDestinationPath(filesDir.path)
+            .launch { files ->
+                if (files != null) {
+                    binding.imgPhotoUser.visibility = View.VISIBLE
+                    binding.imgPhoto.visibility = View.GONE
+                    file = File(files[0].mediaPath)
+                    Glide.with(this).load(files[0].mediaPath).into(binding.imgPhotoUser)
                 }
             }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == 777) {
+            if (
+                grantResults.isNotEmpty() && grantResults[0] ==
+                PackageManager.PERMISSION_GRANTED
+            ) {
+                selectFileForUpload()
+            } else {
+                Toast.makeText(
+                    this,
+                    "The app needs your permission",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
-    }
-
-    private fun getFile(file: File) : File{
-        return file
-    }
-
-    private fun reduceBitmapSize(bitmap: Bitmap, MAX_SIZE: Int = 360000): Bitmap {
-        val ratioSquare: Double
-        val bitmapHeight: Int = bitmap.height
-        val bitmapWidth: Int = bitmap.width
-        ratioSquare = (bitmapHeight * bitmapWidth / MAX_SIZE).toDouble()
-        if (ratioSquare <= 1) return bitmap
-        val ratio = sqrt(ratioSquare)
-        val requiredHeight = (bitmapHeight / ratio).roundToInt()
-        val requiredWidth = (bitmapWidth / ratio).roundToInt()
-        return Bitmap.createScaledBitmap(bitmap, requiredWidth, requiredHeight, true)
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     override fun setupObserver() {
@@ -254,7 +236,7 @@ class RegisterActivity : BaseActivity() {
             val email = binding.edtEmail.text.toString().trim()
             val username = binding.edtUsername.text.toString().trim()
             val password = binding.edtPassword.text.toString()
-            if(file.isFile){
+            if(file != null){
                 viewModel.startRegister(file, email, username, password)
             }else{
                 viewModel.startRegister(null, email, username, password)
