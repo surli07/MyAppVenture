@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentKomunitasBinding
 import com.myappventure.app.ui.navigation.ui.community.NewCommunityActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,6 +28,8 @@ class KomunitasFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (MySharedPref.isLoggedIn) binding.imgCreate.visibility = View.VISIBLE
 
         binding.imgCreate.setOnClickListener {
             val intent = Intent(requireContext(), NewCommunityActivity::class.java)
