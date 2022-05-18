@@ -5,18 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentProfileBinding
 import com.myappventure.app.ui.MainFollowActivity
 import com.myappventure.app.ui.login.LoginActivity
-import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
 import com.myappventure.app.ui.navigation.ui.profile.pencapaian.PencapaianActivity
 import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
+import com.myappventure.app.ui.navigation.ui.profile.unggahan.UnggahanSayaActivity
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -45,7 +42,6 @@ class ProfileFragment : Fragment() {
 //                .into(binding.imgPhotoUser)
 
             binding.cardPenUpload.visibility = View.VISIBLE
-            binding.AboutUs.visibility = View.VISIBLE
             binding.Invite.visibility = View.VISIBLE
             binding.Logout.visibility = View.VISIBLE
             binding.recProfile.visibility = View.VISIBLE
@@ -60,22 +56,14 @@ class ProfileFragment : Fragment() {
             binding.icYourCommunity.visibility = View.VISIBLE
             binding.txtYourCommunity.visibility = View.VISIBLE
             binding.icNextYC.visibility = View.VISIBLE
-            binding.recYourBill.visibility = View.VISIBLE
-            binding.icYourBill.visibility = View.VISIBLE
-            binding.txtYourBill.visibility = View.VISIBLE
-            binding.icNextYB.visibility = View.VISIBLE
-            binding.recMembership.visibility = View.VISIBLE
-            binding.icMembership.visibility = View.VISIBLE
-            binding.txtMembership.visibility = View.VISIBLE
-            binding.icNextM.visibility = View.VISIBLE
+            binding.recTentangKita.visibility = View.VISIBLE
+            binding.icTentangKita.visibility = View.VISIBLE
+            binding.txtTentangKita.visibility = View.VISIBLE
             binding.recPencapaian.visibility = View.VISIBLE
             binding.icPencapaian.visibility = View.VISIBLE
             binding.txtPencapaianSaya.visibility = View.VISIBLE
             binding.icNextPencapaian.visibility = View.VISIBLE
-            binding.recUbahSandi.visibility = View.VISIBLE
-            binding.icUbahSandi.visibility = View.VISIBLE
-            binding.txtUbahSandi.visibility = View.VISIBLE
-            binding.icNextUbahSandi.visibility = View.VISIBLE
+            binding.icNextTentangKita.visibility = View.VISIBLE
             binding.imgBelumIkuti.visibility = View.GONE
             binding.txtAndaBelum.visibility = View.GONE
             binding.txtYukBergabung.visibility = View.GONE
@@ -114,11 +102,13 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), PencapaianActivity::class.java)
                 startActivity(intent)
             }
-            binding.Logout.setOnClickListener {
-                MySharedPref.logout()
-                val intent = Intent(requireContext(), NavigationActivity::class.java)
+            binding.icNextYP.setOnClickListener {
+                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
                 startActivity(intent)
-                activity?.finishAffinity()
+            }
+            binding.txtYourPost.setOnClickListener {
+                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
+                startActivity(intent)
             }
         } else {
             binding.txtYukBergabung.setOnClickListener {
@@ -126,7 +116,6 @@ class ProfileFragment : Fragment() {
                 startActivity(intent)
             }
 
-            binding.AboutUs.visibility = View.GONE
             binding.Invite.visibility = View.GONE
             binding.Logout.visibility = View.GONE
             binding.recProfile.visibility = View.GONE
@@ -141,27 +130,18 @@ class ProfileFragment : Fragment() {
             binding.icYourCommunity.visibility = View.GONE
             binding.txtYourCommunity.visibility = View.GONE
             binding.icNextYC.visibility = View.GONE
-            binding.recYourBill.visibility = View.GONE
-            binding.icYourBill.visibility = View.GONE
-            binding.txtYourBill.visibility = View.GONE
-            binding.icNextYB.visibility = View.GONE
-            binding.recMembership.visibility = View.GONE
-            binding.icMembership.visibility = View.GONE
-            binding.txtMembership.visibility = View.GONE
-            binding.icNextM.visibility = View.GONE
             binding.recPencapaian.visibility = View.GONE
             binding.icPencapaian.visibility = View.GONE
             binding.txtPencapaianSaya.visibility = View.GONE
             binding.icNextPencapaian.visibility = View.GONE
-            binding.recUbahSandi.visibility = View.GONE
-            binding.icUbahSandi.visibility = View.GONE
-            binding.txtUbahSandi.visibility = View.GONE
-            binding.icNextUbahSandi.visibility = View.GONE
+            binding.recTentangKita.visibility = View.GONE
+            binding.icTentangKita.visibility = View.GONE
+            binding.txtTentangKita.visibility = View.GONE
+            binding.icNextTentangKita.visibility = View.GONE
             binding.imgBelumIkuti.visibility = View.VISIBLE
             binding.txtAndaBelum.visibility = View.VISIBLE
             binding.txtYukBergabung.visibility = View.VISIBLE
         }
-//            binding.linearLayout.visibility = View.GONE
         setupObserver()
     }
 

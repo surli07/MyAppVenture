@@ -1,12 +1,20 @@
 package com.myappventure.app.ui.navigation.ui.profile.pencapaian
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.myappventure.app.R
+import androidx.appcompat.app.AppCompatActivity
+import com.myappventure.app.databinding.ActivityPencapaianBinding
 
 class PencapaianActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityPencapaianBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pencapaian)
+        binding = ActivityPencapaianBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnKembali.setOnClickListener {
+            finish()
+        }
     }
 }
