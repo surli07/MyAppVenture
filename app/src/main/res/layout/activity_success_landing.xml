@@ -33,9 +33,11 @@
 
             <TextView
                 android:id="@+id/txtTerimaKasih"
-                android:layout_width="wrap_content"
+                android:layout_width="269dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="26dp"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Terimakasih telah berlangganan"
                 android:textColor="#008C96"
