@@ -142,8 +142,11 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerBali"
                 android:layout_width="0dp"
-                android:layout_height="158dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_bali_destinasi"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/txtBali"
                 app:layout_constraintTop_toBottomOf="@id/txtBali" />

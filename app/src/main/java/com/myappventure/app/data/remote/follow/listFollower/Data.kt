@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.destinasi.baliDestinasi
+package com.myappventure.app.data.remote.follow.listFollower
 
 
 import com.google.gson.annotations.SerializedName
