@@ -71,4 +71,28 @@ class AuthRepository @Inject constructor(
         .onStart { onStart() }
         .onCompletion { onComplete() }
         .flowOn(ioDispatcher)
+
+    suspend fun subscribe(
+        onStart: () -> Unit,
+        onComplete: () -> Unit,
+        onError: (String?) -> Unit,
+        statusCode: (code: Int) -> Unit,
+        userEmail: String,
+    ) = flow {
+        val response = apiService.getSubscribe(userEmail)
+        response.suspendOnSuccess {
+            statusCode(this.statusCode.code)
+            emit(this.data)
+        }.onError {
+            Timber.e(this.message())
+            onError(this.message())
+            statusCode(this.statusCode.code)
+        }.onException {
+            Timber.e(this.message())
+            onError(this.message())
+        }
+    }
+        .onStart { onStart() }
+        .onCompletion { onComplete() }
+        .flowOn(ioDispatcher)
 }

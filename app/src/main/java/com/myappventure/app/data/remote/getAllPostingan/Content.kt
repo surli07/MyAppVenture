@@ -9,7 +9,7 @@ import java.util.*
 @Parcelize
 data class Content(
     @SerializedName("created_date")
-    val createdDate: String,
+    val createdDate: Date,
     @SerializedName("deleted_date")
     val deletedDate: Date?,
     @SerializedName("fileName1")

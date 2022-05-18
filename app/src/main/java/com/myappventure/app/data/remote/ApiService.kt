@@ -8,6 +8,7 @@ import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunita
 import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
 import com.myappventure.app.data.remote.register.RegisterResponse
+import com.myappventure.app.data.remote.subscribe.SubscribeResponse
 import com.skydoves.sandwich.ApiResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -57,4 +58,9 @@ interface ApiService {
         @Part("deskripsi") deskripsi: RequestBody,
         @Part("idUser") idUser: RequestBody,
     ): ApiResponse<CreateKomunitasResponse>
+
+    @GET("subscribe/email/{user-email}")
+    suspend fun getSubscribe(
+        @Path("user-email") userEmail: String
+    ): ApiResponse<SubscribeResponse>
 }
