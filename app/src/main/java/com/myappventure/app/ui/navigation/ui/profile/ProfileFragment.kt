@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.myappventure.app.R
@@ -12,6 +13,7 @@ import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentProfileBinding
 import com.myappventure.app.ui.MainFollowActivity
 import com.myappventure.app.ui.login.LoginActivity
+import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
 import com.myappventure.app.ui.navigation.ui.profile.pencapaian.PencapaianActivity
 import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
@@ -111,6 +113,12 @@ class ProfileFragment : Fragment() {
             binding.txtPencapaianSaya.setOnClickListener {
                 val intent = Intent(requireContext(), PencapaianActivity::class.java)
                 startActivity(intent)
+            }
+            binding.Logout.setOnClickListener {
+                MySharedPref.logout()
+                val intent = Intent(requireContext(), NavigationActivity::class.java)
+                startActivity(intent)
+                activity?.finishAffinity()
             }
         } else {
             binding.txtYukBergabung.setOnClickListener {
