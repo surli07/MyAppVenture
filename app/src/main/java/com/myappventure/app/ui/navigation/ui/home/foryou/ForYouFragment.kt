@@ -1,5 +1,6 @@
 package com.myappventure.app.ui.navigation.ui.home.foryou
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentForYouBinding
+import com.myappventure.app.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,7 +20,12 @@ class ForYouFragment : Fragment() {
     private var _binding: FragmentForYouBinding? = null
     private val postinganViewModel: PostinganViewModel by activityViewModels()
     private val binding get() = _binding!!
-    private val postinganAdapter = PostinganAdapter(mutableListOf())
+    private val postinganAdapter = PostinganAdapter(mutableListOf(), onClick = {
+        if(!MySharedPref.isLoggedIn){
+            val i = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(i)
+        }
+    })
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -8,7 +8,7 @@ import com.myappventure.app.databinding.ItemPostinganBinding
 
 class PostinganAdapter(
     var postingan: MutableList<Content>,
-//    private val onClick: LoginActivity
+    val onClick: () -> Unit
 ) : RecyclerView.Adapter<PostinganAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPostinganBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -24,6 +24,9 @@ class PostinganAdapter(
         holder.binding.txtDeskripsi.text = postingan.text
         holder.binding.txtJumlahLike.text = postingan.jumlahLike.toString()
         holder.binding.txtJumlahKomentar.text = postingan.jumlahKomentar.toString()
+        holder.binding.btnIkuti.setOnClickListener {
+            onClick()
+        }
 //        if (!MySharedPref.isLoggedIn){
 //            holder.binding.btnIkuti.setOnClickListener {
 //                onClick
