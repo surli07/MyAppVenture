@@ -10,10 +10,10 @@ import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentProfileBinding
 import com.myappventure.app.ui.MainFollowActivity
 import com.myappventure.app.ui.login.LoginActivity
+import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
 import com.myappventure.app.ui.navigation.ui.profile.pencapaian.PencapaianActivity
 import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
-import com.myappventure.app.ui.navigation.ui.profile.unggahan.UnggahanSayaActivity
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -102,14 +102,21 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), PencapaianActivity::class.java)
                 startActivity(intent)
             }
-            binding.icNextYP.setOnClickListener {
-                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
+
+            binding.Logout.setOnClickListener {
+                MySharedPref.logout()
+                val intent = Intent(requireContext(), NavigationActivity::class.java)
                 startActivity(intent)
+                activity?.finishAffinity()
             }
-            binding.txtYourPost.setOnClickListener {
-                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
-                startActivity(intent)
-            }
+//            binding.icNextYP.setOnClickListener {
+//                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
+//                startActivity(intent)
+//            }
+//            binding.txtYourPost.setOnClickListener {
+//                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
+//                startActivity(intent)
+//            }
         } else {
             binding.txtYukBergabung.setOnClickListener {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
