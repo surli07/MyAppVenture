@@ -11,6 +11,7 @@ import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityNavigationBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
+import com.myappventure.app.ui.navigation.ui.destinasi.BaliViewModel
 import com.myappventure.app.ui.navigation.ui.destinasi.DestinasiViewModel
 import com.myappventure.app.ui.navigation.ui.home.foryou.PostinganViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +23,7 @@ class NavigationActivity : BaseActivity() {
     private lateinit var binding: ActivityNavigationBinding
     private val postinganViewModel: PostinganViewModel by viewModels()
     private val destinasiViewModel: DestinasiViewModel by viewModels()
+    private val baliViewModel: BaliViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,7 @@ class NavigationActivity : BaseActivity() {
         lifecycleScope.launch {
             postinganViewModel.getAllPost()
             destinasiViewModel.getAllDestinasi()
+            baliViewModel.getBaliDestinasi()
         }
 
     }

@@ -15,13 +15,31 @@ import javax.inject.Inject
 class DestinasiRepository @Inject constructor(
     private val apiService: ApiService,
     private val ioDispatcher: CoroutineDispatcher
-){
+) {
     suspend fun getAllDestinasi(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
     ) = flow {
         val response = apiService.getAllDestinasi(0, 10)
+        response.suspendOnSuccess {
+            emit(this.data)
+        }.onError {
+            onError(this.message())
+        }.onException {
+            onError(this.message())
+        }
+    }
+        .onStart { onStart() }
+        .onCompletion { onComplete() }
+        .flowOn(ioDispatcher)
+
+    suspend fun getBaliDestinasi(
+        onStart: () -> Unit,
+        onComplete: () -> Unit,
+        onError: (String?) -> Unit,
+    ) = flow {
+        val response = apiService.getBaliDestinasi(0, 10)
         response.suspendOnSuccess {
             emit(this.data)
         }.onError {

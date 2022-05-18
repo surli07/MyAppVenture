@@ -5,20 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myappventure.app.databinding.FragmentDestinasiBinding
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.fragment.app.activityViewModels as activityViewModels1
 
 
 @AndroidEntryPoint
 class DestinasiFragment : Fragment() {
 
     private var _binding: FragmentDestinasiBinding? = null
-    private val destinasiViewModel: DestinasiViewModel by activityViewModels()
+    private val destinasiViewModel: DestinasiViewModel by activityViewModels1()
+    private val baliViewModel: BaliViewModel by activityViewModels1()
     private val binding get() = _binding!!
     private val destinasiAdapter = DestinasiAdapter(mutableListOf())
+    private val baliDestinasiAdapter = BaliDestinasiAdapter(mutableListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +45,14 @@ class DestinasiFragment : Fragment() {
             )
             adapter = destinasiAdapter
         }
+        binding.recyclerBali.apply {
+            layoutManager = LinearLayoutManager(
+                context,
+                RecyclerView.HORIZONTAL,
+                false
+            )
+            adapter = baliDestinasiAdapter
+        }
         setupObserver()
     }
 
@@ -51,6 +61,11 @@ class DestinasiFragment : Fragment() {
             destinasiAdapter.destinasi.clear()
             destinasiAdapter.destinasi.addAll(it)
             destinasiAdapter.notifyDataSetChanged()
+        }
+        baliViewModel.destinasiResult.observe(viewLifecycleOwner) {
+            baliDestinasiAdapter.destinasi.clear()
+            baliDestinasiAdapter.destinasi.addAll(it)
+            baliDestinasiAdapter.notifyDataSetChanged()
         }
     }
 }
