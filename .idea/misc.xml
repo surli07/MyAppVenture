@@ -78,7 +78,7 @@
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_follow.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_for_you.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_komunitas.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_komunitas.xml" value="0.16" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_likes_post.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_map.xml" value="0.25" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/fragment_mengikuti.xml" value="0.20416666666666666" />
@@ -92,6 +92,7 @@
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_kode_token.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_komunitas.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_mengikuti.xml" value="0.11979166666666667" />
+        <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_page_komunitas.xml" value="0.33" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_pengikut.xml" value="0.5" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/item_postingan.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shinta/AndroidStudioProjects/MyAppVenture/app/src/main/res/layout/loading_dialog.xml" value="0.20416666666666666" />
