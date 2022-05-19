@@ -5,6 +5,7 @@ import com.myappventure.app.data.remote.destinasi.AllListDestinasi.AllDestinasiR
 import com.myappventure.app.data.remote.destinasi.baliDestinasi.BaliDestinasiResponse
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
 import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
+import com.myappventure.app.data.remote.komunitas.list_komunitas.ListKomunitasResponse
 import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
 import com.myappventure.app.data.remote.register.RegisterResponse
@@ -63,4 +64,10 @@ interface ApiService {
     suspend fun getSubscribe(
         @Path("user-email") userEmail: String
     ): ApiResponse<SubscribeResponse>
+
+    @GET("komunitas/list")
+    suspend fun listKomunitas(
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+    ): ApiResponse<ListKomunitasResponse>
 }
