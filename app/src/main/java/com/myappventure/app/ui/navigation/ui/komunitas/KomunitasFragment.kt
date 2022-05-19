@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentKomunitasBinding
 import com.myappventure.app.ui.navigation.ui.community.NewCommunityActivity
@@ -16,6 +18,8 @@ class KomunitasFragment : Fragment() {
 
     private var _binding: FragmentKomunitasBinding? = null
     private val binding get() = _binding!!
+    private val komunitasViewModel: KomunitasViewModel by activityViewModels()
+    private val komunitasAdapter = KomunitasAdapter(mutableListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +39,14 @@ class KomunitasFragment : Fragment() {
             val intent = Intent(requireContext(), NewCommunityActivity::class.java)
             startActivity(intent)
         }
+        binding.recyclerCommunity.apply {
+            layoutManager = GridLayoutManager(
+                context,
+                2
+            )
+            adapter = komunitasAdapter
+        }
+        setupObserver()
     }
 
     override fun onDestroyView() {
@@ -43,6 +55,10 @@ class KomunitasFragment : Fragment() {
     }
 
     private fun setupObserver() {
-
+        komunitasViewModel.komunitasResult.observe(viewLifecycleOwner) {
+            komunitasAdapter.komunitas.clear()
+            komunitasAdapter.komunitas.addAll(it)
+            komunitasAdapter.notifyDataSetChanged()
+        }
     }
 }

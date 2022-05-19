@@ -22,7 +22,7 @@
                 android:id="@+id/mulaiPetualangan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="54dp"
+                android:layout_marginTop="35dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Mulai Petualanganmu Disini!"
                 android:textColor="@color/white"
@@ -35,6 +35,7 @@
                 android:id="@+id/txtSelamatDatang"
                 android:layout_width="338dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
                 android:text="Selamat Datang di My Appventure, Platform online bagi seluruh komunitas pecinta alam di Indonesia."
@@ -48,7 +49,7 @@
                 android:id="@+id/cardSearch"
                 android:layout_width="320dp"
                 android:layout_height="22dp"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="17dp"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +73,7 @@
                     android:layout_marginEnd="12dp"
                     android:background="@null"
                     android:fontFamily="@font/poppins_regular"
-                    android:hint="Cari komunitas dan pengguna lainnya"
+                    android:hint="Komunitas dan pengguna lainnya"
                     android:importantForAutofill="no"
                     android:inputType="none"
                     android:textSize="12sp" />
@@ -82,7 +83,7 @@
                 android:id="@+id/recyclerKategori"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -91,14 +92,42 @@
                 tools:listitem="@layout/item_kategori" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardImage">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerCommunity"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="22dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:spanCount="2"
+                tools:itemCount="30"
+                tools:listitem="@layout/item_page_komunitas" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
     <ImageView
         android:id="@+id/imgCreate"
         android:layout_width="46dp"
         android:layout_height="46dp"
-        android:src="@drawable/ic_create"
-        android:layout_marginBottom="120dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="120dp"
+        android:src="@drawable/ic_create"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
