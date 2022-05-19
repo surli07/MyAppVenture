@@ -4,13 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
     tools:context=".ui.landingPage.LandingPageActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg" />
 
     <ImageView
         android:id="@+id/square"
         android:layout_width="320dp"
-        android:layout_height="538dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/square"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,19 +55,19 @@
 
     <ImageView
         android:id="@+id/imgCamp"
-        android:layout_width="254dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="172dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="17dp"
         android:src="@drawable/ic_camp"
-        app:layout_constraintStart_toStartOf="@id/square"
-        app:layout_constraintTop_toTopOf="@id/txtSambutan" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtSambutan" />
 
     <TextView
         android:id="@+id/txtAjakan"
         android:layout_width="285dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="197dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Ayo bergabung dengan my appventure untuk mengetahui berita dan update terbaru "
         android:textColor="@color/white"
@@ -94,12 +100,13 @@
         android:fontFamily="@font/inter_bold"
         android:text="Berlangganan"
         android:textAllCaps="false"
-        android:textColor="@color/green"
         android:textSize="14sp"
+        android:backgroundTint="@color/button_login_register"
+        android:enabled="false"
+        android:textColor="@color/text_color_login_register"
         android:theme="@style/buttonstyle2"
         app:cornerRadius="8dp"
         app:layout_constraintStart_toStartOf="@id/email"
         app:layout_constraintTop_toBottomOf="@id/email" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

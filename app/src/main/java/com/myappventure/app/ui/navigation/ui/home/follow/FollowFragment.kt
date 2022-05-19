@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentFollowBinding
 import com.myappventure.app.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,10 +34,15 @@ class FollowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if(MySharedPref.isLoggedIn){
+            binding.txtYukBergabung.visibility = View.GONE
+        }
+
         binding.txtYukBergabung.setOnClickListener {
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }
+
         setupObserver()
     }
 
