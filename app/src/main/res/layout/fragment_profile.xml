@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Annonymous"
+            android:text="Anonymous"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -240,48 +240,6 @@
         app:layout_constraintTop_toTopOf="@id/icYourCommunity" />
 
     <ImageView
-        android:id="@+id/recPencapaian"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recYourCommunity" />
-
-    <ImageView
-        android:id="@+id/icPencapaian"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/award"
-        app:layout_constraintStart_toStartOf="@id/recPencapaian"
-        app:layout_constraintTop_toTopOf="@id/recPencapaian" />
-
-    <TextView
-        android:id="@+id/txtPencapaianSaya"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Pencapaian Saya"
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icPencapaian"
-        app:layout_constraintTop_toTopOf="@id/icPencapaian" />
-
-    <ImageView
-        android:id="@+id/icNextPencapaian"
-        android:layout_width="8dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recPencapaian"
-        app:layout_constraintTop_toTopOf="@id/icPencapaian" />
-
-    <ImageView
         android:id="@+id/recTentangKita"
         android:layout_width="299dp"
         android:layout_height="39dp"
@@ -290,7 +248,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recPencapaian" />
+        app:layout_constraintTop_toBottomOf="@id/recYourCommunity" />
 
     <ImageView
         android:id="@+id/icTentangKita"
@@ -308,7 +266,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Tentang Kita"
+        android:text="Tentang Kami"
         android:textColor="@color/tosca"
         app:layout_constraintStart_toEndOf="@id/icTentangKita"
         app:layout_constraintTop_toTopOf="@id/icTentangKita" />

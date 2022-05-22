@@ -11,12 +11,22 @@ import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.navigation.NavigationActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.util.regex.Pattern
 
 @AndroidEntryPoint
 class LandingPageActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLandingPageBinding
     private val viewModel: SubscribeViewModel by viewModels()
+    private val emailPattern = Pattern.compile(
+        "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+"
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +56,9 @@ class LandingPageActivity : BaseActivity() {
         when {
             email.isEmpty() -> {
                 binding.btnMasuk.isEnabled = false
+            }
+            !emailPattern.matcher(email).matches() -> {
+
             }
             else -> {
                 binding.btnMasuk.isEnabled = true
