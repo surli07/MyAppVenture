@@ -1,11 +1,8 @@
 package com.myappventure.app.data.remote.getAllPostingan
 
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class RolePath(
     @SerializedName("id")
     val id: Int,
@@ -15,4 +12,4 @@ data class RolePath(
     val name: String,
     @SerializedName("pattern")
     val pattern: String
-) : Parcelable
+)

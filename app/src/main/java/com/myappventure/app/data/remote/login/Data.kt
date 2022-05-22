@@ -11,7 +11,7 @@ data class Data(
     @SerializedName("expires_in")
     val expiresIn: Int,
     @SerializedName("filename")
-    val filename: String?,
+    val filename: String,
     @SerializedName("id")
     val id: Int,
     @SerializedName("jti")

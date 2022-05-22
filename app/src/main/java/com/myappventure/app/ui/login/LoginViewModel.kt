@@ -7,8 +7,8 @@ import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
 import com.myappventure.app.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
+import kotlinx.coroutines.flow.collect
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
