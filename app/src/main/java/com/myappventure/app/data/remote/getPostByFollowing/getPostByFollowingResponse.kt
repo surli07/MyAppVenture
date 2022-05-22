@@ -1,9 +1,9 @@
-package com.myappventure.app.data.remote.getAllPostingan
+package com.myappventure.app.data.remote.getPostByFollowing
 
 
 import com.google.gson.annotations.SerializedName
 
-data class AllPostinganResponse(
+data class getPostByFollowingResponse(
     @SerializedName("data")
     val `data`: Data,
     @SerializedName("message")

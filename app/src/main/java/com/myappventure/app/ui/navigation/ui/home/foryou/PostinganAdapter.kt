@@ -3,6 +3,7 @@ package com.myappventure.app.ui.navigation.ui.home.foryou
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.myappventure.app.TimeAgo.toTimeAgo
 import com.myappventure.app.data.remote.getAllPostingan.Content
 import com.myappventure.app.databinding.ItemPostinganBinding
@@ -21,6 +22,10 @@ class PostinganAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val postingan = postingan[position]
+        Glide.with(holder.itemView)
+            .load(postingan.user.urlFileName)
+            .into(holder.binding.imgProfile)
+        holder.binding.txtNamaUser.text = postingan.user.username
         holder.binding.txtWaktuPost.text = postingan.createdDate.toTimeAgo()
         holder.binding.txtDeskripsi.text = postingan.text
         holder.binding.txtJumlahLike.text = postingan.jumlahLike.toString()

@@ -1,16 +1,15 @@
-package com.myappventure.app.data.remote.getAllPostingan
+package com.myappventure.app.data.remote.getPostByFollowing
 
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 data class Content(
     @SerializedName("created_date")
-    val createdDate: Date,
+    val createdDate: String,
     @SerializedName("deleted_date")
     val deletedDate: Any,
     @SerializedName("filePosts")
-    val filePosts: List<FilePost>,
+    val filePosts: List<Any>,
     @SerializedName("id")
     val id: Int,
     @SerializedName("jumlahKomentar")

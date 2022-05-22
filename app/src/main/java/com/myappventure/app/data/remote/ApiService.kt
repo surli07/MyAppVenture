@@ -1,6 +1,7 @@
 package com.myappventure.app.data.remote
 
 
+import com.myappventure.app.data.remote.create_postingan.CreatePostinganResponse
 import com.myappventure.app.data.remote.destinasi.AllListDestinasi.AllDestinasiResponse
 import com.myappventure.app.data.remote.destinasi.baliDestinasi.BaliDestinasiResponse
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
@@ -36,6 +37,21 @@ interface ApiService {
     suspend fun getAllPostingan(
         @Query("page") page: Int,
         @Query("size") size: Int,
+    ): ApiResponse<AllPostinganResponse>
+
+    @POST("post/save/")
+    @Multipart
+    suspend fun newPost(
+        @Part file: List<MultipartBody.Part>?,
+        @Part("text") text: RequestBody,
+        @Part("idUser") idUser: RequestBody,
+    ): ApiResponse<CreatePostinganResponse>
+
+    @GET("post/postbyfollowing")
+    suspend fun getPostinganByFollowing(
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+        @Query("idUser") idUser: Int?,
     ): ApiResponse<AllPostinganResponse>
 
     @GET("destinasi/list")

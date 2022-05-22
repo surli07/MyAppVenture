@@ -14,7 +14,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentHomeBinding
-import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.home.create_postingan.CreatePostinganActivity
 import dagger.hilt.android.AndroidEntryPoint
 
