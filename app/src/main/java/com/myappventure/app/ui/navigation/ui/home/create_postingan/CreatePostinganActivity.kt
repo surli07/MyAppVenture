@@ -77,7 +77,7 @@ class CreatePostinganActivity : BaseActivity() {
     private fun selectFileForUpload() {
         UwMediaPicker
             .with(this)
-            .setGalleryMode(UwMediaPicker.GalleryMode.ImageGallery)
+            .setGalleryMode(UwMediaPicker.GalleryMode.ImageAndVideoGallery)
             .setGridColumnCount(4)
             .setMaxSelectableMediaCount(10)
             .setLightStatusBar(true)
