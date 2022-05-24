@@ -29,108 +29,183 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/btnKembali" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/imgKomunitas"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtJudulKomunitas">
-
-        <ImageView
-            android:id="@+id/imgFoto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/txtNamaKomunitas"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Komunitas Lingkungan Pantai Bandung"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgKomunitas" />
-
-    <ImageView
-        android:id="@+id/pembatas"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/pembatas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNamaKomunitas" />
-
-    <TextView
-        android:id="@+id/txtDeskripsi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Deskripsi:"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@id/btnKembali"
-        app:layout_constraintTop_toBottomOf="@id/pembatas" />
-
-    <TextView
-        android:id="@+id/txtDeskripsiKomunitas"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/poppins_regular"
-        android:justificationMode="inter_word"
-        android:text="Merupakan komunitas pecinta alam terutama pantai yang berdomisili di Bandung.
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtJudulKomunitas">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgKomunitas"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="35dp"
+                app:cardCornerRadius="75dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtNamaKomunitas"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Komunitas Lingkungan Pantai Bandung"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgKomunitas" />
+
+            <Button
+                android:id="@+id/btnUnggah"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/poppins_regular"
+                android:text="+ Unggah"
+                android:textAllCaps="false"
+                android:textColor="@color/green"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtNamaKomunitas" />
+
+            <Button
+                android:id="@+id/btnIkuti"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:backgroundTint="#457275"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Ikuti"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnUnggah" />
+
+            <Button
+                android:id="@+id/btnMengikuti"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Mengikuti"
+                android:textAllCaps="false"
+                android:textColor="@color/green"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnUnggah" />
+
+            <ImageView
+                android:id="@+id/pembatas"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/pembatas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnUnggah" />
+
+            <TextView
+                android:id="@+id/txtDeskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Deskripsi:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pembatas" />
+
+            <TextView
+                android:id="@+id/txtDeskripsiKomunitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="Merupakan komunitas pecinta alam terutama pantai yang berdomisili di Bandung.
 Kegiatan yang sering kami lakukan diantaranya:
 1. Susur pantai
 2. Membersihkan lingkungan sekitar pantai
 3. Reboisasi Mangrove, Dan masih banyak lagi"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtDeskripsi" />
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDeskripsi" />
 
-    <TextView
-        android:id="@+id/txtLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Link:"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@id/btnKembali"
-        app:layout_constraintTop_toBottomOf="@id/txtDeskripsiKomunitas" />
+            <TextView
+                android:id="@+id/txtLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Link:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/txtDeskripsi"
+                app:layout_constraintTop_toBottomOf="@id/txtDeskripsiKomunitas" />
 
-    <TextView
-        android:id="@+id/txtLinkGrup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/poppins_regular"
-        android:justificationMode="inter_word"
-        android:text="chat.whatsapp.com/bdgeudsvwaikjbdf3rwr "
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtLink" />
+            <TextView
+                android:id="@+id/txtLinkGrup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="chat.whatsapp.com/bdgeudsvwaikjbdf3rwr "
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLink" />
 
+            <ImageView
+                android:id="@+id/pembatas2"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/pembatas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLinkGrup" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerPostingan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pembatas2"
+                tools:listitem="@layout/item_postingan" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
