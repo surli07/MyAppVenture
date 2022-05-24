@@ -1,4 +1,4 @@
-package com.myappventure.app.ui.navigation.ui.komunitas
+package com.myappventure.app.repository
 
 import com.myappventure.app.data.remote.ApiService
 import com.skydoves.sandwich.message

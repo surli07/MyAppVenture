@@ -1,7 +1,7 @@
 package com.myappventure.app.ui.navigation.ui.komunitas
 
-import androidx.lifecycle.MutableLiveData
 import com.myappventure.app.base.BaseViewModel
+import com.myappventure.app.repository.PostinganKomunitasRepository
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
