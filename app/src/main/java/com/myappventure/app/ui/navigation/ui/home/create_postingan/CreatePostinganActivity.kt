@@ -11,7 +11,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.anilokcun.uwmediapicker.UwMediaPicker
+import com.anilokcun.uwmediapicker.model.UwMediaPickerMediaType
+import com.bumptech.glide.Glide
 import com.myappventure.app.base.BaseActivity
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.ActivityCreatePostinganBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.navigation.NavigationActivity
@@ -38,9 +41,15 @@ class CreatePostinganActivity : BaseActivity() {
             requestAccessForFile()
         }
 
+        Glide.with(this)
+            .load(MySharedPref.userURLFilename)
+            .into(binding.imgPhotoUser)
+
         binding.txtPostingan.doOnTextChanged { text, _, _, _ ->
             binding.btnPost.isEnabled = text.toString().isNotEmpty()
         }
+
+        binding.txtNamaUser.text = MySharedPref.userName
 
         binding.btnPost.setOnClickListener {
             createPost()
@@ -89,8 +98,33 @@ class CreatePostinganActivity : BaseActivity() {
             }
             .launch { f ->
                 f?.let { files ->
+                    val filterFiles = files.filter {
+                        val file = File(it.mediaPath)
+                        if (it.mediaType == UwMediaPickerMediaType.IMAGE) {
+//                            if(file.sizeInMb > 10.0){
+//                                Toast.makeText(
+//                                    this,
+//                                    "Maksimum foto yang dipilih harus < 20 MB",
+//                                    Toast.LENGTH_SHORT
+//                                ).show()
+//                            }
+                            return@filter file.sizeInMb <= 10.0
+                        } else if (it.mediaType == UwMediaPickerMediaType.VIDEO) {
+//                            if(file.sizeInMb > 35.0){
+//                                Toast.makeText(
+//                                    this,
+//                                    "Maksimum foto yang dipilih harus < 35MB",
+//                                    Toast.LENGTH_SHORT
+//                                ).show()
+//                            }
+                            return@filter  file.sizeInMb <= 35.0
+                        }
+                        return@filter false
+                    }.map {
+                        return@map File(it.mediaPath)
+                    }
                     selectedFiles.clear()
-                    selectedFiles.addAll(files.map { File(it.mediaPath) })
+                    selectedFiles.addAll(filterFiles)
                 }
             }
     }

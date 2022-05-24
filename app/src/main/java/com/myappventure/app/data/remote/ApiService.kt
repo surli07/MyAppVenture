@@ -39,7 +39,7 @@ interface ApiService {
         @Query("size") size: Int,
     ): ApiResponse<AllPostinganResponse>
 
-    @POST("post/save/")
+    @POST("post/postingan/save/")
     @Multipart
     suspend fun newPost(
         @Part file: List<MultipartBody.Part>?,

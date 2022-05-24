@@ -25,7 +25,7 @@ class PostinganAdapter(
         Glide.with(holder.itemView)
             .load(postingan.user.urlFileName)
             .into(holder.binding.imgProfile)
-        holder.binding.txtNamaUser.text = postingan.user.username
+        holder.binding.txtNamaUser.text = postingan.user.nama
         holder.binding.txtWaktuPost.text = postingan.createdDate.toTimeAgo()
         holder.binding.txtDeskripsi.text = postingan.text
         holder.binding.txtJumlahLike.text = postingan.jumlahLike.toString()
