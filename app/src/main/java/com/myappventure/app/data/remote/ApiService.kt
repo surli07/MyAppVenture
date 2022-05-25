@@ -6,6 +6,7 @@ import com.myappventure.app.data.remote.destinasi.AllListDestinasi.AllDestinasiR
 import com.myappventure.app.data.remote.destinasi.baliDestinasi.BaliDestinasiResponse
 import com.myappventure.app.data.remote.destinasi.detailDestinasi.DetailDestinasiResponse
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
+import com.myappventure.app.data.remote.getPostByFollowing.getPostByFollowingResponse
 import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.list_komunitas.ListKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganKomunitasResponse
@@ -41,7 +42,7 @@ interface ApiService {
         @Query("size") size: Int,
     ): ApiResponse<AllPostinganResponse>
 
-    @POST("post/save/")
+    @POST("post/postingan/save/")
     @Multipart
     suspend fun newPost(
         @Part file: List<MultipartBody.Part>?,
@@ -54,7 +55,7 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("size") size: Int,
         @Query("idUser") idUser: Int?,
-    ): ApiResponse<AllPostinganResponse>
+    ): ApiResponse<getPostByFollowingResponse>
 
     @GET("destinasi/list")
     suspend fun getAllDestinasi(

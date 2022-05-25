@@ -2,10 +2,11 @@ package com.myappventure.app.data.remote.getPostByFollowing
 
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 data class Content(
     @SerializedName("created_date")
-    val createdDate: String,
+    val createdDate: Date,
     @SerializedName("deleted_date")
     val deletedDate: Any,
     @SerializedName("filePosts")
