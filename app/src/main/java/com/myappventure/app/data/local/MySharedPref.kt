@@ -8,6 +8,7 @@ object MySharedPref {
     private const val USER_EMAIL = "userEmail"
     private const val USER_NAME = "userName"
     private const val USER_FILENAME = "userFilename"
+    private const val USER_URLFILENAME = "userURLFilename"
     private const val REFRESH_TOKEN = "refreshToken"
     private const val IS_LOGIN = "isLogin"
     private const val ID_USER = "idUser"
@@ -48,6 +49,13 @@ object MySharedPref {
         get() = Hawk.get(USER_FILENAME)
         set(value) {
             Hawk.put(USER_FILENAME, value)
+            field = value
+        }
+
+    var userURLFilename: String? = null
+        get() = Hawk.get(USER_URLFILENAME)
+        set(value) {
+            Hawk.put(USER_URLFILENAME, value)
             field = value
         }
 

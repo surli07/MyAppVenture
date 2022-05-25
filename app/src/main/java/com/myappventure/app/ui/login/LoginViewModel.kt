@@ -7,8 +7,8 @@ import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
 import com.myappventure.app.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
@@ -41,6 +41,7 @@ class LoginViewModel @Inject constructor(
                 MySharedPref.userEmail = it.email
                 MySharedPref.userName = it.username
                 MySharedPref.userFilename = it.filename
+                MySharedPref.userURLFilename = it.urlFilename
                 MySharedPref.idUser = it.id
                 loginResponse.postValue(response)
             }

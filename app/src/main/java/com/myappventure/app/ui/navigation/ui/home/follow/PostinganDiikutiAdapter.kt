@@ -1,21 +1,20 @@
-package com.myappventure.app.ui.navigation.ui.home.foryou
+package com.myappventure.app.ui.navigation.ui.home.follow
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myappventure.app.TimeAgo.toTimeAgo
-import com.myappventure.app.data.remote.getAllPostingan.Content
+import com.myappventure.app.data.remote.getPostByFollowing.Content
 import com.myappventure.app.databinding.ItemPostinganBinding
 
-class PostinganAdapter(
-    var postingan: MutableList<Content>,
-    val onClick: () -> Unit
-) : RecyclerView.Adapter<PostinganAdapter.ViewHolder>() {
+class PostinganDiikutiAdapter (
+    var postingan: MutableList<Content>
+) : RecyclerView.Adapter<PostinganDiikutiAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPostinganBinding) :
         RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostinganDiikutiAdapter.ViewHolder {
         val view = ItemPostinganBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
@@ -30,11 +29,8 @@ class PostinganAdapter(
         holder.binding.txtDeskripsi.text = postingan.text
         holder.binding.txtJumlahLike.text = postingan.jumlahLike.toString()
         holder.binding.txtJumlahKomentar.text = postingan.jumlahKomentar.toString()
-        holder.binding.btnIkuti.setOnClickListener {
-            onClick()
-        }
+        holder.binding.btnIkuti.visibility = View.GONE
     }
 
     override fun getItemCount() = postingan.size
-
 }
