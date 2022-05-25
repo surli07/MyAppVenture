@@ -1,0 +1,35 @@
+package com.myappventure.app.ui.navigation.ui.komunitas
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.myappventure.app.TimeAgo.toTimeAgo
+import com.myappventure.app.data.remote.getAllPostingan.Content
+import com.myappventure.app.databinding.ItemPostinganBinding
+
+class PostinganKomunitasAdapter(
+    var postingan: MutableList<Content>,
+    val onClick: () -> Unit
+) : RecyclerView.Adapter<PostinganKomunitasAdapter.ViewHolder>() {
+    inner class ViewHolder(val binding: ItemPostinganBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = ItemPostinganBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val postingan = postingan[position]
+        holder.binding.txtWaktuPost.text = postingan.createdDate.toTimeAgo()
+        holder.binding.txtDeskripsi.text = postingan.text
+        holder.binding.txtJumlahLike.text = postingan.jumlahLike.toString()
+        holder.binding.txtJumlahKomentar.text = postingan.jumlahKomentar.toString()
+        holder.binding.btnIkuti.setOnClickListener {
+            onClick()
+        }
+    }
+
+    override fun getItemCount() = postingan.size
+
+}

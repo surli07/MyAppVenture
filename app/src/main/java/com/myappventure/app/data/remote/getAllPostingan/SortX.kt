@@ -1,11 +1,8 @@
 package com.myappventure.app.data.remote.getAllPostingan
 
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class SortX(
     @SerializedName("empty")
     val empty: Boolean,
@@ -13,4 +10,4 @@ data class SortX(
     val sorted: Boolean,
     @SerializedName("unsorted")
     val unsorted: Boolean
-) : Parcelable
+)

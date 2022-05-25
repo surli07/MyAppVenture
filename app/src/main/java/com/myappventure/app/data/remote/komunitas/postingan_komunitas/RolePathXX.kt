@@ -1,9 +1,9 @@
-package com.myappventure.app.data.remote.create_postingan
+package com.myappventure.app.data.remote.komunitas.postingan_komunitas
 
 
 import com.google.gson.annotations.SerializedName
 
-data class RolePath(
+data class RolePathXX(
     @SerializedName("id")
     val id: Int,
     @SerializedName("method")

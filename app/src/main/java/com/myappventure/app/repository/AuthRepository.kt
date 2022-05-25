@@ -22,6 +22,7 @@ class AuthRepository @Inject constructor(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
+        statusCode: (code: Int) -> Unit,
         file: MultipartBody.Part?,
         email: RequestBody,
         username: RequestBody,
@@ -35,10 +36,12 @@ class AuthRepository @Inject constructor(
             password,
             fullname)
         response.suspendOnSuccess {
+            statusCode(this.statusCode.code)
             emit(this.data)
         }.onError {
             Timber.e(this.message())
             onError(this.message())
+            statusCode(this.statusCode.code)
         }.onException {
             Timber.e(this.message())
             onError(this.message())

@@ -1,11 +1,8 @@
 package com.myappventure.app.data.remote.getAllPostingan
 
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class Pageable(
     @SerializedName("offset")
     val offset: Int,
@@ -19,4 +16,4 @@ data class Pageable(
     val sort: Sort,
     @SerializedName("unpaged")
     val unpaged: Boolean
-) : Parcelable
+)

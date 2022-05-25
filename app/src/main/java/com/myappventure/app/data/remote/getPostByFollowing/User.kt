@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.create_postingan
+package com.myappventure.app.data.remote.getPostByFollowing
 
 
 import com.google.gson.annotations.SerializedName
@@ -7,7 +7,7 @@ data class User(
     @SerializedName("authorities")
     val authorities: List<Authority>,
     @SerializedName("fileName")
-    val fileName: String,
+    val fileName: Any,
     @SerializedName("id")
     val id: Int,
     @SerializedName("nama")

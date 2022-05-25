@@ -1,11 +1,11 @@
-package com.myappventure.app.data.remote.create_postingan
+package com.myappventure.app.data.remote.komunitas.postingan_komunitas
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Create_Postingan_Response(
+data class Data(
     @SerializedName("data")
-    val `data`: Data,
+    val data : List<DataX>,
     @SerializedName("message")
     val message: String,
     @SerializedName("status")

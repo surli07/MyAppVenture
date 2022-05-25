@@ -27,7 +27,15 @@ class RegisterViewModel @Inject constructor(
         val fileRequestBody = file?.asRequestBody(
             getMimeType(file.path)!!.toMediaType()
         )
-        val fileMultiPart = if (fileRequestBody != null ) MultipartBody.Part.create(fileRequestBody) else null
+        val fileMultiPart = if (fileRequestBody != null) {
+            MultipartBody.Part.createFormData(
+                "file",
+                file.name,
+                fileRequestBody
+            )
+        } else {
+            null
+        }
         val emailPart = email.toRequestBody("text/plain".toMediaType())
         val usernamePart = username.toRequestBody("text/plain".toMediaType())
         val passwordPart = password.toRequestBody("text/plain".toMediaType())
@@ -42,13 +50,21 @@ class RegisterViewModel @Inject constructor(
             onError = {
                 _message.postValue(it)
             },
+            statusCode = {
+                _statusCode.postValue(it)
+            },
             fileMultiPart,
             emailPart,
             usernamePart,
             passwordPart,
             fullnamePart
-        ).collect {
-            registerResponse.postValue(it)
+        ).collect { response ->
+            response.data?.let {
+                registerResponse.postValue(response)
+            }
+            if (response.status != "200") {
+                _message.postValue(response.message)
+            }
         }
     }
 

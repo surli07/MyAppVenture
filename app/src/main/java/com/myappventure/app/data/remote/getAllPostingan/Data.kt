@@ -1,11 +1,8 @@
 package com.myappventure.app.data.remote.getAllPostingan
 
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class Data(
     @SerializedName("content")
     val content: List<Content>,
@@ -29,4 +26,4 @@ data class Data(
     val totalElements: Int,
     @SerializedName("totalPages")
     val totalPages: Int
-) : Parcelable
+)

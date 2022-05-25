@@ -17,10 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
-            android:name=".ui.navigation.ui.profile.profile.SuksesUpdateActivity"
+            android:name=".ui.navigation.ui.profile.unggahan.UnggahanSayaActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.navigation.ui.profile.unggahan.UnggahanSayaActivity"
+            android:name=".ui.navigation.ui.profile.profile.SuksesUpdateActivity"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.home.create_postingan.CreatePostinganActivity"

@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.anilokcun.uwmediapicker.UwMediaPicker
+import com.anilokcun.uwmediapicker.model.UwMediaPickerMediaType
 import com.bumptech.glide.Glide
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityRegisterBinding
@@ -30,6 +31,7 @@ class RegisterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private val viewModel: RegisterViewModel by viewModels()
+    private var statusCode = 0
     private val emailPattern = Pattern.compile(
         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                 "\\@" +
@@ -39,9 +41,12 @@ class RegisterActivity : BaseActivity() {
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                 ")+"
     )
-    private val usernameRegex = Pattern.compile("[a-z]{3,15}")
-    private val passwordREGEX = Pattern.compile("(?=\\S+$).{6,}$")
-    var file: File? = null
+    private val File.size get() = if (!exists()) 0.0 else length().toDouble()
+    private val File.sizeInKb get() = size / 1024
+    private val File.sizeInMb get() = sizeInKb / 1024
+    private val usernameRegex = Pattern.compile("[a-z0-9_]{3,15}")
+    private val passwordREGEX = Pattern.compile("(?=\\S+$).{6,10}$")
+    private var selectedFile = mutableListOf<File>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,12 +118,25 @@ class RegisterActivity : BaseActivity() {
             .enableImageCompression(true)
             .setCompressionQuality(50)
             .setCompressedFileDestinationPath(filesDir.path)
-            .launch { files ->
-                if (files != null) {
-                    binding.imgPhotoUser.visibility = View.VISIBLE
-                    binding.imgPhoto.visibility = View.GONE
-                    file = File(files[0].mediaPath)
-                    Glide.with(this).load(files[0].mediaPath).into(binding.imgPhotoUser)
+            .launch { f ->
+                f?.let { files ->
+                    files.forEach{
+                        if(it.mediaType == UwMediaPickerMediaType.IMAGE) {
+                            var gambar = File(it.mediaPath)
+                            if (gambar.sizeInMb <= 10.0) {
+                                selectedFile.add(File(it.mediaPath))
+                                binding.imgPhotoUser.visibility = View.VISIBLE
+                                binding.imgPhoto.visibility = View.GONE
+                                Glide.with(this).load(it.mediaPath).into(binding.imgPhotoUser)
+                            } else {
+                                Toast.makeText(
+                                    this,
+                                    "Maksimum foto yang dipilih harus < 20 MB",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    }
                 }
             }
     }
@@ -146,6 +164,9 @@ class RegisterActivity : BaseActivity() {
     }
 
     override fun setupObserver() {
+        viewModel.statusCode.observe(this) {
+            statusCode = it
+        }
         val loadingUi = CustomLoadingDialog(this)
         viewModel.loading.observe(this) {
             if (it) loadingUi.show() else loadingUi.dismiss()
@@ -154,9 +175,11 @@ class RegisterActivity : BaseActivity() {
             showMessageToast(it)
         }
         viewModel.registerResponse.observe(this) {
-            val i = Intent(this@RegisterActivity, SuksesRegisterActivity::class.java)
-            startActivity(i)
-            finish()
+            if (it.status == "200"){
+                val i = Intent(this@RegisterActivity, SuksesRegisterActivity::class.java)
+                startActivity(i)
+                finish()
+            }
         }
 
     }
@@ -204,14 +227,13 @@ class RegisterActivity : BaseActivity() {
     private fun register() {
         lifecycleScope.launch {
             val email = binding.edtEmail.text.toString().trim()
-            val username = binding.edtUsername.text.toString().trim()
+            val username = binding.edtUsername.text.toString()
             val password = binding.edtPassword.text.toString()
-            if (file != null) {
-                viewModel.startRegister(file, email, username, password)
+            if (selectedFile.isNotEmpty()) {
+                viewModel.startRegister(selectedFile[0], email, username, password)
             } else {
                 viewModel.startRegister(null, email, username, password)
             }
-            setupObserver()
         }
     }
 }

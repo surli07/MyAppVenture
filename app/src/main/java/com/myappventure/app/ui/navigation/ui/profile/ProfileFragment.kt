@@ -10,6 +10,7 @@ import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentProfileBinding
 import com.myappventure.app.ui.MainFollowActivity
 import com.myappventure.app.ui.login.LoginActivity
+import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
 import com.myappventure.app.ui.navigation.ui.profile.pencapaian.PencapaianActivity
 import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
@@ -59,10 +60,6 @@ class ProfileFragment : Fragment() {
             binding.recTentangKita.visibility = View.VISIBLE
             binding.icTentangKita.visibility = View.VISIBLE
             binding.txtTentangKita.visibility = View.VISIBLE
-            binding.recPencapaian.visibility = View.VISIBLE
-            binding.icPencapaian.visibility = View.VISIBLE
-            binding.txtPencapaianSaya.visibility = View.VISIBLE
-            binding.icNextPencapaian.visibility = View.VISIBLE
             binding.icNextTentangKita.visibility = View.VISIBLE
             binding.imgBelumIkuti.visibility = View.GONE
             binding.txtAndaBelum.visibility = View.GONE
@@ -94,13 +91,12 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), KomunitasActivity::class.java)
                 startActivity(intent)
             }
-            binding.icNextPencapaian.setOnClickListener {
-                val intent = Intent(requireContext(), PencapaianActivity::class.java)
+
+            binding.Logout.setOnClickListener {
+                MySharedPref.logout()
+                val intent = Intent(requireContext(), NavigationActivity::class.java)
                 startActivity(intent)
-            }
-            binding.txtPencapaianSaya.setOnClickListener {
-                val intent = Intent(requireContext(), PencapaianActivity::class.java)
-                startActivity(intent)
+                activity?.finishAffinity()
             }
 //            binding.icNextYP.setOnClickListener {
 //                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
@@ -130,10 +126,6 @@ class ProfileFragment : Fragment() {
             binding.icYourCommunity.visibility = View.GONE
             binding.txtYourCommunity.visibility = View.GONE
             binding.icNextYC.visibility = View.GONE
-            binding.recPencapaian.visibility = View.GONE
-            binding.icPencapaian.visibility = View.GONE
-            binding.txtPencapaianSaya.visibility = View.GONE
-            binding.icNextPencapaian.visibility = View.GONE
             binding.recTentangKita.visibility = View.GONE
             binding.icTentangKita.visibility = View.GONE
             binding.txtTentangKita.visibility = View.GONE

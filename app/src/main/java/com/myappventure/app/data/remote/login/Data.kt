@@ -11,7 +11,7 @@ data class Data(
     @SerializedName("expires_in")
     val expiresIn: Int,
     @SerializedName("filename")
-    val filename: String?,
+    val filename: String,
     @SerializedName("id")
     val id: Int,
     @SerializedName("jti")
@@ -22,6 +22,8 @@ data class Data(
     val scope: String,
     @SerializedName("token_type")
     val tokenType: String,
+    @SerializedName("urlFilename")
+    val urlFilename: String,
     @SerializedName("username")
     val username: String
 )

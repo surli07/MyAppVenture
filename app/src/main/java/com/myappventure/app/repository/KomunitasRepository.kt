@@ -50,4 +50,24 @@ class KomunitasRepository @Inject constructor(
         .onStart { onStart() }
         .onCompletion { onComplete() }
         .flowOn(ioDispatcher)
+
+    suspend fun getKomunitas(
+        onStart: () -> Unit,
+        onComplete: () -> Unit,
+        onError: (String?) -> Unit,
+    ) = flow {
+        val response = apiService.listKomunitas(0,1000)
+        response.suspendOnSuccess {
+            emit(this.data)
+        }.onError {
+            Timber.e(this.message())
+            onError(this.message())
+        }.onException {
+            Timber.e(this.message())
+            onError(this.message())
+        }
+    }
+        .onStart { onStart() }
+        .onCompletion { onComplete() }
+        .flowOn(ioDispatcher)
 }
