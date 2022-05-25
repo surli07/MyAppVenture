@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Toast.makeText
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -17,6 +16,7 @@ import com.myappventure.app.databinding.ActivityCreatePostinganBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.navigation.NavigationActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.io.File
 
 @AndroidEntryPoint

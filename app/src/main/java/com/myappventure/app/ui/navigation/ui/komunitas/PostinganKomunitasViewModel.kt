@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.myappventure.app.base.BaseViewModel
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganKomunitasResponse
-import com.myappventure.app.repository.PostinganRepository
+import com.myappventure.app.repository.PostinganKomunitasRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PostinganKomunitasViewModel @Inject constructor(
-    private val postinganRepository: PostinganRepository
+    private val postinganKomunitasRepository: PostinganKomunitasRepository
 ) : BaseViewModel() {
 
     val postinganKomunitasResponse = MutableLiveData<PostinganKomunitasResponse>()
@@ -32,7 +32,8 @@ class PostinganKomunitasViewModel @Inject constructor(
         }
         val text = text.toRequestBody("text/plain".toMediaType())
         val idUser = id.toRequestBody("text/plain".toMediaType())
-        postinganRepository.postinganKomunitas(
+        val idKomunitas = id.toRequestBody("text/plain".toMediaType())
+        postinganKomunitasRepository.postinganKomunitas(
             onStart = {
                 showLoading()
             },
@@ -42,11 +43,11 @@ class PostinganKomunitasViewModel @Inject constructor(
             onError = {
                 _message.postValue(it)
             },
-            filesMultipart,
-            text,
             idUser,
-            id,
-        ).collect {
+            idKomunitas,
+            filesMultipart,
+            text
+        ).collect{
             postinganKomunitasResponse.postValue(it)
         }
     }

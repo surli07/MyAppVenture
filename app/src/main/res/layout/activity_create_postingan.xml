@@ -83,22 +83,13 @@
                         android:layout_marginTop="9dp"
                         android:background="@null"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet pellentesque volutpat sed convallis urna suspendisse. Tincidunt posuere risus accumsan fermentum mauris mi sed viverra vulputate. Nibh vitae sed diam morbi pellentesque. Commodo justo morbi lacinia quam non, id est quis commodo. Purus quis nibh metus elementum interdum diam odio porttitor. Eget sit adipiscing enim varius."
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="11dp"
-                        android:layout_marginTop="16dp"
-                        tools:listitem="@layout/item_image_create_post"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txtPostingan" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.core.widget.NestedScrollView>
             <ImageView
+                android:id="@+id/imgUpload"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
@@ -108,8 +99,9 @@
                 app:layout_constraintTop_toBottomOf="@id/scrollPostingan"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPost"
                 android:layout_width="96dp"
-                android:layout_height="37dp"
+                android:layout_height="40dp"
                 android:backgroundTint="@color/green"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Posting"
@@ -117,6 +109,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="14sp"
+                android:enabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/scrollPostingan"/>
         </androidx.constraintlayout.widget.ConstraintLayout>

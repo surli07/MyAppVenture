@@ -26,7 +26,7 @@ class DetailKomunitasViewModel @Inject constructor(
                 _message.postValue(it)
             }
         ).collect {
-            postinganResult.postValue(it.data.dataX)
+            postinganResult.postValue(it.data.data)
         }
     }
 }
