@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/itemKomunitas"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemKomunitas"
     android:layout_width="144dp"
     android:layout_height="186dp"
     android:layout_margin="20dp"
@@ -28,12 +28,15 @@
 
     <TextView
         android:id="@+id/txtNamaKomunitas"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:ellipsize="end"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Nama Komunitas"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="Komunitas Pendaki Gunung Semeru Jawa Timur"
         android:textColor="@color/green"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardKomunitas" />

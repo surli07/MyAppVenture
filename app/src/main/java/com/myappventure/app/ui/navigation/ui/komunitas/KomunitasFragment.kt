@@ -19,7 +19,10 @@ class KomunitasFragment : Fragment() {
     private var _binding: FragmentKomunitasBinding? = null
     private val binding get() = _binding!!
     private val komunitasViewModel: KomunitasViewModel by activityViewModels()
-    private val komunitasAdapter = KomunitasAdapter(mutableListOf())
+    private val komunitasAdapter = KomunitasAdapter(mutableListOf(), onClick = {
+        val i = Intent(requireContext(), DetailKomunitasActivity::class.java)
+        startActivity(i)
+    })
 
     override fun onCreateView(
         inflater: LayoutInflater,
