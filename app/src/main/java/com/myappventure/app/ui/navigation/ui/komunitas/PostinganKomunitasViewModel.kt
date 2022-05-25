@@ -8,6 +8,7 @@ import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganK
 import com.myappventure.app.repository.PostinganKomunitasRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import okhttp3.MediaType.Companion.toMediaType
+import kotlinx.coroutines.flow.collect
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody

@@ -14,7 +14,6 @@ import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.navigation.ui.destinasi.BaliViewModel
 import com.myappventure.app.ui.navigation.ui.destinasi.DestinasiViewModel
 import com.myappventure.app.ui.navigation.ui.home.foryou.PostinganViewModel
-import com.myappventure.app.ui.navigation.ui.komunitas.DetailKomunitasViewModel
 import com.myappventure.app.ui.navigation.ui.komunitas.KomunitasViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -27,7 +26,6 @@ class NavigationActivity : BaseActivity() {
     private val destinasiViewModel: DestinasiViewModel by viewModels()
     private val baliViewModel: BaliViewModel by viewModels()
     private val komunitasViewModel: KomunitasViewModel by viewModels()
-    private val detailKomunitasViewModel: DetailKomunitasViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +49,6 @@ class NavigationActivity : BaseActivity() {
             destinasiViewModel.getAllDestinasi()
             baliViewModel.getBaliDestinasi()
             komunitasViewModel.getListKomunitas()
-            detailKomunitasViewModel.postinganKomunitas()
         }
 
     }

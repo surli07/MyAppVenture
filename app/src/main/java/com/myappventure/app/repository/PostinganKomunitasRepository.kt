@@ -26,7 +26,7 @@ class PostinganKomunitasRepository @Inject constructor(
         onError: (String?) -> Unit,
         idUser: RequestBody,
         idKomunitas: RequestBody,
-        file: MultipartBody.Part?,
+        file: List<MultipartBody.Part?>?,
         text: RequestBody,
     ) = flow {
         val response = apiService.postinganKomunitas(

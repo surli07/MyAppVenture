@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -11,7 +12,6 @@ import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.anilokcun.uwmediapicker.UwMediaPicker
 import com.myappventure.app.base.BaseActivity
-import com.myappventure.app.base.Message
 import com.myappventure.app.databinding.ActivityCreatePostinganBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.navigation.NavigationActivity
@@ -124,10 +124,10 @@ class PostinganKomunitasActivity : BaseActivity() {
             ) {
                 selectFileForUpload()
             } else {
-                Message.Toast.makeText(
+                Toast.makeText(
                     this,
                     "The app needs your permission",
-                    Message.Toast.LENGTH_LONG
+                    Toast.LENGTH_LONG
                 ).show()
             }
         }

@@ -99,7 +99,7 @@ interface ApiService {
     suspend fun postinganKomunitas(
         @Part("idUser") idUser: RequestBody,
         @Part("idKomunitas") idKomunitas: RequestBody,
-        @Part file: MultipartBody.Part?,
+        @Part file: List<MultipartBody.Part?>?,
         @Part("text") text: RequestBody,
     ): ApiResponse<PostinganKomunitasResponse>
 }
