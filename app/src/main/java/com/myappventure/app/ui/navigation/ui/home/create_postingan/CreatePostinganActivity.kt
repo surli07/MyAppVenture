@@ -41,6 +41,12 @@ class CreatePostinganActivity : BaseActivity() {
             requestAccessForFile()
         }
 
+        binding.imgBack.setOnClickListener {
+            val i = Intent(this, NavigationActivity::class.java)
+            startActivity(i)
+            finish()
+        }
+
         Glide.with(this)
             .load(MySharedPref.userURLFilename)
             .into(binding.imgPhotoUser)
@@ -101,22 +107,22 @@ class CreatePostinganActivity : BaseActivity() {
                     val filterFiles = files.filter {
                         val file = File(it.mediaPath)
                         if (it.mediaType == UwMediaPickerMediaType.IMAGE) {
-//                            if(file.sizeInMb > 10.0){
-//                                Toast.makeText(
-//                                    this,
-//                                    "Maksimum foto yang dipilih harus < 20 MB",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
+                            if(file.sizeInMb > 10.0){
+                                Toast.makeText(
+                                    this,
+                                    "Maksimum foto yang dipilih harus < 20 MB",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                             return@filter file.sizeInMb <= 10.0
                         } else if (it.mediaType == UwMediaPickerMediaType.VIDEO) {
-//                            if(file.sizeInMb > 35.0){
-//                                Toast.makeText(
-//                                    this,
-//                                    "Maksimum foto yang dipilih harus < 35MB",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
+                            if(file.sizeInMb > 35.0){
+                                Toast.makeText(
+                                    this,
+                                    "Maksimum video yang dipilih harus < 35MB",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                             return@filter  file.sizeInMb <= 35.0
                         }
                         return@filter false

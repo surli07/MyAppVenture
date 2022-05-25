@@ -46,7 +46,7 @@ class RegisterActivity : BaseActivity() {
     private val File.sizeInMb get() = sizeInKb / 1024
     private val usernameRegex = Pattern.compile("[a-z0-9_]{3,15}")
     private val passwordREGEX = Pattern.compile("(?=\\S+$).{6,10}$")
-    var file: File? = null
+    private var selectedFile = mutableListOf<File>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,9 +121,10 @@ class RegisterActivity : BaseActivity() {
             .launch { f ->
                 f?.let { files ->
                     files.forEach{
-                        file = File(it.mediaPath)
                         if(it.mediaType == UwMediaPickerMediaType.IMAGE) {
-                            if (file!!.sizeInMb <= 10.0) {
+                            var gambar = File(it.mediaPath)
+                            if (gambar.sizeInMb <= 10.0) {
+                                selectedFile.add(File(it.mediaPath))
                                 binding.imgPhotoUser.visibility = View.VISIBLE
                                 binding.imgPhoto.visibility = View.GONE
                                 Glide.with(this).load(it.mediaPath).into(binding.imgPhotoUser)
@@ -228,8 +229,8 @@ class RegisterActivity : BaseActivity() {
             val email = binding.edtEmail.text.toString().trim()
             val username = binding.edtUsername.text.toString()
             val password = binding.edtPassword.text.toString()
-            if (file != null) {
-                viewModel.startRegister(file, email, username, password)
+            if (selectedFile.isNotEmpty()) {
+                viewModel.startRegister(selectedFile[0], email, username, password)
             } else {
                 viewModel.startRegister(null, email, username, password)
             }

@@ -5,6 +5,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 import javax.inject.Inject
 
 class ApiClient @Inject constructor(
@@ -31,7 +32,12 @@ fun okHttpClient(authInterceptor: AuthInterceptor): OkHttpClient =
 private val logging: HttpLoggingInterceptor
     get() {
 
-        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        val httpLoggingInterceptor = HttpLoggingInterceptor { message ->
+            if (!message.contains("�")) {
+                Timber.d(message)
+            }
+        }
+
         return httpLoggingInterceptor.apply {
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         }
