@@ -32,7 +32,7 @@ class DetailPostinganActivity : BaseActivity() {
             finish()
         }
 
-        intent.extras?.getParcelable<Content>("postingan")?.let {
+        intent.getParcelableExtra<Content>("postingan")?.let {
             detailPost = it
             if (it.filePosts?.isEmpty()) {
                 binding.imgSlider.visibility = View.GONE

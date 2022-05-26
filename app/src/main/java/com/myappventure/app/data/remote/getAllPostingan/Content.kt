@@ -13,8 +13,7 @@ data class Content(
     @SerializedName("deleted_date")
     val deletedDate: String?,
     @SerializedName("filePosts")
-    val filePosts: List<
-            FilePost>,
+    val filePosts: List<FilePost>,
     @SerializedName("id")
     val id: Int,
     @SerializedName("jumlahKomentar")
@@ -22,7 +21,7 @@ data class Content(
     @SerializedName("jumlahLike")
     val jumlahLike: Int,
     @SerializedName("postIn")
-    val postIn: String,
+    val postIn: PostIn?,
     @SerializedName("text")
     val text: String,
     @SerializedName("updated_date")
@@ -30,5 +29,5 @@ data class Content(
     @SerializedName("urlFileName1")
     val urlFileName1: String,
     @SerializedName("user")
-    val user: User
+    val user: UserX
 ) : Parcelable

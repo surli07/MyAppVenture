@@ -5,6 +5,8 @@ import com.myappventure.app.data.remote.create_postingan.CreatePostinganResponse
 import com.myappventure.app.data.remote.destinasi.AllListDestinasi.AllDestinasiResponse
 import com.myappventure.app.data.remote.destinasi.baliDestinasi.BaliDestinasiResponse
 import com.myappventure.app.data.remote.destinasi.detailDestinasi.DetailDestinasiResponse
+import com.myappventure.app.data.remote.followerFollowing.jumlahFollower.JumlahFollowerResponse
+import com.myappventure.app.data.remote.followerFollowing.jumlahFollowing.JumlahFollowingResponse
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
 import com.myappventure.app.data.remote.getPostByFollowing.getPostByFollowingResponse
 import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
@@ -83,6 +85,20 @@ interface ApiService {
     suspend fun getSubscribe(
         @Path("user-email") userEmail: String
     ): ApiResponse<SubscribeResponse>
+
+    @GET("follow/jumlahfollowing/{id-user}")
+    suspend fun getJumlahFollowing(
+        @Path("id-user") idUser: Int,
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+    ): ApiResponse<JumlahFollowingResponse>
+
+    @GET("follow/jumlahfollower/{id-user}")
+    suspend fun getJumlahFollower(
+        @Path("id-user") idUser: Int,
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+    ): ApiResponse<JumlahFollowerResponse>
 
     @GET("komunitas/list")
     suspend fun listKomunitas(

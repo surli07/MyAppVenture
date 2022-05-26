@@ -24,7 +24,6 @@ class NavigationActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNavigationBinding
     private val postinganDiikutiViewModel: DiikutiViewModel by viewModels()
-    private val postinganViewModel: PostinganViewModel by viewModels()
     private val destinasiViewModel: DestinasiViewModel by viewModels()
     private val baliViewModel: BaliViewModel by viewModels()
     private val komunitasViewModel: KomunitasViewModel by viewModels()
@@ -47,7 +46,6 @@ class NavigationActivity : BaseActivity() {
                 .build()
 
         lifecycleScope.launch {
-            postinganViewModel.getAllPost()
             postinganDiikutiViewModel.getAllPost()
             destinasiViewModel.getAllDestinasi()
             baliViewModel.getBaliDestinasi()
@@ -57,12 +55,6 @@ class NavigationActivity : BaseActivity() {
     }
 
     override fun setupObserver() {
-        val loadingUi = CustomLoadingDialog(this)
-        postinganViewModel.message.observe(this) {
-            showMessageToast(it)
-        }
-        postinganViewModel.loading.observe(this) {
-            if (it) loadingUi.show() else loadingUi.dismiss()
-        }
+
     }
 }

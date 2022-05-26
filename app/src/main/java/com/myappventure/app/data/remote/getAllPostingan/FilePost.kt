@@ -16,5 +16,5 @@ data class FilePost(
     @SerializedName("updated_date")
     val updatedDate: String,
     @SerializedName("url")
-    val url: String?
+    val url: String
 ) : Parcelable

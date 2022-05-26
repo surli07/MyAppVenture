@@ -6,17 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentProfileBinding
 import com.myappventure.app.ui.MainFollowActivity
 import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
-import com.myappventure.app.ui.navigation.ui.profile.pencapaian.PencapaianActivity
 import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
-//import com.myappventure.app.ui.navigation.ui.profile.unggahan.UnggahanSayaActivity
+import com.myappventure.app.ui.navigation.ui.profile.unggahan.UnggahanSayaActivity
+import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
+    private val viewModel: ProfileViewModel by activityViewModels()
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
@@ -35,12 +41,17 @@ class ProfileFragment : Fragment() {
             val username = MySharedPref.userName
             val photo = MySharedPref.userFilename
             binding.txtUserName.text = username
-//            binding.imgFoto.visibility = View.INVISIBLE
-//            binding.imgPhotoUser.visibility = View.VISIBLE
-//            Glide.with(requireContext())
-//                .load(photo)
-//                .error(R.drawable.ic_launcher_foreground)
-//                .into(binding.imgPhotoUser)
+            if (photo != null) {
+                binding.imgFoto.visibility = View.GONE
+                binding.imgPhotoUser.visibility = View.VISIBLE
+                Glide.with(requireContext())
+                    .load(photo)
+                    .error(R.drawable.ic_launcher_foreground)
+                    .into(binding.imgPhotoUser)
+            } else {
+                binding.imgFoto.visibility = View.VISIBLE
+                binding.imgPhotoUser.visibility = View.GONE
+            }
 
             binding.cardPenUpload.visibility = View.VISIBLE
             binding.Invite.visibility = View.VISIBLE
@@ -98,20 +109,23 @@ class ProfileFragment : Fragment() {
                 startActivity(intent)
                 activity?.finishAffinity()
             }
-//            binding.icNextYP.setOnClickListener {
-//                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
-//                startActivity(intent)
-//            }
-//            binding.txtYourPost.setOnClickListener {
-//                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
-//                startActivity(intent)
-//            }
+            binding.icNextYP.setOnClickListener {
+                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
+                startActivity(intent)
+            }
+            binding.txtYourPost.setOnClickListener {
+                val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
+                startActivity(intent)
+            }
+            lifecycleScope.launch {
+                viewModel.getFollower()
+                viewModel.getFollowing()
+            }
         } else {
             binding.txtYukBergabung.setOnClickListener {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 startActivity(intent)
             }
-
             binding.Invite.visibility = View.GONE
             binding.Logout.visibility = View.GONE
             binding.recProfile.visibility = View.GONE
@@ -139,6 +153,13 @@ class ProfileFragment : Fragment() {
 
     private fun setupObserver() {
 
+        viewModel.jumlahFollowingResponse.observe(viewLifecycleOwner) {
+            binding.txtMengikuti.text = it.data.toString() + " Mengikuti"
+        }
+
+        viewModel.jumlahFollowerResponse.observe(viewLifecycleOwner) {
+            binding.txtPengikut.text = it.data.toString() + " Pengikut"
+        }
     }
 
 }

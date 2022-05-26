@@ -3,7 +3,6 @@ package com.myappventure.app.data.remote.getAllPostingan
 
 import com.google.gson.annotations.SerializedName
 
-
 data class Data(
     @SerializedName("content")
     val content: List<Content>,
