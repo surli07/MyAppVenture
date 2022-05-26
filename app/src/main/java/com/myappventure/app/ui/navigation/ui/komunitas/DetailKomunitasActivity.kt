@@ -1,4 +1,6 @@
 package com.myappventure.app.ui.navigation.ui.komunitas
 
-class DetailKomunitasActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class DetailKomunitasActivity : AppCompatActivity() {
 }

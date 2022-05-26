@@ -10,7 +10,8 @@ import com.myappventure.app.databinding.ItemPostinganBinding
 
 class PostinganAdapter(
     var postingan: MutableList<Content>,
-    val onClick: () -> Unit
+    val onClick: () -> Unit,
+    val onDetail: (Content) -> Unit
 ) : RecyclerView.Adapter<PostinganAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPostinganBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -32,6 +33,9 @@ class PostinganAdapter(
         holder.binding.txtJumlahKomentar.text = postingan.jumlahKomentar.toString()
         holder.binding.btnIkuti.setOnClickListener {
             onClick()
+        }
+        holder.binding.cardPostingan.setOnClickListener {
+            onDetail(postingan)
         }
     }
 

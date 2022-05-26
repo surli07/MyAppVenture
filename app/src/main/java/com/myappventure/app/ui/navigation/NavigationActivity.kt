@@ -48,10 +48,10 @@ class NavigationActivity : BaseActivity() {
 
         lifecycleScope.launch {
             postinganViewModel.getAllPost()
+            postinganDiikutiViewModel.getAllPost()
             destinasiViewModel.getAllDestinasi()
             baliViewModel.getBaliDestinasi()
             komunitasViewModel.getListKomunitas()
-            postinganDiikutiViewModel.getAllPost()
         }
 
     }
