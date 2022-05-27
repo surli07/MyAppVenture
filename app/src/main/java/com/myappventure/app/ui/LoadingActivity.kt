@@ -22,7 +22,7 @@ class LoadingActivity : AppCompatActivity() {
     private fun goToLanding() {
         lifecycleScope.launch {
             delay(2000)
-            val i = Intent(this@LoadingActivity, LandingPageActivity::class.java)
+            val i = Intent(this@LoadingActivity, OnboardingActivity::class.java)
             startActivity(i)
             finish()
         }

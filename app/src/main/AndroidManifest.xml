@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAppventure">
         <activity
+            android:name=".ui.OnboardingSlideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.navigation.ui.home.detail_postingan.DetailPostinganActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.navigation.ui.profile.unggahan.UnggahanSayaActivity"
             android:exported="false" />
         <activity
@@ -48,9 +54,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.OnboardingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.navigation.ui.komunitas.PostinganKomunitasActivity"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.community.NewCommunityActivity"

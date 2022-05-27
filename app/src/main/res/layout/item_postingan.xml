@@ -1,82 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="8dp"
-    android:layout_marginTop="18dp"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardPostingan"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardElevation="0dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="18dp"
+    android:layout_marginEnd="20dp"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/border_blue"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/imgSlider"
+            android:layout_width="match_parent"
+            android:layout_height="179dp"
+            app:iss_auto_cycle="true"
+            app:iss_period="1000"
+            app:iss_delay="0"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardPhoto"
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_marginStart="10dp"
+            android:backgroundTint="@color/abuabu"
             app:cardCornerRadius="17dp"
+            app:layout_constraintBottom_toBottomOf="@id/txtWaktuPost"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/txtNamaUser"
-            app:layout_constraintBottom_toBottomOf="@id/txtWaktuPost">
+            app:layout_constraintTop_toTopOf="@id/txtNamaUser">
+
             <ImageView
                 android:id="@+id/imgProfile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="0dp"
                 android:scaleType="center"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_person" />
+
+            <ImageView
+                android:id="@+id/imgPhotoUser"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
         </androidx.cardview.widget.CardView>
+
         <TextView
             android:id="@+id/txtNamaUser"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:text="Kiki"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_semibold"
-            android:textSize="14sp"
+            android:text="Kiki"
             android:textColor="@color/black"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/cardPhoto"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/imgSlider" />
+
         <TextView
             android:id="@+id/txtWaktuPost"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
-            android:text="10 menit lalu"
-            android:fontFamily="@font/poppins_regular"
-            android:textSize="10sp"
             android:layout_marginStart="5dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="10 menit lalu"
             android:textColor="#457275"
+            android:textSize="10sp"
             app:layout_constraintStart_toEndOf="@id/cardPhoto"
-            app:layout_constraintTop_toBottomOf="@id/txtNamaUser"/>
+            app:layout_constraintTop_toBottomOf="@id/txtNamaUser" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnIkuti"
             android:layout_width="96dp"
             android:layout_height="37dp"
-            android:text="Ikuti"
-            android:backgroundTint="#457275"
-            android:textSize="14dp"
-            app:cornerRadius="4dp"
-            android:textAllCaps="false"
             android:layout_marginTop="11dp"
             android:layout_marginEnd="12dp"
+            android:backgroundTint="#457275"
+            android:text="Ikuti"
+            android:textAllCaps="false"
             android:textColor="@color/white"
+            android:textSize="14dp"
+            app:cornerRadius="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/imgSlider" />
+
+
         <TextView
             android:id="@+id/txtDeskripsi"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="54dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="54dp"
             android:layout_marginEnd="15dp"
             android:text="Saya sering kali saya melihat orang - orang dengan tidak sengaja membuang sampah sembarangan yang membuat lingkungan disekitar kita kotor. Pernah sekali saya menegur orang - orang yang membuang sampah sembarangan namun mereka malah tidak terima. teman - teman jangan seperti itu yaa! Tetap buanglah sampah pada tempatnya! Jaga Alam kita!"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/imgSlider" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardLike"
             android:layout_width="wrap_content"
@@ -86,69 +116,74 @@
             android:layout_marginBottom="10dp"
             android:background="@null"
             app:cardElevation="0dp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtDeskripsi">
+
             <ImageView
                 android:id="@+id/imgLike"
                 android:layout_width="14dp"
                 android:layout_height="12dp"
                 android:layout_marginTop="2dp"
-                android:src="@drawable/ic_like"/>
+                android:src="@drawable/ic_like" />
+
             <TextView
                 android:id="@+id/txtJumlahLike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textSize="12dp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/poppins_regular"
-                android:text="60"/>
+                android:text="60"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardKomentar"
             android:layout_width="wrap_content"
             android:layout_height="17dp"
             android:layout_marginStart="17dp"
             android:layout_marginTop="13dp"
+            android:layout_marginBottom="10dp"
             android:background="@null"
             app:cardElevation="0dp"
-            android:layout_marginBottom="10dp"
             app:layout_constraintStart_toEndOf="@id/cardLike"
             app:layout_constraintTop_toBottomOf="@id/txtDeskripsi">
+
             <ImageView
                 android:id="@+id/imgKomentar"
                 android:layout_width="14dp"
                 android:layout_height="12dp"
                 android:layout_marginTop="2dp"
-                android:src="@drawable/ic_komentar"/>
+                android:src="@drawable/ic_komentar" />
+
             <TextView
                 android:id="@+id/txtJumlahKomentar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textSize="12dp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/poppins_regular"
-                android:text="10"/>
+                android:text="10"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardLinkShare"
-            android:layout_width="wrap_content"
-            android:layout_height="17dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="13dp"
-            android:background="@null"
-            app:cardElevation="0dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintStart_toEndOf="@id/cardKomentar"
-            app:layout_constraintTop_toBottomOf="@id/txtDeskripsi">
-            <ImageView
-                android:id="@+id/imgShare"
-                android:layout_width="14dp"
-                android:layout_height="12dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/ic_link"/>
-        </androidx.cardview.widget.CardView>
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/cardLinkShare"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="17dp"-->
+        <!--            android:layout_marginStart="17dp"-->
+        <!--            android:layout_marginTop="13dp"-->
+        <!--            android:background="@null"-->
+        <!--            app:cardElevation="0dp"-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/cardKomentar"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/txtDeskripsi">-->
+        <!--            <ImageView-->
+        <!--                android:id="@+id/imgShare"-->
+        <!--                android:layout_width="14dp"-->
+        <!--                android:layout_height="12dp"-->
+        <!--                android:layout_marginTop="2dp"-->
+        <!--                android:src="@drawable/ic_link"/>-->
+        <!--        </androidx.cardview.widget.CardView>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

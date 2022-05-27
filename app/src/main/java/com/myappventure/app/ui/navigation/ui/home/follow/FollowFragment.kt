@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentFollowBinding
 import com.myappventure.app.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -34,6 +36,13 @@ class FollowFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            postinganDiikutiViewModel.getAllPost()
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

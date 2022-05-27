@@ -15,7 +15,6 @@ import com.myappventure.app.ui.navigation.ui.destinasi.BaliViewModel
 import com.myappventure.app.ui.navigation.ui.destinasi.DestinasiViewModel
 import com.myappventure.app.ui.navigation.ui.home.follow.DiikutiViewModel
 import com.myappventure.app.ui.navigation.ui.home.foryou.PostinganViewModel
-import com.myappventure.app.ui.navigation.ui.komunitas.DetailKomunitasViewModel
 import com.myappventure.app.ui.navigation.ui.komunitas.KomunitasViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -25,11 +24,9 @@ class NavigationActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNavigationBinding
     private val postinganDiikutiViewModel: DiikutiViewModel by viewModels()
-    private val postinganViewModel: PostinganViewModel by viewModels()
     private val destinasiViewModel: DestinasiViewModel by viewModels()
     private val baliViewModel: BaliViewModel by viewModels()
     private val komunitasViewModel: KomunitasViewModel by viewModels()
-    private val detailKomunitasViewModel: DetailKomunitasViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,23 +46,15 @@ class NavigationActivity : BaseActivity() {
                 .build()
 
         lifecycleScope.launch {
-            postinganViewModel.getAllPost()
+            postinganDiikutiViewModel.getAllPost()
             destinasiViewModel.getAllDestinasi()
             baliViewModel.getBaliDestinasi()
             komunitasViewModel.getListKomunitas()
-            postinganDiikutiViewModel.getAllPost()
-            detailKomunitasViewModel.detailKomunitas()
         }
 
     }
 
     override fun setupObserver() {
-        val loadingUi = CustomLoadingDialog(this)
-        postinganViewModel.message.observe(this) {
-            showMessageToast(it)
-        }
-        postinganViewModel.loading.observe(this) {
-            if (it) loadingUi.show() else loadingUi.dismiss()
-        }
+
     }
 }

@@ -11,20 +11,18 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import javax.inject.Inject
 
-class PostinganRepository @Inject constructor(
+class FollowerFollowingRepository @Inject constructor(
     private val apiService: ApiService,
     private val ioDispatcher: CoroutineDispatcher
 ) {
-    suspend fun getAllPostingan(
+    suspend fun getFollower(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
     ) = flow {
-        val response = apiService.getAllPostingan(0, 100)
+        val response = apiService.getJumlahFollower(MySharedPref.idUser!!, 0, 10)
         response.suspendOnSuccess {
             emit(this.data)
         }.onError {
@@ -37,37 +35,12 @@ class PostinganRepository @Inject constructor(
         .onCompletion { onComplete() }
         .flowOn(ioDispatcher)
 
-    suspend fun getPostinganByFollowing(
+    suspend fun getFollowing(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
     ) = flow {
-        val response = apiService.getPostinganByFollowing(0, 10, MySharedPref.idUser)
-        response.suspendOnSuccess {
-            emit(this.data)
-        }.onError {
-            onError(this.message())
-        }.onException {
-            onError(this.message())
-        }
-    }
-        .onStart { onStart() }
-        .onCompletion { onComplete() }
-        .flowOn(ioDispatcher)
-
-    suspend fun newPost(
-        onStart: () -> Unit,
-        onComplete: () -> Unit,
-        onError: (String?) -> Unit,
-        file: List<MultipartBody.Part>?,
-        text: RequestBody,
-        idUser: RequestBody,
-    ) = flow {
-        val response = apiService.newPost(
-            file,
-            text,
-            idUser,
-        )
+        val response = apiService.getJumlahFollowing(MySharedPref.idUser!!, 0, 10)
         response.suspendOnSuccess {
             emit(this.data)
         }.onError {

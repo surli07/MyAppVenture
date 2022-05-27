@@ -32,11 +32,7 @@ fun okHttpClient(authInterceptor: AuthInterceptor): OkHttpClient =
 private val logging: HttpLoggingInterceptor
     get() {
 
-        val httpLoggingInterceptor = HttpLoggingInterceptor { message ->
-            if (!message.contains("�")) {
-                Timber.d(message)
-            }
-        }
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
 
         return httpLoggingInterceptor.apply {
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
