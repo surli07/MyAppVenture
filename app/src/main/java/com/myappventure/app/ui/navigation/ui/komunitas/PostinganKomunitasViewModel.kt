@@ -20,7 +20,7 @@ class PostinganKomunitasViewModel @Inject constructor(
     private val postinganKomunitasRepository: PostinganKomunitasRepository
 ) : BaseViewModel() {
 
-    val postinganKomunitasResponse = MutableLiveData<PostinganKomunitasResponse>()
+    val postinganKomunitasResult = MutableLiveData<PostinganKomunitasResponse>()
 
     suspend fun newPost(files: List<File>?, text: String) {
         val id = MySharedPref.idUser.toString()
@@ -49,7 +49,7 @@ class PostinganKomunitasViewModel @Inject constructor(
             filesMultipart,
             text
         ).collect{
-            postinganKomunitasResponse.postValue(it)
+            postinganKomunitasResult.postValue(it)
         }
     }
 

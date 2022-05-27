@@ -103,7 +103,7 @@ class PostinganKomunitasActivity : BaseActivity() {
         viewModel.message.observe(this) {
             showMessageToast(it)
         }
-        viewModel.postinganKomunitasResponse.observe(this) {
+        viewModel.postinganKomunitasResult.observe(this) {
             if (it.status == "200") {
                 val i = Intent(this, NavigationActivity::class.java)
                 startActivity(i)
