@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.data.local.MySharedPref
-import com.myappventure.app.data.remote.getAllPostingan.Content
 import com.myappventure.app.data.remote.komunitas.detail_komunitas.Data
 import com.myappventure.app.databinding.ActivityDetailKomunitasBinding
 import com.myappventure.app.ui.login.LoginActivity
