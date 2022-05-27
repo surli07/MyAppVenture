@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.data.local.MySharedPref
+import com.myappventure.app.data.remote.getAllPostingan.Content
 import com.myappventure.app.data.remote.komunitas.detail_komunitas.Data
 import com.myappventure.app.databinding.ActivityDetailKomunitasBinding
 import com.myappventure.app.ui.login.LoginActivity
@@ -22,6 +23,7 @@ class DetailKomunitasActivity : BaseActivity() {
             startActivity(i)
         }
     })
+    private lateinit var detailPost: Data
     private val detailKomunitasAdapter = DetailKomunitasAdapter(mutableListOf())
     private val postinganKomunitasViewModel: PostinganKomunitasViewModel by viewModels()
     private val detaiKomunitasViewModel: DetailKomunitasViewModel by viewModels()
@@ -39,7 +41,7 @@ class DetailKomunitasActivity : BaseActivity() {
         binding.btnKembali.setOnClickListener {
             finish()
         }
-        intent.getParcelableExtra<Data>("postingan")?.let {
+        intent.getParcelableExtra<Data>("komunitas")?.let {
             detailPost = it
             binding.txtDeskripsiKomunitas.text = it.deskripsi
             binding.txtNamaKomunitas.text = it.namaKomunitas
