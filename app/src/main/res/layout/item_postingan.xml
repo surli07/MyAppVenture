@@ -4,28 +4,28 @@
     android:id="@+id/cardPostingan"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="0dp"
     android:layout_marginStart="20dp"
     android:layout_marginTop="18dp"
     android:layout_marginEnd="20dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@drawable/border_blue"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/border_blue">
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/imgSlider"
             android:layout_width="match_parent"
             android:layout_height="179dp"
-            app:iss_auto_cycle="true"
-            app:iss_period="1000"
-            app:iss_delay="0"
             android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
+            app:iss_auto_cycle="true"
+            app:iss_delay="0"
+            app:iss_period="1000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardPhoto"

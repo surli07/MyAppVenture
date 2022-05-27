@@ -39,6 +39,9 @@ class PostinganAdapter(
 
         if (postingan.filePosts.isNotEmpty()){
             holder.binding.imgSlider.visibility = View.VISIBLE
+//            Glide.with(holder.itemView)
+//                .load(postingan.urlFileName1)
+//                .into(holder.binding.imgSlider)
         } else {
             holder.binding.imgSlider.visibility = View.GONE
         }
