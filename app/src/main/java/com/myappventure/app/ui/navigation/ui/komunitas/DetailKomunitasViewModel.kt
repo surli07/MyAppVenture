@@ -38,21 +38,4 @@ class DetailKomunitasViewModel @Inject constructor(
             detailKomunitasResult.postValue(it.data)
         }
     }
-
-    suspend fun getPostinganKomunitas() {
-        detailKomunitasRepository.postinganKomunitas(
-            onStart = {
-                _loading.postValue(true)
-            },
-            onComplete = {
-                _loading.postValue(false)
-            },
-            onError = {
-                _message.postValue(it)
-            },
-            idKomunitas
-        ).collect {
-            detailKomunitasResult.postValue(it.data)
-        }
-    }
 }

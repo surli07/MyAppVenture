@@ -31,8 +31,8 @@ class DetailKomunitasActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.btnUnggah.setOnClickListener {
-            val intent = Intent(this, PostinganKomunitasActivity::class.java)
-            startActivity(intent)
+            val i = Intent(this, PostinganKomunitasActivity::class.java)
+            startActivity(i)
         }
         binding.btnKembali.setOnClickListener {
             finish()
@@ -49,10 +49,13 @@ class DetailKomunitasActivity : BaseActivity() {
     }
 
     override fun setupObserver() {
-        detaiKomunitasViewModel.detailKomunitasResult.observe() {
+        detaiKomunitasViewModel.detailKomunitasResult.observe(this) {
             detailKomunitasAdapter.komunitas.clear()
             detailKomunitasAdapter.komunitas.add(it)
-            detailKomunitasAdapter.notifyDataSetChanged()
+        }
+        postinganKomunitasViewModel.postinganKomunitasResult.observe(this) {
+            postinganKomunitasAdapter.postingan.clear()
+            postinganKomunitasAdapter.notifyDataSetChanged()
         }
     }
 }
