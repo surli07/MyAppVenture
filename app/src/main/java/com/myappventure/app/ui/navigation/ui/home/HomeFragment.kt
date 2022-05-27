@@ -10,6 +10,8 @@ import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
@@ -44,7 +46,12 @@ class HomeFragment : Fragment() {
         if (MySharedPref.isLoggedIn) binding.imgCreate.visibility = View.VISIBLE
 
         binding.recyclerKategori.apply {
-            this.layoutManager = GridLayoutManager(context, 4)
+            this.layoutManager = LinearLayoutManager(
+                context,
+                RecyclerView.HORIZONTAL,
+                false
+            )
+            this.adapter = KategoriAdapter(kategoriDataDummy())
         }
         binding.viewPager.apply {
             this.adapter = ViewPagerAdapter(this@HomeFragment)
@@ -53,6 +60,7 @@ class HomeFragment : Fragment() {
             val i = Intent(requireContext(), CreatePostinganActivity::class.java)
             startActivity(i)
         }
+
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             if (position == 0) {
                 tab.text = "Untuk Kamu"
