@@ -5,8 +5,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.data.local.MySharedPref
+import com.myappventure.app.data.remote.komunitas.detail_komunitas.Data
 import com.myappventure.app.databinding.ActivityDetailKomunitasBinding
 import com.myappventure.app.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +38,15 @@ class DetailKomunitasActivity : BaseActivity() {
         }
         binding.btnKembali.setOnClickListener {
             finish()
+        }
+        intent.getParcelableExtra<Data>("postingan")?.let {
+            detailPost = it
+            binding.txtDeskripsiKomunitas.text = it.deskripsi
+            binding.txtNamaKomunitas.text = it.namaKomunitas
+            binding.txtLinkGrup.text = it.linkKomunitas
+            Glide.with(binding.imgFoto.context)
+                .load(it.urlFileName)
+                .into(binding.imgFoto)
         }
         binding.recyclerPostingan.apply {
             layoutManager = LinearLayoutManager(

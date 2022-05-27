@@ -50,7 +50,7 @@
             android:name=".ui.OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.navigation.ui.postingan.NewPostActivity"
+            android:name=".ui.navigation.ui.komunitas.PostinganKomunitasActivity"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.community.NewCommunityActivity"
