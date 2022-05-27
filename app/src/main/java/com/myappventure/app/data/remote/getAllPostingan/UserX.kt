@@ -6,21 +6,21 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class User(
+data class UserX(
     @SerializedName("authorities")
-    val authorities: List<Authority>,
+    val authorities: List<AuthorityX>,
     @SerializedName("fileName")
     val fileName: String?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("nama")
-    val nama: String,
+    val nama: String?,
     @SerializedName("otp")
-    val otp: String,
+    val otp: String?,
     @SerializedName("otpExpiredDate")
-    val otpExpiredDate: String,
+    val otpExpiredDate: String?,
     @SerializedName("roles")
-    val roles: List<Role>,
+    val roles: List<RoleX>,
     @SerializedName("urlFileName")
     val urlFileName: String,
     @SerializedName("username")

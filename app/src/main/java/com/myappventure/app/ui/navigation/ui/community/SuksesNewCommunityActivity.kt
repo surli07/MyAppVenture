@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.myappventure.app.databinding.ActivitySuksesNewCommunityBinding
 import com.myappventure.app.ui.login.LoginActivity
+import com.myappventure.app.ui.navigation.NavigationActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,7 +18,7 @@ class SuksesNewCommunityActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.txtOkedeh.setOnClickListener {
-            val i = Intent(this, LoginActivity::class.java)
+            val i = Intent(this, NavigationActivity::class.java)
             startActivity(i)
             finish()
         }

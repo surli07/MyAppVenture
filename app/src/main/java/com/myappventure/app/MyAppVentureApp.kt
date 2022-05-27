@@ -13,15 +13,6 @@ import timber.log.Timber
 @HiltAndroidApp
 class MyAppVentureApp : Application() {
 
-    companion object {
-        init {
-            System.loadLibrary("native-lib")
-        }
-    }
-
-    external fun baseUrl(): String
-    external fun apiKey(): String
-
     override fun onCreate() {
         super.onCreate()
         setupTimber()

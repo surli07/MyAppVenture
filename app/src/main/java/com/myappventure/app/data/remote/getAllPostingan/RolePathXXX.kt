@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class RolePath(
+data class RolePathXXX(
     @SerializedName("id")
     val id: Int,
     @SerializedName("method")
