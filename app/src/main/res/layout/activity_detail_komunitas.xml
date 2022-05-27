@@ -45,6 +45,7 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="35dp"
                 app:cardCornerRadius="75dp"
+                app:cardBackgroundColor="@color/abuabu"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +55,14 @@
                     android:id="@+id/imgFoto"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_launcher" />
+                    android:scaleType="center"
+                    android:src="@drawable/ic_person" />
+
+                <ImageView
+                    android:id="@+id/imgFotoKomunitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -75,7 +82,7 @@
 
             <Button
                 android:id="@+id/btnUnggah"
-                android:layout_width="130dp"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="15dp"
@@ -90,9 +97,9 @@
 
             <Button
                 android:id="@+id/btnIkuti"
-                android:layout_width="130dp"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="78dp"
                 android:backgroundTint="#457275"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Ikuti"
@@ -105,9 +112,9 @@
 
             <Button
                 android:id="@+id/btnMengikuti"
-                android:layout_width="130dp"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="78dp"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Mengikuti"

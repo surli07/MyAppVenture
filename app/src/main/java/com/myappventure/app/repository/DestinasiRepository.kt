@@ -39,7 +39,7 @@ class DestinasiRepository @Inject constructor(
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
     ) = flow {
-        val response = apiService.getBaliDestinasi(0, 10)
+        val response = apiService.getBaliDestinasi(10, 0)
         response.suspendOnSuccess {
             emit(this.data)
         }.onError {

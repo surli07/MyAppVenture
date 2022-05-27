@@ -23,10 +23,6 @@ import kotlinx.coroutines.launch
 class NavigationActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNavigationBinding
-    private val postinganDiikutiViewModel: DiikutiViewModel by viewModels()
-    private val destinasiViewModel: DestinasiViewModel by viewModels()
-    private val baliViewModel: BaliViewModel by viewModels()
-    private val komunitasViewModel: KomunitasViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,13 +40,6 @@ class NavigationActivity : BaseActivity() {
                 .setTopRightCorner(CornerFamily.ROUNDED, radius)
                 .setTopLeftCorner(CornerFamily.ROUNDED, radius)
                 .build()
-
-        lifecycleScope.launch {
-            postinganDiikutiViewModel.getAllPost()
-            destinasiViewModel.getAllDestinasi()
-            baliViewModel.getBaliDestinasi()
-            komunitasViewModel.getListKomunitas()
-        }
 
     }
 

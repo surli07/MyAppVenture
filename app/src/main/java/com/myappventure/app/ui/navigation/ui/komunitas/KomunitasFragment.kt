@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentKomunitasBinding
 import com.myappventure.app.ui.navigation.ui.community.NewCommunityActivity
 import com.myappventure.app.ui.navigation.ui.home.detail_postingan.DetailPostinganActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class KomunitasFragment : Fragment() {
@@ -35,6 +37,13 @@ class KomunitasFragment : Fragment() {
     ): View {
         _binding = FragmentKomunitasBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            komunitasViewModel.getListKomunitas()
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

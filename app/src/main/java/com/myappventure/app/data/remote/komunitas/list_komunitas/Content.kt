@@ -7,8 +7,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Content(
-    @SerializedName("accept")
-    val accept: Boolean,
     @SerializedName("banner")
     val banner: String,
     @SerializedName("created_date")
@@ -22,7 +20,7 @@ data class Content(
     @SerializedName("id")
     val id: Int,
     @SerializedName("jumlahAnggota")
-    val jumlahAnggota: String?,
+    val jumlahAnggota: Int?,
     @SerializedName("linkKomunitas")
     val linkKomunitas: String,
     @SerializedName("namaKomunitas")
@@ -31,6 +29,6 @@ data class Content(
     val updatedDate: String,
     @SerializedName("urlFileName")
     val urlFileName: String,
-//    @SerializedName("user")
-//    val user: Any
-): Parcelable
+    @SerializedName("user")
+    val user: User?
+) : Parcelable

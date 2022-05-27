@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myappventure.app.databinding.FragmentDestinasiBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import androidx.fragment.app.activityViewModels as activityViewModels1
 
 
@@ -33,6 +35,14 @@ class DestinasiFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            destinasiViewModel.getAllDestinasi()
+            baliViewModel.getBaliDestinasi()
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
