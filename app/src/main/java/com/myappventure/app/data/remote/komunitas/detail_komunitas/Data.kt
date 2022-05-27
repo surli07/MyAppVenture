@@ -1,15 +1,18 @@
 package com.myappventure.app.data.remote.komunitas.detail_komunitas
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Data(
     @SerializedName("banner")
     val banner: String,
     @SerializedName("created_date")
     val createdDate: String,
     @SerializedName("deleted_date")
-    val deletedDate: Any,
+    val deletedDate: String?,
     @SerializedName("deskripsi")
     val deskripsi: String,
     @SerializedName("fileName")
@@ -17,7 +20,7 @@ data class Data(
     @SerializedName("id")
     val id: Int,
     @SerializedName("jumlahAnggota")
-    val jumlahAnggota: Any,
+    val jumlahAnggota: Int,
     @SerializedName("linkKomunitas")
     val linkKomunitas: String,
     @SerializedName("namaKomunitas")
@@ -27,5 +30,5 @@ data class Data(
     @SerializedName("urlFileName")
     val urlFileName: String,
     @SerializedName("user")
-    val user: Any
-)
+    val user: String
+) : Parcelable

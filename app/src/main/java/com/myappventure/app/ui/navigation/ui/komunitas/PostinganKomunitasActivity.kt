@@ -42,6 +42,10 @@ class PostinganKomunitasActivity : BaseActivity() {
             binding.btnPost.isEnabled = text.toString().isNotEmpty()
         }
 
+        binding.imgBack.setOnClickListener {
+            finish()
+        }
+
         binding.btnPost.setOnClickListener {
             createPost()
         }
