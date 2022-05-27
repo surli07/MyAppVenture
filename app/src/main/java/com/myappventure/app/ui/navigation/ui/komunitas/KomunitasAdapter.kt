@@ -5,12 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myappventure.app.data.remote.komunitas.list_komunitas.Content
-import com.myappventure.app.data.remote.komunitas.list_komunitas.Data
 import com.myappventure.app.databinding.ItemPageKomunitasBinding
 
 class KomunitasAdapter(
     var komunitas: MutableList<Content>,
-    val onClick: (data: Data) -> Unit
+    val onDetail: (Content) -> Unit
 ) : RecyclerView.Adapter<KomunitasAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPageKomunitasBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -28,7 +27,7 @@ class KomunitasAdapter(
             .load(komunitas.urlFileName)
             .into(holder.binding.imgItemKomunitas)
         holder.binding.itemKomunitas.setOnClickListener {
-            onClick(komunitas.)
+            onDetail(komunitas)
         }
     }
 

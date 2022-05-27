@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentKomunitasBinding
 import com.myappventure.app.ui.navigation.ui.community.NewCommunityActivity
+import com.myappventure.app.ui.navigation.ui.home.detail_postingan.DetailPostinganActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,10 +20,13 @@ class KomunitasFragment : Fragment() {
     private var _binding: FragmentKomunitasBinding? = null
     private val binding get() = _binding!!
     private val komunitasViewModel: KomunitasViewModel by activityViewModels()
-    private val komunitasAdapter = KomunitasAdapter(mutableListOf(), onClick = {
-        val i = Intent(requireContext(), DetailKomunitasActivity::class.java)
-        startActivity(i)
-    })
+    private val komunitasAdapter = KomunitasAdapter(mutableListOf(),
+        onDetail = { komunitas ->
+            val i = Intent(requireContext(), DetailKomunitasActivity::class.java)
+            i.putExtra("komunitas", komunitas)
+            startActivity(i)
+        }
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
