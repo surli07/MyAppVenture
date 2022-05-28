@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.bumptech.glide.Glide
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.myappventure.app.TimeAgo.toTimeAgo
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.data.remote.getAllPostingan.Content
@@ -34,10 +36,16 @@ class DetailPostinganActivity : BaseActivity() {
 
         intent.getParcelableExtra<Content>("postingan")?.let {
             detailPost = it
-            if (it.filePosts?.isEmpty()) {
-                binding.imgSlider.visibility = View.GONE
-            } else {
+            val imageList = ArrayList<SlideModel>()
+            if (it.filePosts.isNotEmpty()) {
                 binding.imgSlider.visibility = View.VISIBLE
+                var file = it.filePosts
+                for (f in file) {
+                    imageList.add(SlideModel(f.url, ScaleTypes.CENTER_CROP))
+                }
+                binding.imgSlider.setImageList(imageList)
+            } else {
+                binding.imgSlider.visibility = View.GONE
             }
             if (it.user.urlFileName.isNotEmpty()) {
                 binding.imgFoto.visibility = View.GONE

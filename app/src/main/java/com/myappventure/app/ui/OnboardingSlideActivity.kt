@@ -16,7 +16,7 @@ class OnboardingSlideActivity : AppCompatActivity() {
     private val vp by lazy {
         binding.viewPager
     }
-    private lateinit var switchButton: ViewPager2.OnPageChangeCallback
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingSlideBinding.inflate(layoutInflater)

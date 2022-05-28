@@ -66,7 +66,7 @@ interface ApiService {
         @Query("size") size: Int,
     ): ApiResponse<AllDestinasiResponse>
 
-    @GET("list/bali")
+    @GET("destinasi/list/bali")
     suspend fun getBaliDestinasi(
         @Query("page") page: Int,
         @Query("size") size: Int,

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.denzcoskun.imageslider.models.SlideModel
 import com.myappventure.app.R
 import com.myappventure.app.TimeAgo.toTimeAgo
 import com.myappventure.app.data.remote.getPostByFollowing.Content
@@ -22,6 +23,7 @@ class PostinganDiikutiAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val postingan = postingan[position]
+        val imageList = ArrayList<SlideModel>()
         if (postingan.user.fileName != null) {
             holder.binding.imgProfile.visibility = View.GONE
             holder.binding.imgPhotoUser.visibility = View.VISIBLE
