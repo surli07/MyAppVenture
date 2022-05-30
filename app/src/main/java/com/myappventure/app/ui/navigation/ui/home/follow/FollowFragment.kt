@@ -40,8 +40,10 @@ class FollowFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        lifecycleScope.launch {
-            postinganDiikutiViewModel.getAllPost()
+        if(MySharedPref.isLoggedIn){
+            lifecycleScope.launch {
+                postinganDiikutiViewModel.getAllPost()
+            }
         }
     }
 

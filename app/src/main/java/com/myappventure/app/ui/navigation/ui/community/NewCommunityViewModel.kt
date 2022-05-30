@@ -23,17 +23,23 @@ class NewCommunityViewModel @Inject constructor(
     val createKomunitasResponse = MutableLiveData<CreateKomunitasResponse>()
 
     suspend fun startCreateKomunitas(
-        file: File,
+        file: File?,
         namaKomunitas: String,
         linkKomunitas: String,
         deskripsi: String,
     ) {
-        val fileRequestBody = file.asRequestBody(
+        val fileRequestBody = file?.asRequestBody(
             getMimeType(file.path)!!.toMediaType()
         )
-        val fileMultiPart = MultipartBody.Part.create(
-            fileRequestBody
-        )
+        val fileMultiPart = if (fileRequestBody != null) {
+            MultipartBody.Part.createFormData(
+                "file",
+                file.name,
+                fileRequestBody
+            )
+        } else {
+            null
+        }
         val namakomunitasPart = namaKomunitas.toRequestBody("text/plain".toMediaType())
         val linkKomunitasPart = linkKomunitas.toRequestBody("text/plain".toMediaType())
         val deskripsiPart = deskripsi.toRequestBody("text/plain".toMediaType())
