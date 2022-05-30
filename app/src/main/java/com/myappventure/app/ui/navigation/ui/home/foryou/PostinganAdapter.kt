@@ -9,17 +9,22 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.myappventure.app.R
 import com.myappventure.app.TimeAgo.toTimeAgo
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.getAllPostingan.Content
 import com.myappventure.app.data.remote.getAllPostingan.FilePost
+import com.myappventure.app.data.remote.like.postLike.PostLikeResponse
 import com.myappventure.app.databinding.ItemPostinganBinding
 
 class PostinganAdapter(
     var postingan: MutableList<Content>,
     val onClick: () -> Unit,
-    val onDetail: (Content) -> Unit
+    val onDetail: (Content) -> Unit,
+    val onLike: (Int) -> Unit
 ) : RecyclerView.Adapter<PostinganAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPostinganBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+    private var idUser = MySharedPref.idUser
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemPostinganBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -63,6 +68,13 @@ class PostinganAdapter(
         holder.binding.cardPostingan.setOnClickListener {
             onDetail(postingan)
         }
+
+        if (idUser != null) {
+            holder.binding.imgLike.setOnClickListener {
+                onLike(postingan.id)
+            }
+        }
+
     }
 
     override fun getItemCount() = postingan.size

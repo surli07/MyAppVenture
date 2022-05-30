@@ -53,11 +53,18 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/imgPhotoKomunitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
                     android:id="@+id/imgFoto"
                     android:layout_width="149dp"
                     android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_launcher" />
+                    android:scaleType="center"
+                    android:src="@drawable/ic_profile" />
 
             </androidx.cardview.widget.CardView>
 
