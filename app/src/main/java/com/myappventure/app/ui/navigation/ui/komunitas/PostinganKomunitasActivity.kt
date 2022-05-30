@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
@@ -11,10 +12,15 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.anilokcun.uwmediapicker.UwMediaPicker
+import com.anilokcun.uwmediapicker.model.UwMediaPickerMediaType
+import com.bumptech.glide.Glide
+import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.ActivityCreatePostinganBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.navigation.NavigationActivity
+import com.myappventure.app.ui.navigation.ui.home.create_postingan.NewPostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.io.File
@@ -22,7 +28,7 @@ import java.io.File
 @AndroidEntryPoint
 class PostinganKomunitasActivity : BaseActivity() {
     private lateinit var binding: ActivityCreatePostinganBinding
-    private val viewModel: PostinganKomunitasViewModel by viewModels()
+    private val viewModel: NewPostViewModel by viewModels()
     private val File.size get() = if (!exists()) 0.0 else length().toDouble()
     private val File.sizeInKb get() = size / 1024
     private val File.sizeInMb get() = sizeInKb / 1024
@@ -38,13 +44,30 @@ class PostinganKomunitasActivity : BaseActivity() {
             requestAccessForFile()
         }
 
+        binding.imgBack.setOnClickListener {
+            val i = Intent(this, NavigationActivity::class.java)
+            startActivity(i)
+            finish()
+        }
+
+        val photo = MySharedPref.userURLFilename
+        if (photo != null) {
+            binding.imgFoto.visibility = View.GONE
+            binding.imgPhotoUser.visibility = View.VISIBLE
+            Glide.with(binding.imgPhotoUser.context)
+                .load(photo)
+                .error(R.drawable.ic_launcher_foreground)
+                .into(binding.imgPhotoUser)
+        } else {
+            binding.imgFoto.visibility = View.VISIBLE
+            binding.imgPhotoUser.visibility = View.GONE
+        }
+
         binding.txtPostingan.doOnTextChanged { text, _, _, _ ->
             binding.btnPost.isEnabled = text.toString().isNotEmpty()
         }
 
-        binding.imgBack.setOnClickListener {
-            finish()
-        }
+        binding.txtNamaUser.text = MySharedPref.userName
 
         binding.btnPost.setOnClickListener {
             createPost()
@@ -93,8 +116,33 @@ class PostinganKomunitasActivity : BaseActivity() {
             }
             .launch { f ->
                 f?.let { files ->
+                    val filterFiles = files.filter {
+                        val file = File(it.mediaPath)
+                        if (it.mediaType == UwMediaPickerMediaType.IMAGE) {
+                            if(file.sizeInMb > 10.0){
+                                Toast.makeText(
+                                    this,
+                                    "Maksimum foto yang dipilih harus < 20 MB",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            return@filter file.sizeInMb <= 10.0
+                        } else if (it.mediaType == UwMediaPickerMediaType.VIDEO) {
+                            if(file.sizeInMb > 35.0){
+                                Toast.makeText(
+                                    this,
+                                    "Maksimum video yang dipilih harus < 35MB",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            return@filter  file.sizeInMb <= 35.0
+                        }
+                        return@filter false
+                    }.map {
+                        return@map File(it.mediaPath)
+                    }
                     selectedFiles.clear()
-                    selectedFiles.addAll(files.map { File(it.mediaPath) })
+                    selectedFiles.addAll(filterFiles)
                 }
             }
     }
@@ -107,7 +155,7 @@ class PostinganKomunitasActivity : BaseActivity() {
         viewModel.message.observe(this) {
             showMessageToast(it)
         }
-        viewModel.postinganKomunitasResult.observe(this) {
+        viewModel.newPostResponse.observe(this) {
             if (it.status == "200") {
                 val i = Intent(this, NavigationActivity::class.java)
                 startActivity(i)

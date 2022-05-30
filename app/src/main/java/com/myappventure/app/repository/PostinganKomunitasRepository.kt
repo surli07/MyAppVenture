@@ -48,22 +48,4 @@ class PostinganKomunitasRepository @Inject constructor(
         .onStart { onStart() }
         .onCompletion { onComplete() }
         .flowOn(ioDispatcher)
-
-    suspend fun getAllPostingan(
-        onStart: () -> Unit,
-        onComplete: () -> Unit,
-        onError: (String?) -> Unit,
-    ) = flow {
-        val response = apiService.getAllPostingan(0, 1000)
-        response.suspendOnSuccess {
-            emit(this.data)
-        }.onError {
-            onError(this.message())
-        }.onException {
-            onError(this.message())
-        }
-    }
-        .onStart { onStart() }
-        .onCompletion { onComplete() }
-        .flowOn(ioDispatcher)
 }
