@@ -1,15 +1,18 @@
 package com.myappventure.app.data.remote.destinasi.detailDestinasi
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Data(
     @SerializedName("banner")
     val banner: String,
     @SerializedName("created_date")
     val createdDate: String,
     @SerializedName("deleted_date")
-    val deletedDate: Any,
+    val deletedDate: String?,
     @SerializedName("fileName")
     val fileName: String,
     @SerializedName("harga")
@@ -30,4 +33,4 @@ data class Data(
     val urlFileName: String,
     @SerializedName("waktu")
     val waktu: String
-)
+): Parcelable

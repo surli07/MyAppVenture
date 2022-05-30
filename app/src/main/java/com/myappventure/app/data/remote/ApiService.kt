@@ -11,8 +11,8 @@ import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
 import com.myappventure.app.data.remote.getPostByFollowing.getPostByFollowingResponse
 import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.detail_komunitas.DetailKomunitasResponse
+import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.Content
 import com.myappventure.app.data.remote.komunitas.list_komunitas.ListKomunitasResponse
-import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganKomunitasResponse
 import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
 import com.myappventure.app.data.remote.register.RegisterResponse
@@ -109,7 +109,7 @@ interface ApiService {
 
     @GET("destinasi/detaildestinasi")
     suspend fun detailDestinasi(
-        @Query("idDestinasi") idDestinasi: Int,
+        @Query("idDestinasi") idDestinasi: RequestBody,
     ): ApiResponse<DetailDestinasiResponse>
 
     @POST("post/postingankomunitas/save")
@@ -119,7 +119,7 @@ interface ApiService {
         @Part("idKomunitas") idKomunitas: RequestBody,
         @Part file: List<MultipartBody.Part?>?,
         @Part("text") text: RequestBody,
-    ): ApiResponse<PostinganKomunitasResponse>
+    ): ApiResponse<Content>
 
     @GET("komunitas/detailkomunitas")
     suspend fun detailKomunitas(

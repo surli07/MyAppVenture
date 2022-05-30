@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
@@ -23,9 +25,7 @@ class DetailKomunitasActivity : BaseActivity() {
         }
     })
     private lateinit var detailPost: Content
-    private val detailKomunitasAdapter = DetailKomunitasAdapter(mutableListOf())
     private val postinganKomunitasViewModel: PostinganKomunitasViewModel by viewModels()
-    private val detaiKomunitasViewModel: DetailKomunitasViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,25 +55,22 @@ class DetailKomunitasActivity : BaseActivity() {
                 binding.imgFotoKomunitas.visibility = View.GONE
             }
         }
-//        binding.recyclerPostingan.apply {
-//            layoutManager = LinearLayoutManager(
-//                context,
-//                RecyclerView.VERTICAL,
-//                false
-//            )
-//            adapter = postinganKomunitasAdapter
-//        }
+        binding.recyclerPostingan.apply {
+            layoutManager = LinearLayoutManager(
+                context,
+                RecyclerView.VERTICAL,
+                false
+            )
+            adapter = postinganKomunitasAdapter
+        }
         setupObserver()
     }
 
     override fun setupObserver() {
-//        detaiKomunitasViewModel.detailKomunitasResult.observe(this) {
-//            detailKomunitasAdapter.komunitas.clear()
-//            detailKomunitasAdapter.komunitas.add(it)
-//        }
-//        postinganKomunitasViewModel.postinganKomunitasResult.observe(this) {
-//            postinganKomunitasAdapter.postingan.clear()
-//            postinganKomunitasAdapter.notifyDataSetChanged()
-//        }
+        postinganKomunitasViewModel.postinganKomunitasResult.observe(this) {
+            postinganKomunitasAdapter.postingan.clear()
+            postinganKomunitasAdapter.postingan.add(it)
+            postinganKomunitasAdapter.notifyDataSetChanged()
+        }
     }
 }

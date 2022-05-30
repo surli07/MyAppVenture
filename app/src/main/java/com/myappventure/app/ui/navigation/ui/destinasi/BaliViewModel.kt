@@ -13,7 +13,7 @@ class BaliViewModel @Inject constructor(
     private val destinasiRepository: DestinasiRepository
 ) : BaseViewModel() {
 
-    val destinasiResult = MutableLiveData<List<Content>>()
+    val destinasiBaliResult = MutableLiveData<List<Content>>()
 
     suspend fun getBaliDestinasi() {
         destinasiRepository.getBaliDestinasi(
@@ -27,7 +27,7 @@ class BaliViewModel @Inject constructor(
                 _message.postValue(it)
             }
         ).collect {
-            destinasiResult.postValue(it.data.content)
+            destinasiBaliResult.postValue(it.data.content)
         }
     }
 }

@@ -59,6 +59,12 @@
             android:name=".ui.navigation.ui.community.NewCommunityActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.navigation.ui.destinasi.Hilt_DetailDestinasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.navigation.ui.komunitas.PostinganKomunitasActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.navigation.ui.community.SuksesNewCommunityActivity"
             android:exported="false" />
         <activity

@@ -33,17 +33,17 @@
         android:id="@+id/imgDestinasi"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="20dp"
         app:cardCornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtJudulDestinasi">
 
         <ImageView
+            android:id="@+id/imgFoto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingHorizontal="20dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_pantai_kuta" />
     </androidx.cardview.widget.CardView>

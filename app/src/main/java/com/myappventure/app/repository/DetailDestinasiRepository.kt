@@ -10,51 +10,22 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
-import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import timber.log.Timber
 import javax.inject.Inject
 
-class PostinganKomunitasRepository @Inject constructor(
+class DetailDestinasiRepository  @Inject constructor(
     private val apiService: ApiService,
     private val ioDispatcher: CoroutineDispatcher
 ) {
-
-    suspend fun postinganKomunitas(
+    suspend fun detailDestinasi(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-        idUser: RequestBody,
-        idKomunitas: RequestBody,
-        file: List<MultipartBody.Part?>?,
-        text: RequestBody,
+        idDestinasi: RequestBody
     ) = flow {
-        val response = apiService.postinganKomunitas(
-            idUser,
-            idKomunitas,
-            file,
-            text
+        val response = apiService.detailDestinasi(
+            idDestinasi
         )
-        response.suspendOnSuccess {
-            emit(this.data)
-        }.onError {
-            Timber.e(this.message())
-            onError(this.message())
-        }.onException {
-            Timber.e(this.message())
-            onError(this.message())
-        }
-    }
-        .onStart { onStart() }
-        .onCompletion { onComplete() }
-        .flowOn(ioDispatcher)
-
-    suspend fun getAllPostingan(
-        onStart: () -> Unit,
-        onComplete: () -> Unit,
-        onError: (String?) -> Unit,
-    ) = flow {
-        val response = apiService.getAllPostingan(0, 1000)
         response.suspendOnSuccess {
             emit(this.data)
         }.onError {

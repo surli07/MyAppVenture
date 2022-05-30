@@ -1,9 +1,11 @@
 package com.myappventure.app.ui.navigation.ui.destinasi
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,8 +23,14 @@ class DestinasiFragment : Fragment() {
     private val destinasiViewModel: DestinasiViewModel by activityViewModels1()
     private val baliViewModel: BaliViewModel by activityViewModels1()
     private val binding get() = _binding!!
-    private val destinasiAdapter = DestinasiAdapter(mutableListOf())
     private val baliDestinasiAdapter = BaliDestinasiAdapter(mutableListOf())
+    private val destinasiAdapter = DestinasiAdapter(mutableListOf(),
+        onClick = { destinasi ->
+            val i = Intent(requireContext(), DetailDestinasiActivity::class.java)
+            i.putExtra("destinasi", destinasi)
+            startActivity(i)
+        }
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,7 +80,7 @@ class DestinasiFragment : Fragment() {
             destinasiAdapter.destinasi.addAll(it)
             destinasiAdapter.notifyDataSetChanged()
         }
-        baliViewModel.destinasiResult.observe(viewLifecycleOwner) {
+        baliViewModel.destinasiBaliResult.observe(viewLifecycleOwner) {
             baliDestinasiAdapter.destinasi.clear()
             baliDestinasiAdapter.destinasi.addAll(it)
             baliDestinasiAdapter.notifyDataSetChanged()

@@ -8,7 +8,8 @@ import com.myappventure.app.data.remote.destinasi.AllListDestinasi.Content
 import com.myappventure.app.databinding.ItemDestinasiBinding
 
 class DestinasiAdapter(
-    var destinasi: MutableList<Content>
+    var destinasi: MutableList<Content>,
+    val onClick: (Content) -> Unit
 ) : RecyclerView.Adapter<DestinasiAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemDestinasiBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -25,6 +26,9 @@ class DestinasiAdapter(
         Glide.with(holder.itemView)
             .load(destinasi.urlFileName)
             .into(holder.binding.imgItemDestinasi)
+        holder.binding.btnDetail.setOnClickListener {
+            onClick(destinasi)
+        }
     }
 
     override fun getItemCount() = destinasi.size
