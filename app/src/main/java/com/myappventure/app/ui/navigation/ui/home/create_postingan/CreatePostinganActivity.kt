@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
@@ -13,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.anilokcun.uwmediapicker.UwMediaPicker
 import com.anilokcun.uwmediapicker.model.UwMediaPickerMediaType
 import com.bumptech.glide.Glide
+import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.ActivityCreatePostinganBinding
@@ -47,9 +49,18 @@ class CreatePostinganActivity : BaseActivity() {
             finish()
         }
 
-        Glide.with(this)
-            .load(MySharedPref.userURLFilename)
-            .into(binding.imgPhotoUser)
+        val photo = MySharedPref.userURLFilename
+        if (photo != null) {
+            binding.imgFoto.visibility = View.GONE
+            binding.imgPhotoUser.visibility = View.VISIBLE
+            Glide.with(binding.imgPhotoUser.context)
+                .load(photo)
+                .error(R.drawable.ic_launcher_foreground)
+                .into(binding.imgPhotoUser)
+        } else {
+            binding.imgFoto.visibility = View.VISIBLE
+            binding.imgPhotoUser.visibility = View.GONE
+        }
 
         binding.txtPostingan.doOnTextChanged { text, _, _, _ ->
             binding.btnPost.isEnabled = text.toString().isNotEmpty()

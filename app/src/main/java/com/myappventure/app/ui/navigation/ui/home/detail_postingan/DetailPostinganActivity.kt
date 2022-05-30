@@ -4,15 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
+import com.myappventure.app.R
 import com.myappventure.app.TimeAgo.toTimeAgo
 import com.myappventure.app.base.BaseActivity
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.getAllPostingan.Content
 import com.myappventure.app.databinding.ActivityDetailPostinganBinding
 import com.myappventure.app.ui.navigation.NavigationActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DetailPostinganActivity : BaseActivity() {
@@ -36,6 +40,13 @@ class DetailPostinganActivity : BaseActivity() {
 
         intent.getParcelableExtra<Content>("postingan")?.let {
             detailPost = it
+            if (MySharedPref.isLoggedIn) {
+                binding.imgLike.setOnClickListener {
+                    lifecycleScope.launch {
+                        detailPostinganViewModel.likePost(detailPost.id)
+                    }
+                }
+            }
             val imageList = ArrayList<SlideModel>()
             if (it.filePosts.isNotEmpty()) {
                 binding.imgSlider.visibility = View.VISIBLE
@@ -52,6 +63,7 @@ class DetailPostinganActivity : BaseActivity() {
                 binding.imgPhotoUser.visibility = View.VISIBLE
                 Glide.with(binding.imgPhotoUser.context)
                     .load(it.user.urlFileName)
+                    .error(R.drawable.ic_launcher_foreground)
                     .into(binding.imgPhotoUser)
             } else {
                 binding.imgFoto.visibility = View.VISIBLE
@@ -60,6 +72,8 @@ class DetailPostinganActivity : BaseActivity() {
             binding.txtNamaUser.text = it.user.nama
             binding.txtWaktuPost.text = it.createdDate.toTimeAgo()
             binding.txtDeskripsi.text = it.text
+            binding.txtDisukai.text = it.jumlahLike.toString() + " Disukai"
+            binding.txtJumlahKomentar.text = it.jumlahKomentar.toString() + " Komentar"
         }
 
         setupObserver()

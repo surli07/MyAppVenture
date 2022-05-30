@@ -17,6 +17,7 @@ import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentHomeBinding
 import com.myappventure.app.ui.navigation.ui.home.create_postingan.CreatePostinganActivity
+import com.myappventure.app.ui.navigation.ui.search.SearchActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,6 +56,10 @@ class HomeFragment : Fragment() {
         }
         binding.viewPager.apply {
             this.adapter = ViewPagerAdapter(this@HomeFragment)
+        }
+        binding.edtSearch.setOnClickListener {
+            val i = Intent(requireContext(), SearchActivity::class.java)
+            startActivity(i)
         }
         binding.imgCreate.setOnClickListener {
             val i = Intent(requireContext(), CreatePostinganActivity::class.java)

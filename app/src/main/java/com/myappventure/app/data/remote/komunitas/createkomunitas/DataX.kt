@@ -15,7 +15,7 @@ data class DataX(
     @SerializedName("deskripsi")
     val deskripsi: String,
     @SerializedName("fileName")
-    val fileName: String,
+    val fileName: String?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("jumlahAnggota")

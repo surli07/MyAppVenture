@@ -18,6 +18,7 @@ import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
 import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
+import com.myappventure.app.ui.navigation.ui.profile.tentangkami.TentangKamiActivity
 import com.myappventure.app.ui.navigation.ui.profile.unggahan.UnggahanSayaActivity
 import kotlinx.coroutines.launch
 
@@ -34,12 +35,20 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         if (MySharedPref.isLoggedIn) {
+            lifecycleScope.launch {
+                viewModel.getFollower()
+                viewModel.getFollowing()
+            }
             val username = MySharedPref.userName
-            val photo = MySharedPref.userFilename
+            val photo = MySharedPref.userURLFilename
             binding.txtUserName.text = username
             if (photo != null) {
                 binding.imgFoto.visibility = View.GONE
@@ -103,6 +112,16 @@ class ProfileFragment : Fragment() {
                 startActivity(intent)
             }
 
+            binding.txtTentangKita.setOnClickListener {
+                val intent = Intent(requireContext(), TentangKamiActivity::class.java)
+                startActivity(intent)
+            }
+
+            binding.icNextTentangKita.setOnClickListener {
+                val intent = Intent(requireContext(), TentangKamiActivity::class.java)
+                startActivity(intent)
+            }
+
             binding.Logout.setOnClickListener {
                 MySharedPref.logout()
                 val intent = Intent(requireContext(), NavigationActivity::class.java)
@@ -117,9 +136,9 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), UnggahanSayaActivity::class.java)
                 startActivity(intent)
             }
-            lifecycleScope.launch {
-                viewModel.getFollower()
-                viewModel.getFollowing()
+            binding.icTentangKita.setOnClickListener {
+                val intent = Intent(requireContext(), TentangKamiActivity::class.java)
+                startActivity(intent)
             }
         } else {
             binding.txtYukBergabung.setOnClickListener {

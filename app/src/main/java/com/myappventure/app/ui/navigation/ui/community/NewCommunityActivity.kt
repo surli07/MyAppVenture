@@ -4,12 +4,14 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.anilokcun.uwmediapicker.UwMediaPicker
+import com.anilokcun.uwmediapicker.model.UwMediaPickerMediaType
 import com.bumptech.glide.Glide
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityNewCommunityBinding
@@ -23,8 +25,10 @@ class NewCommunityActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNewCommunityBinding
     private val viewModel: NewCommunityViewModel by viewModels()
-
-    var file: File? = null
+    private val File.size get() = if (!exists()) 0.0 else length().toDouble()
+    private val File.sizeInKb get() = size / 1024
+    private val File.sizeInMb get() = sizeInKb / 1024
+    private var selectedFile = mutableListOf<File>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,10 +77,25 @@ class NewCommunityActivity : BaseActivity() {
             .enableImageCompression(true)
             .setCompressionQuality(50)
             .setCompressedFileDestinationPath(filesDir.path)
-            .launch { files ->
-                if (files != null) {
-                    file = File(files[0].mediaPath)
-                    Glide.with(this).load(files[0].mediaPath).into(binding.imgFoto)
+            .launch { f ->
+                f?.let { files ->
+                    files.forEach{
+                        if(it.mediaType == UwMediaPickerMediaType.IMAGE) {
+                            var gambar = File(it.mediaPath)
+                            if (gambar.sizeInMb <= 10.0) {
+                                selectedFile.add(File(it.mediaPath))
+                                binding.imgPhotoKomunitas.visibility = View.VISIBLE
+                                binding.imgFoto.visibility = View.GONE
+                                Glide.with(this).load(it.mediaPath).into(binding.imgPhotoKomunitas)
+                            } else {
+                                Toast.makeText(
+                                    this,
+                                    "Maksimum foto yang dipilih harus < 20 MB",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    }
                 }
             }
     }
@@ -103,8 +122,10 @@ class NewCommunityActivity : BaseActivity() {
         val deskripsi = binding.Deskripsi.text.toString()
 
         lifecycleScope.launch {
-            if (file != null) {
-                viewModel.startCreateKomunitas(file!!, namakomunitas, link, deskripsi)
+            if (selectedFile.isNotEmpty()) {
+                viewModel.startCreateKomunitas(selectedFile[0], namakomunitas, link, deskripsi)
+            } else {
+                viewModel.startCreateKomunitas(null, namakomunitas, link, deskripsi)
             }
         }
     }

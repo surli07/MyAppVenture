@@ -33,6 +33,14 @@ class ForYouFragment : Fragment() {
             val i = Intent(requireContext(), DetailPostinganActivity::class.java)
             i.putExtra("postingan", postingan)
             startActivity(i)
+        },
+        onLike = {
+            if (MySharedPref.isLoggedIn){
+                lifecycleScope.launch {
+                    postinganViewModel.likePost(it)
+                }
+            }
+
         }
     )
 
@@ -66,6 +74,7 @@ class ForYouFragment : Fragment() {
             )
             adapter = postinganAdapter
         }
+
 
         setupObserver()
     }
