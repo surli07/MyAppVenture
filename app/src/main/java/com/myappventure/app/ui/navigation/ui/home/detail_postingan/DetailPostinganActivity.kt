@@ -2,6 +2,8 @@ package com.myappventure.app.ui.navigation.ui.home.detail_postingan
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -78,6 +80,12 @@ class DetailPostinganActivity : BaseActivity() {
 
         setupObserver()
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.edit_delete_menu, menu)
+        return true
     }
 
     override fun setupObserver() {
