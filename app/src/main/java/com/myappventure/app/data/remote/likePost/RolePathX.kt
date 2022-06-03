@@ -1,9 +1,9 @@
-package com.myappventure.app.data.remote.getPostByFollowing
+package com.myappventure.app.data.remote.likePost
 
 
 import com.google.gson.annotations.SerializedName
 
-data class RolePath(
+data class RolePathX(
     @SerializedName("id")
     val id: Int,
     @SerializedName("method")

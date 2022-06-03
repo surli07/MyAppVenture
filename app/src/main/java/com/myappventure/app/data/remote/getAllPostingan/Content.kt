@@ -20,6 +20,10 @@ data class Content(
     val jumlahKomentar: Int,
     @SerializedName("jumlahLike")
     val jumlahLike: Int,
+    @SerializedName("komentarBy")
+    val komentarBy: List<KomentarBy>,
+    @SerializedName("likedBy")
+    val likedBy: List<LikedBy>,
     @SerializedName("postIn")
     val postIn: PostIn?,
     @SerializedName("text")
@@ -27,7 +31,7 @@ data class Content(
     @SerializedName("updated_date")
     val updatedDate: String,
     @SerializedName("urlFileName1")
-    val urlFileName1: String,
+    val urlFileName1: String?,
     @SerializedName("user")
-    val user: UserX
+    val user: UserXXX
 ) : Parcelable

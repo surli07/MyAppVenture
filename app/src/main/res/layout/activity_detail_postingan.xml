@@ -29,212 +29,244 @@
         app:layout_constraintStart_toEndOf="@id/imgBack"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/imgSlider"
-        android:layout_width="match_parent"
-        android:layout_height="326dp"
-        app:iss_auto_cycle="true"
-        app:iss_period="1000"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:iss_delay="0"
-        app:layout_constraintTop_toBottomOf="@id/detailPost"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/imgProfile"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="@color/abuabu"
-        app:cardCornerRadius="22dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgSlider">
-
-        <ImageView
-            android:id="@+id/imgFoto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="0dp"
-            android:scaleType="center"
-            android:src="@drawable/ic_person" />
-
-        <ImageView
-            android:id="@+id/imgPhotoUser"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:visibility="gone" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/txtNamaUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kiki"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppins_bold"
-        android:textSize="16sp"
-        android:textColor="@color/black1"
-        app:layout_constraintStart_toEndOf="@id/imgProfile"
-        app:layout_constraintTop_toBottomOf="@id/imgSlider"/>
-    <TextView
-        android:id="@+id/txtWaktuPost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10 menit lalu"
-        android:fontFamily="@font/poppins_regular"
-        android:textSize="12sp"
-        android:layout_marginTop="2dp"
-        android:layout_marginStart="7dp"
-        android:textColor="@color/accent"
-        app:layout_constraintStart_toEndOf="@id/imgProfile"
-        app:layout_constraintTop_toBottomOf="@id/txtNamaUser"/>
-
-    <View
-        android:id="@+id/line1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black1"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#DADADA"
-        app:layout_constraintTop_toBottomOf="@id/imgProfile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
     <ImageView
-        android:id="@+id/imgLike"
-        android:layout_width="22dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_like"
-        android:layout_marginStart="89dp"
-        android:layout_marginTop="9dp"
-        app:layout_constraintTop_toBottomOf="@id/line1"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <ImageView
-        android:id="@+id/imgKomentar"
-        android:layout_width="22dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_komentar"
-        android:layout_marginEnd="89dp"
-        android:layout_marginTop="9dp"
-        app:layout_constraintTop_toBottomOf="@id/line1"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/txtDisukai"
+        android:id="@+id/imgMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 Disukai"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/black1"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@id/imgLike"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:id="@+id/txtJumlahKomentar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0 Komentar"
-        android:layout_marginEnd="66dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/black1"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@id/imgKomentar"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <View
-        android:id="@+id/line2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black1"
-        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="7dp"
-        android:backgroundTint="#DADADA"
-        app:layout_constraintTop_toBottomOf="@id/txtDisukai"
+        android:src="@drawable/ic_menu_burger"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtDeskripsi"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/line2"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        app:layout_constraintTop_toBottomOf="@id/detailPost">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardKomentar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/green"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/txtDeskripsi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:paddingBottom="130dp">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/imgSlider"
+                android:layout_width="match_parent"
+                android:layout_height="326dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:iss_auto_cycle="true"
+                app:iss_delay="0"
+                app:iss_period="1000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgProfile"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/abuabu"
+                app:cardCornerRadius="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgSlider">
+
+                <ImageView
+                    android:id="@+id/imgFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="0dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_person" />
+
+                <ImageView
+                    android:id="@+id/imgPhotoUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtNamaUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Kiki"
+                android:textColor="@color/black1"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/imgProfile"
+                app:layout_constraintTop_toBottomOf="@id/imgSlider" />
+
+            <TextView
+                android:id="@+id/txtWaktuPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="10 menit lalu"
+                android:textColor="@color/accent"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/imgProfile"
+                app:layout_constraintTop_toBottomOf="@id/txtNamaUser" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/black1"
+                android:backgroundTint="#DADADA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+
+            <ImageView
+                android:id="@+id/imgLike"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="89dp"
+                android:layout_marginTop="9dp"
+                android:src="@drawable/ic_like"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line1" />
+
+            <ImageView
+                android:id="@+id/imgKomentar"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="89dp"
+                android:src="@drawable/ic_komentar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line1" />
+
+            <TextView
+                android:id="@+id/txtDisukai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="73dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="0 Disukai"
+                android:textColor="@color/black1"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgLike" />
+
+            <TextView
+                android:id="@+id/txtJumlahKomentar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="66dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="0 Komentar"
+                android:textColor="@color/black1"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgKomentar" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/black1"
+                android:backgroundTint="#DADADA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDisukai" />
+
+            <TextView
+                android:id="@+id/txtDeskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line2" />
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/black1"
+                android:backgroundTint="#DADADA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDeskripsi" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerKomentar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/item_komentar"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/line3"
+                tools:listitem="@layout/item_komentar" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardLatar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:cardCornerRadius="0dp"
-        android:backgroundTint="@color/green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardKomen"
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearKomentar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="52dp"
-        app:cardCornerRadius="4dp"
-        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        android:gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <EditText
-            android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardKomen"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:textSize="12sp"
-            android:layout_marginStart="12dp"
-            android:textColor="@color/black"
-            android:hint="Tulis Komentar"
-            android:fontFamily="@font/poppins_regular"/>
-    </androidx.cardview.widget.CardView>
-<!--    <ImageView-->
-<!--        android:id="@+id/imgSend"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/ic_send_komentar"-->
-<!--        android:layout_marginStart="12dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:foreground="@drawable/border_grey"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp">
+
+            <EditText
+                android:id="@+id/edtKomentar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/white"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:hint="Tulis Komentar"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imgSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="17dp"
+            android:src="@drawable/ic_send_komentar" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import com.myappventure.app.base.BaseViewModel
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.getAllPostingan.Content
 import com.myappventure.app.data.remote.like.postLike.PostLikeResponse
+import com.myappventure.app.data.remote.likePost.LikeResponse
 import com.myappventure.app.repository.PostinganRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
@@ -16,7 +17,7 @@ class PostinganViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val postinganResult = MutableLiveData<List<Content>>()
-    val likeResult = MutableLiveData<PostLikeResponse>()
+    val likeResult = MutableLiveData<LikeResponse>()
 
     suspend fun getAllPost() {
         postinganRepository.getAllPostingan(

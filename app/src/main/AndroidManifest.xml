@@ -27,6 +27,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.home.detail_postingan.DetailPostinganActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.profile.unggahan.UnggahanSayaActivity"

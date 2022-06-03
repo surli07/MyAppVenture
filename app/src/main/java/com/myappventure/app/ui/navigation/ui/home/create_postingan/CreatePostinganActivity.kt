@@ -103,7 +103,7 @@ class CreatePostinganActivity : BaseActivity() {
     private fun selectFileForUpload() {
         UwMediaPicker
             .with(this)
-            .setGalleryMode(UwMediaPicker.GalleryMode.ImageAndVideoGallery)
+            .setGalleryMode(UwMediaPicker.GalleryMode.ImageGallery)
             .setGridColumnCount(4)
             .setMaxSelectableMediaCount(10)
             .setLightStatusBar(true)
@@ -115,33 +115,20 @@ class CreatePostinganActivity : BaseActivity() {
             }
             .launch { f ->
                 f?.let { files ->
-                    val filterFiles = files.filter {
-                        val file = File(it.mediaPath)
-                        if (it.mediaType == UwMediaPickerMediaType.IMAGE) {
-                            if(file.sizeInMb > 10.0){
+                    files.forEach{
+                        if(it.mediaType == UwMediaPickerMediaType.IMAGE) {
+                            var gambar = File(it.mediaPath)
+                            if (gambar.sizeInMb <= 10.0) {
+                                selectedFiles.add(File(it.mediaPath))
+                            } else {
                                 Toast.makeText(
                                     this,
                                     "Maksimum foto yang dipilih harus < 20 MB",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
-                            return@filter file.sizeInMb <= 10.0
-                        } else if (it.mediaType == UwMediaPickerMediaType.VIDEO) {
-                            if(file.sizeInMb > 35.0){
-                                Toast.makeText(
-                                    this,
-                                    "Maksimum video yang dipilih harus < 35MB",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                            return@filter  file.sizeInMb <= 35.0
                         }
-                        return@filter false
-                    }.map {
-                        return@map File(it.mediaPath)
                     }
-                    selectedFiles.clear()
-                    selectedFiles.addAll(filterFiles)
                 }
             }
     }

@@ -8,12 +8,13 @@ import com.myappventure.app.data.remote.destinasi.detailDestinasi.DetailDestinas
 import com.myappventure.app.data.remote.followerFollowing.jumlahFollower.JumlahFollowerResponse
 import com.myappventure.app.data.remote.followerFollowing.jumlahFollowing.JumlahFollowingResponse
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
-import com.myappventure.app.data.remote.getPostByFollowing.getPostByFollowingResponse
+import com.myappventure.app.data.remote.komentar.KomentarBody
+import com.myappventure.app.data.remote.komentar.KomentarResponse
 import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.detail_komunitas.DetailKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.list_komunitas.ListKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganKomunitasResponse
-import com.myappventure.app.data.remote.like.postLike.PostLikeResponse
+import com.myappventure.app.data.remote.likePost.LikeResponse
 import com.myappventure.app.data.remote.login.LoginBody
 import com.myappventure.app.data.remote.login.LoginResponse
 import com.myappventure.app.data.remote.register.RegisterResponse
@@ -59,7 +60,7 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("size") size: Int,
         @Query("idUser") idUser: Int?,
-    ): ApiResponse<getPostByFollowingResponse>
+    ): ApiResponse<AllPostinganResponse>
 
     @GET("destinasi/list")
     suspend fun getAllDestinasi(
@@ -131,5 +132,12 @@ interface ApiService {
     suspend fun postLike(
         @Query("idPost") idPost: Int,
         @Query("idUser") idUser: Int,
-    ): ApiResponse<PostLikeResponse>
+    ): ApiResponse<LikeResponse>
+
+    @POST("komentar/addkomentar/{id-post}/{id-user}")
+    suspend fun postKomentar(
+        @Path("id-post") idPost: Int,
+        @Path("id-user") idUser: Int,
+        @Body body: KomentarBody
+    ): ApiResponse<KomentarResponse>
 }

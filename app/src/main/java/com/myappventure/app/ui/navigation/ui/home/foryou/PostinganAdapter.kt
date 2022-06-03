@@ -11,8 +11,6 @@ import com.myappventure.app.R
 import com.myappventure.app.TimeAgo.toTimeAgo
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.getAllPostingan.Content
-import com.myappventure.app.data.remote.getAllPostingan.FilePost
-import com.myappventure.app.data.remote.like.postLike.PostLikeResponse
 import com.myappventure.app.databinding.ItemPostinganBinding
 
 class PostinganAdapter(
@@ -62,6 +60,9 @@ class PostinganAdapter(
         holder.binding.txtDeskripsi.text = postingan.text
         holder.binding.txtJumlahLike.text = postingan.jumlahLike.toString()
         holder.binding.txtJumlahKomentar.text = postingan.jumlahKomentar.toString()
+        if(postingan.user.id == idUser) {
+            holder.binding.btnIkuti.visibility = View.GONE
+        }
         holder.binding.btnIkuti.setOnClickListener {
             onClick()
         }
@@ -73,8 +74,17 @@ class PostinganAdapter(
             holder.binding.imgLike.setOnClickListener {
                 onLike(postingan.id)
             }
+            val find = postingan.likedBy.find { like ->
+                like.user.id == idUser
+            }
+            holder.binding.imgLike.setImageResource(
+                if (find != null) {
+                    R.drawable.ic_love_full_small
+                }else{
+                    R.drawable.ic_like
+                }
+            )
         }
-
     }
 
     override fun getItemCount() = postingan.size

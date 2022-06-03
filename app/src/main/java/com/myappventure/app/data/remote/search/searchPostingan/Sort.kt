@@ -1,9 +1,9 @@
-package com.myappventure.app.data.remote.getPostByFollowing
+package com.myappventure.app.data.remote.search.searchPostingan
 
 
 import com.google.gson.annotations.SerializedName
 
-data class SortX(
+data class Sort(
     @SerializedName("empty")
     val empty: Boolean,
     @SerializedName("sorted")

@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentFollowBinding
 import com.myappventure.app.ui.login.LoginActivity
+import com.myappventure.app.ui.navigation.ui.home.detail_postingan.DetailPostinganActivity
+import com.myappventure.app.ui.navigation.ui.home.foryou.PostinganViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -22,8 +24,22 @@ class FollowFragment : Fragment() {
 
     private var _binding: FragmentFollowBinding? = null
     private val postinganDiikutiViewModel: DiikutiViewModel by activityViewModels()
+    private val postinganViewModel: PostinganViewModel by activityViewModels()
     private val binding get() = _binding!!
-    private val postinganAdapter = PostinganDiikutiAdapter(mutableListOf())
+    private val postinganAdapter = PostinganDiikutiAdapter(mutableListOf(),
+        onDetail = { postingan ->
+            val i = Intent(requireContext(), DetailPostinganActivity::class.java)
+            i.putExtra("postingan", postingan)
+            startActivity(i)
+        },
+        onLike = {
+            if (MySharedPref.isLoggedIn){
+                lifecycleScope.launch {
+                    postinganViewModel.likePost(it)
+                }
+            }
+
+        })
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,6 +80,7 @@ class FollowFragment : Fragment() {
                         false
                     )
                     adapter = postinganAdapter
+
                 }
             }
         } else {

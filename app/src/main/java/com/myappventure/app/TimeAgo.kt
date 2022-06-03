@@ -25,7 +25,7 @@ object TimeAgo {
         val diff = (now - time) / 1000
 
         return when {
-            diff < MINUTE -> "just now"
+            diff < MINUTE -> "baru saja"
             diff < 2 * MINUTE -> "1 menit lalu"
             diff < 60 * MINUTE -> "${diff / MINUTE} menit lalu"
             diff < 2 * HOUR -> "1 jam lalu"

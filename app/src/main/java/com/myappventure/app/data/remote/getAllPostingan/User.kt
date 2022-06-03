@@ -14,11 +14,11 @@ data class User(
     @SerializedName("id")
     val id: Int,
     @SerializedName("nama")
-    val nama: String,
+    val nama: String?,
     @SerializedName("otp")
-    val otp: String,
+    val otp: String?,
     @SerializedName("otpExpiredDate")
-    val otpExpiredDate: String,
+    val otpExpiredDate: String?,
     @SerializedName("roles")
     val roles: List<Role>,
     @SerializedName("urlFileName")

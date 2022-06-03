@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.getPostByFollowing
+package com.myappventure.app.data.remote.search.searchKomunitas
 
 
 import com.google.gson.annotations.SerializedName

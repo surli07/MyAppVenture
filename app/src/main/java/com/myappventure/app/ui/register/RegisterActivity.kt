@@ -118,6 +118,9 @@ class RegisterActivity : BaseActivity() {
             .enableImageCompression(true)
             .setCompressionQuality(50)
             .setCompressedFileDestinationPath(filesDir.path)
+            .setCancelCallback {
+                selectedFile.clear()
+            }
             .launch { f ->
                 f?.let { files ->
                     files.forEach{

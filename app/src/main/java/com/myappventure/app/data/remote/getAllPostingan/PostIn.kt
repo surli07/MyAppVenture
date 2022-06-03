@@ -7,6 +7,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PostIn(
+    @SerializedName("accept")
+    val accept: Boolean,
     @SerializedName("banner")
     val banner: String,
     @SerializedName("created_date")
@@ -30,5 +32,5 @@ data class PostIn(
     @SerializedName("urlFileName")
     val urlFileName: String,
     @SerializedName("user")
-    val user: User
+    val user: UserXX
 ) : Parcelable
