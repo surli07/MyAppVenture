@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.follow.listFollower
+package com.myappventure.app.data.remote.komunitas.join_komunitas
 
 
 import android.os.Parcelable
@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class UserFollowing(
+data class User(
     @SerializedName("authorities")
-    val authorities: List<AuthorityX>,
+    val authorities: List<Authority>,
     @SerializedName("fileName")
     val fileName: String?,
     @SerializedName("id")
@@ -20,7 +20,7 @@ data class UserFollowing(
     @SerializedName("otpExpiredDate")
     val otpExpiredDate: String,
     @SerializedName("roles")
-    val roles: List<RoleX>,
+    val roles: List<Role>,
     @SerializedName("urlFileName")
     val urlFileName: String,
     @SerializedName("username")

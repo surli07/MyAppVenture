@@ -25,7 +25,6 @@ class ProfileProfileActivity : AppCompatActivity() {
         binding.kataSandi.addTextChangedListener {
             validateUpdateForm()
         }
-
         binding.imgKembali.setOnClickListener {
             finish()
         }

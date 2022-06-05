@@ -5,6 +5,10 @@ import com.myappventure.app.data.remote.create_postingan.CreatePostinganResponse
 import com.myappventure.app.data.remote.destinasi.AllListDestinasi.AllDestinasiResponse
 import com.myappventure.app.data.remote.destinasi.baliDestinasi.BaliDestinasiResponse
 import com.myappventure.app.data.remote.destinasi.detailDestinasi.DetailDestinasiResponse
+import com.myappventure.app.data.remote.edit_profile.EditProfileResponse
+import com.myappventure.app.data.remote.follow.follow.FollowResponse
+import com.myappventure.app.data.remote.follow.listFollower.ListFollowerResponse
+import com.myappventure.app.data.remote.follow.listFollowing.ListFollowingResponse
 import com.myappventure.app.data.remote.followerFollowing.jumlahFollower.JumlahFollowerResponse
 import com.myappventure.app.data.remote.followerFollowing.jumlahFollowing.JumlahFollowingResponse
 import com.myappventure.app.data.remote.getAllPostingan.AllPostinganResponse
@@ -12,6 +16,7 @@ import com.myappventure.app.data.remote.komentar.KomentarBody
 import com.myappventure.app.data.remote.komentar.KomentarResponse
 import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.detail_komunitas.DetailKomunitasResponse
+import com.myappventure.app.data.remote.komunitas.join_komunitas.JoinKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.list_komunitas.ListKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganKomunitasResponse
 import com.myappventure.app.data.remote.likePost.LikeResponse
@@ -62,6 +67,13 @@ interface ApiService {
         @Query("idUser") idUser: Int?,
     ): ApiResponse<AllPostinganResponse>
 
+    @PUT("user-update/edit/")
+    suspend fun editProfile(
+        @Query("username") username: String?,
+        @Query("password") password: String,
+        @Query("idUser") idUser: Int?,
+    ): ApiResponse<EditProfileResponse>
+
     @GET("destinasi/list")
     suspend fun getAllDestinasi(
         @Query("page") page: Int,
@@ -89,25 +101,51 @@ interface ApiService {
         @Path("user-email") userEmail: String
     ): ApiResponse<SubscribeResponse>
 
-    @GET("follow/jumlahfollowing/{id-user}")
+    @POST("follow/")
+    suspend fun followUser(
+        @Query("idFollower") idFollower : RequestBody,
+        @Query("idFollowing") idFollowing : RequestBody,
+    ): ApiResponse<FollowResponse>
+
+    @GET("follow/jumlahfollowing/185/{idUser}")
     suspend fun getJumlahFollowing(
-        @Path("id-user") idUser: Int,
+        @Path("idUser") idUser: Int,
         @Query("page") page: Int,
         @Query("size") size: Int,
     ): ApiResponse<JumlahFollowingResponse>
 
-    @GET("follow/jumlahfollower/{id-user}")
+    @GET("follow/jumlahfollower/3/{idUser}")
     suspend fun getJumlahFollower(
-        @Path("id-user") idUser: Int,
+        @Path("idUser") idUser: Int?,
         @Query("page") page: Int,
         @Query("size") size: Int,
     ): ApiResponse<JumlahFollowerResponse>
+
+    @GET("follow/follower/3")
+    suspend fun getListFollower(
+        @Query("idUser") idUser: Int?,
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+    ): ApiResponse<ListFollowerResponse>
+
+    @GET("follow/following/185")
+    suspend fun getListFollowing(
+        @Query("idUser") idUser: Int?,
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+    ): ApiResponse<ListFollowingResponse>
 
     @GET("komunitas/list")
     suspend fun listKomunitas(
         @Query("page") page: Int,
         @Query("size") size: Int,
     ): ApiResponse<ListKomunitasResponse>
+
+    @POST("komunitas/join/")
+    suspend fun followKomunitas(
+        @Query("idUser") idUser : Int?,
+        @Query("idKomunitas") idKomunitas : RequestBody,
+    ): ApiResponse<JoinKomunitasResponse>
 
     @GET("destinasi/detaildestinasi")
     suspend fun detailDestinasi(

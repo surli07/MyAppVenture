@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.follow.listFollower
+package com.myappventure.app.data.remote.follow.listFollowing
 
 
 import android.os.Parcelable
