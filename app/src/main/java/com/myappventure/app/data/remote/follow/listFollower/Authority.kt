@@ -1,8 +1,11 @@
 package com.myappventure.app.data.remote.follow.listFollower
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Authority(
     @SerializedName("id")
     val id: Int,
@@ -12,4 +15,4 @@ data class Authority(
     val rolePaths: List<RolePath>,
     @SerializedName("type")
     val type: String
-)
+) : Parcelable

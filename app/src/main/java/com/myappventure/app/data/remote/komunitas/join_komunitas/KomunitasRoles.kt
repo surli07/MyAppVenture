@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.follow.listFollower
+package com.myappventure.app.data.remote.komunitas.join_komunitas
 
 
 import android.os.Parcelable
@@ -6,19 +6,15 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Content(
+data class KomunitasRoles(
     @SerializedName("created_date")
     val createdDate: String,
     @SerializedName("deleted_date")
     val deletedDate: String?,
     @SerializedName("id")
     val id: Int,
-    @SerializedName("status")
-    val status: Boolean,
+    @SerializedName("jenisRole")
+    val jenisRole: String,
     @SerializedName("updated_date")
-    val updatedDate: String,
-    @SerializedName("userFollower")
-    val userFollower: UserFollower,
-    @SerializedName("userFollowing")
-    val userFollowing: UserFollowing
+    val updatedDate: String
 ) : Parcelable

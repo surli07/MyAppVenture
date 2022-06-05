@@ -1,9 +1,9 @@
-package com.myappventure.app.data.remote.profile
+package com.myappventure.app.data.remote.edit_profile
 
 
 import com.google.gson.annotations.SerializedName
 
-data class RolePath(
+data class RolePathX(
     @SerializedName("id")
     val id: Int,
     @SerializedName("method")

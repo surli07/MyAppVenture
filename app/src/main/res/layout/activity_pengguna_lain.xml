@@ -146,6 +146,7 @@
         android:backgroundTint="#457275"
         android:fontFamily="@font/poppins_regular"
         android:text="Ikuti"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,8 +1,11 @@
 package com.myappventure.app.data.remote.follow.listFollower
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class UserFollower(
     @SerializedName("authorities")
     val authorities: List<Authority>,
@@ -22,4 +25,4 @@ data class UserFollower(
     val urlFileName: String,
     @SerializedName("username")
     val username: String
-)
+) : Parcelable

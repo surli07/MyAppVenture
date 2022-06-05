@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.profile
+package com.myappventure.app.data.remote.edit_profile
 
 
 import com.google.gson.annotations.SerializedName
