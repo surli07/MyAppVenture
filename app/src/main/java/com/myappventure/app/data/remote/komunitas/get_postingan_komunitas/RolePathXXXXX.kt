@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.komunitas.postingan_komunitas
+package com.myappventure.app.data.remote.komunitas.get_postingan_komunitas
 
 
 import android.os.Parcelable
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class RolePathXXX(
+data class RolePathXXXXX(
     @SerializedName("id")
     val id: Int,
     @SerializedName("method")

@@ -1,6 +1,7 @@
 package com.myappventure.app.repository
 
 import com.myappventure.app.data.remote.ApiService
+import com.myappventure.app.data.remote.komentar.KomentarBody
 import com.skydoves.sandwich.message
 import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
@@ -42,6 +43,66 @@ class PostinganKomunitasRepository @Inject constructor(
             onError(this.message())
         }.onException {
             Timber.e(this.message())
+            onError(this.message())
+        }
+    }
+        .onStart { onStart() }
+        .onCompletion { onComplete() }
+        .flowOn(ioDispatcher)
+
+    suspend fun getPostinganKomunitas(
+        onStart: () -> Unit,
+        onComplete: () -> Unit,
+        onError: (String?) -> Unit,
+        idKomunitas: RequestBody,
+    ) = flow {
+        val response = apiService.getPostinganKomunitas(0, 100, idKomunitas)
+        response.suspendOnSuccess {
+            emit(this.data)
+        }.onError {
+            onError(this.message())
+        }.onException {
+            onError(this.message())
+        }
+    }
+        .onStart { onStart() }
+        .onCompletion { onComplete() }
+        .flowOn(ioDispatcher)
+
+    suspend fun likePostingan(
+        onStart: () -> Unit,
+        onComplete: () -> Unit,
+        onError: (String?) -> Unit,
+        idPost: Int,
+        idUser: Int
+    ) = flow {
+        val response = apiService.postLike(idPost, idUser)
+        response.suspendOnSuccess {
+            emit(data)
+        }.onError {
+            onError(this.message())
+        }.onException {
+            onError(this.message())
+        }
+    }
+        .onStart { onStart() }
+        .onCompletion { onComplete() }
+        .flowOn(ioDispatcher)
+
+    suspend fun komentarPostingan(
+        onStart: () -> Unit,
+        onComplete: () -> Unit,
+        onError: (String?) -> Unit,
+        idPost: Int,
+        idUser: Int,
+        body: KomentarBody
+    ) = flow {
+        val response = apiService.postKomentar(idPost, idUser, body)
+        response.suspendOnSuccess {
+            emit(data)
+        }.onError {
+            onError(this.message())
+        }.onException {
             onError(this.message())
         }
     }

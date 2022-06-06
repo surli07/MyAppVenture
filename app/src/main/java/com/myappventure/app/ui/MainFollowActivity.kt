@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayoutMediator
 import com.myappventure.app.databinding.ActivityMainFollowBinding
 import com.myappventure.app.ui.navigation.ui.profile.ViewPagerAdapter2
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFollowActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainFollowBinding
@@ -19,6 +21,9 @@ class MainFollowActivity : AppCompatActivity() {
 
         binding.viewPager.apply {
             this.adapter = ViewPagerAdapter2(this@MainFollowActivity)
+        }
+        binding.btnKembali.setOnClickListener {
+            finish()
         }
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->

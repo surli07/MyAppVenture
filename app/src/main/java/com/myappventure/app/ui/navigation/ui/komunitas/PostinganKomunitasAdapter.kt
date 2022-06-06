@@ -9,15 +9,20 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.myappventure.app.R
 import com.myappventure.app.TimeAgo.toTimeAgo
+import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.Content
 import com.myappventure.app.databinding.ItemPostinganBinding
 
 class PostinganKomunitasAdapter(
     var postingan: MutableList<Content>,
-    val onClick: () -> Unit
+    val onClick: () -> Unit,
+    val onDetail: (Content) -> Unit,
+    val onLike: (Int) -> Unit
 ) : RecyclerView.Adapter<PostinganKomunitasAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPostinganBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+    private var idUser = MySharedPref.idUser
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemPostinganBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -49,12 +54,36 @@ class PostinganKomunitasAdapter(
         } else {
             holder.binding.imgSlider.visibility = View.GONE
         }
+
+        holder.binding.txtNamaUser.text = postingan.user.nama
         holder.binding.txtWaktuPost.text = postingan.createdDate.toTimeAgo()
         holder.binding.txtDeskripsi.text = postingan.text
         holder.binding.txtJumlahLike.text = postingan.jumlahLike.toString()
         holder.binding.txtJumlahKomentar.text = postingan.jumlahKomentar.toString()
+        if(postingan.user.id == idUser) {
+            holder.binding.btnIkuti.visibility = View.GONE
+        }
         holder.binding.btnIkuti.setOnClickListener {
             onClick()
+        }
+        holder.binding.cardPostingan.setOnClickListener {
+            onDetail(postingan)
+        }
+
+        if (idUser != null) {
+            holder.binding.imgLike.setOnClickListener {
+                onLike(postingan.id)
+            }
+            val find = postingan.likedBy.find { like ->
+                like.user.id == idUser
+            }
+            holder.binding.imgLike.setImageResource(
+                if (find != null) {
+                    R.drawable.ic_love_full_small
+                }else{
+                    R.drawable.ic_like
+                }
+            )
         }
     }
 

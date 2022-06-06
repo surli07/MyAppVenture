@@ -3,6 +3,7 @@ package com.myappventure.app.data.remote.komunitas.postingan_komunitas
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.myappventure.app.data.remote.getAllPostingan.FilePost
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -11,8 +12,8 @@ data class DataX(
     val createdDate: String,
     @SerializedName("deleted_date")
     val deletedDate: String?,
-//    @SerializedName("filePosts")
-//    val filePosts: List<FilePost>,
+    @SerializedName("filePosts")
+    val filePosts: List<FilePost>,
     @SerializedName("id")
     val id: Int,
     @SerializedName("jumlahKomentar")
@@ -28,5 +29,5 @@ data class DataX(
     @SerializedName("urlFileName1")
     val urlFileName1: String,
     @SerializedName("user")
-    val user: String
+    val user: UserX
 ): Parcelable

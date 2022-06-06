@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.komunitas.postingan_komunitas
+package com.myappventure.app.data.remote.komunitas.get_postingan_komunitas
 
 
 import android.os.Parcelable
@@ -14,11 +14,11 @@ data class UserX(
     @SerializedName("id")
     val id: Int,
     @SerializedName("nama")
-    val nama: String,
+    val nama: String?,
     @SerializedName("otp")
-    val otp: String,
+    val otp: String?,
     @SerializedName("otpExpiredDate")
-    val otpExpiredDate: String,
+    val otpExpiredDate: String?,
     @SerializedName("roles")
     val roles: List<RoleX>,
     @SerializedName("urlFileName")

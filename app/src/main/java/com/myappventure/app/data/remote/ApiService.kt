@@ -16,6 +16,7 @@ import com.myappventure.app.data.remote.komentar.KomentarBody
 import com.myappventure.app.data.remote.komentar.KomentarResponse
 import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.detail_komunitas.DetailKomunitasResponse
+import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.GetPostinganKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.join_komunitas.JoinKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.list_komunitas.ListKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganKomunitasResponse
@@ -103,8 +104,8 @@ interface ApiService {
 
     @POST("follow/")
     suspend fun followUser(
-        @Query("idFollower") idFollower : RequestBody,
-        @Query("idFollowing") idFollowing : RequestBody,
+        @Query("idFollower") idFollower: RequestBody,
+        @Query("idFollowing") idFollowing: RequestBody,
     ): ApiResponse<FollowResponse>
 
     @GET("follow/jumlahfollowing/185/{idUser}")
@@ -143,8 +144,8 @@ interface ApiService {
 
     @POST("komunitas/join/")
     suspend fun followKomunitas(
-        @Query("idUser") idUser : Int?,
-        @Query("idKomunitas") idKomunitas : RequestBody,
+        @Query("idUser") idUser: Int?,
+        @Query("idKomunitas") idKomunitas: RequestBody,
     ): ApiResponse<JoinKomunitasResponse>
 
     @GET("destinasi/detaildestinasi")
@@ -160,6 +161,13 @@ interface ApiService {
         @Part file: List<MultipartBody.Part?>?,
         @Part("text") text: RequestBody,
     ): ApiResponse<PostinganKomunitasResponse>
+
+    @GET("post/postingankomunitas/list")
+    suspend fun getPostinganKomunitas(
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+        @Query("idKomunitas") idKomunitas: RequestBody,
+    ): ApiResponse<GetPostinganKomunitasResponse>
 
     @GET("komunitas/detailkomunitas")
     suspend fun detailKomunitas(

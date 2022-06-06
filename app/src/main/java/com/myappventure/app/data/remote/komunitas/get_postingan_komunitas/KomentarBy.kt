@@ -6,15 +6,19 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class FilePost(
+data class KomentarBy(
     @SerializedName("created_date")
     val createdDate: String,
     @SerializedName("deleted_date")
     val deletedDate: String?,
     @SerializedName("id")
     val id: Int,
+    @SerializedName("jumlahBalasKomentar")
+    val jumlahBalasKomentar: Int,
+    @SerializedName("textKomentar")
+    val textKomentar: String,
     @SerializedName("updated_date")
     val updatedDate: String,
-    @SerializedName("url")
-    val url: String
-): Parcelable
+    @SerializedName("user")
+    val user: User
+) : Parcelable

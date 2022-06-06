@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -13,19 +14,41 @@ import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.list_komunitas.Content
 import com.myappventure.app.databinding.ActivityDetailKomunitasBinding
 import com.myappventure.app.ui.login.LoginActivity
+import com.myappventure.app.ui.navigation.ui.home.detail_postingan.DetailPostinganActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DetailKomunitasActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailKomunitasBinding
+    private lateinit var detailPost: Content
+    private val postinganKomunitasViewModel: GetPostinganKomunitasViewModel by viewModels()
     private val postinganKomunitasAdapter = PostinganKomunitasAdapter(mutableListOf(), onClick = {
         if (!MySharedPref.isLoggedIn) {
             val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
         }
-    })
-    private lateinit var detailPost: Content
-    private val postinganKomunitasViewModel: PostinganKomunitasViewModel by viewModels()
+    },
+        onDetail = { postingan ->
+            val i = Intent(this, DetailPostinganActivity::class.java)
+            i.putExtra("postingan", postingan)
+            startActivity(i)
+        },
+        onLike = {
+            if (MySharedPref.isLoggedIn){
+                lifecycleScope.launch {
+                    postinganKomunitasViewModel.likePost(it)
+                }
+            }
+
+        })
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            postinganKomunitasViewModel.getAllPost()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,9 +90,9 @@ class DetailKomunitasActivity : BaseActivity() {
     }
 
     override fun setupObserver() {
-        postinganKomunitasViewModel.postinganKomunitasResult.observe(this) {
+        postinganKomunitasViewModel.postingankomunitasResult.observe(this) {
             postinganKomunitasAdapter.postingan.clear()
-            postinganKomunitasAdapter.postingan.add(it)
+            postinganKomunitasAdapter.postingan.addAll(it)
             postinganKomunitasAdapter.notifyDataSetChanged()
         }
     }

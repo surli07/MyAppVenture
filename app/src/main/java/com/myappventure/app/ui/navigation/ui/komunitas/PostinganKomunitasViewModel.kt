@@ -4,9 +4,10 @@ import android.webkit.MimeTypeMap
 import androidx.lifecycle.MutableLiveData
 import com.myappventure.app.base.BaseViewModel
 import com.myappventure.app.data.local.MySharedPref
-import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.Content
+import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganKomunitasResponse
 import com.myappventure.app.repository.PostinganKomunitasRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collect
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -19,7 +20,7 @@ class PostinganKomunitasViewModel @Inject constructor(
     private val postinganKomunitasRepository: PostinganKomunitasRepository
 ) : BaseViewModel() {
 
-    val postinganKomunitasResult = MutableLiveData<Content>()
+    val postinganKomunitasResult = MutableLiveData<PostinganKomunitasResponse>()
 
     suspend fun newPost(files: List<File>?, text: String) {
         val id = MySharedPref.idUser.toString()
@@ -47,10 +48,9 @@ class PostinganKomunitasViewModel @Inject constructor(
             idKomunitas,
             filesMultipart,
             text
-        )
-//            .collect {
-//            postinganKomunitasResult.postValue(it)
-//        }
+        ).collect {
+            postinganKomunitasResult.postValue(it)
+        }
     }
 
     private fun getMimeType(path: String): String? {

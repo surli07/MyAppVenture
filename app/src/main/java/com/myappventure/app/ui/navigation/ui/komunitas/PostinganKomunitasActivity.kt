@@ -20,7 +20,6 @@ import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.ActivityCreatePostinganBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.navigation.NavigationActivity
-import com.myappventure.app.ui.navigation.ui.home.create_postingan.NewPostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.io.File
@@ -28,7 +27,7 @@ import java.io.File
 @AndroidEntryPoint
 class PostinganKomunitasActivity : BaseActivity() {
     private lateinit var binding: ActivityCreatePostinganBinding
-    private val viewModel: NewPostViewModel by viewModels()
+    private val viewModel: PostinganKomunitasViewModel by viewModels()
     private val File.size get() = if (!exists()) 0.0 else length().toDouble()
     private val File.sizeInKb get() = size / 1024
     private val File.sizeInMb get() = sizeInKb / 1024
@@ -155,7 +154,7 @@ class PostinganKomunitasActivity : BaseActivity() {
         viewModel.message.observe(this) {
             showMessageToast(it)
         }
-        viewModel.newPostResponse.observe(this) {
+        viewModel.postinganKomunitasResult.observe(this) {
             if (it.status == "200") {
                 val i = Intent(this, NavigationActivity::class.java)
                 startActivity(i)

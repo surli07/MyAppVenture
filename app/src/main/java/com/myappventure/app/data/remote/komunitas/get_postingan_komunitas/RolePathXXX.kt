@@ -1,4 +1,4 @@
-package com.myappventure.app.data.remote.komunitas.postingan_komunitas
+package com.myappventure.app.data.remote.komunitas.get_postingan_komunitas
 
 
 import android.os.Parcelable

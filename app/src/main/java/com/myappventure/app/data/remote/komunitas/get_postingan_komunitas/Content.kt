@@ -3,6 +3,7 @@ package com.myappventure.app.data.remote.komunitas.get_postingan_komunitas
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.myappventure.app.data.remote.getAllPostingan.FilePost
 import kotlinx.parcelize.Parcelize
 import java.util.*
 
@@ -20,16 +21,18 @@ data class Content(
     val jumlahKomentar: Int,
     @SerializedName("jumlahLike")
     val jumlahLike: Int,
+    @SerializedName("komentarBy")
+    val komentarBy: List<KomentarBy>,
+    @SerializedName("likedBy")
+    val likedBy: List<LikedBy>,
     @SerializedName("postIn")
-    val postIn: String?,
+    val postIn: PostIn?,
     @SerializedName("text")
     val text: String,
     @SerializedName("updated_date")
     val updatedDate: String,
     @SerializedName("urlFileName1")
-    val urlFileName1: String,
+    val urlFileName1: String?,
     @SerializedName("user")
-    val user: User,
-    @SerializedName("status")
-    val status: String
-): Parcelable
+    val user: UserXXX
+) : Parcelable
