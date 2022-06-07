@@ -3,12 +3,14 @@ package com.myappventure.app.data.remote.komunitas.get_postingan_komunitas
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.myappventure.app.data.remote.komentar.User
 import kotlinx.parcelize.Parcelize
+import java.util.*
 
 @Parcelize
 data class KomentarBy(
     @SerializedName("created_date")
-    val createdDate: String,
+    val createdDate: Date,
     @SerializedName("deleted_date")
     val deletedDate: String?,
     @SerializedName("id")

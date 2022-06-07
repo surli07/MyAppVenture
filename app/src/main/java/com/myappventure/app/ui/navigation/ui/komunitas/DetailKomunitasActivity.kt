@@ -14,7 +14,6 @@ import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.list_komunitas.Content
 import com.myappventure.app.databinding.ActivityDetailKomunitasBinding
 import com.myappventure.app.ui.login.LoginActivity
-import com.myappventure.app.ui.navigation.ui.home.detail_postingan.DetailPostinganActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -29,9 +28,9 @@ class DetailKomunitasActivity : BaseActivity() {
             startActivity(i)
         }
     },
-        onDetail = { postingan ->
-            val i = Intent(this, DetailPostinganActivity::class.java)
-            i.putExtra("postingan", postingan)
+        onDetail = { postinganKomunitas ->
+            val i = Intent(this, DetailPostinganKomunitasActivity::class.java)
+            i.putExtra( "postinganKomunitas", postinganKomunitas)
             startActivity(i)
         },
         onLike = {
@@ -92,8 +91,8 @@ class DetailKomunitasActivity : BaseActivity() {
 
     override fun setupObserver() {
         postinganKomunitasViewModel.postingankomunitasResult.observe(this) {
-            postinganKomunitasAdapter.postingan.clear()
-            postinganKomunitasAdapter.postingan.addAll(it)
+            postinganKomunitasAdapter.postinganKomunitas.clear()
+            postinganKomunitasAdapter.postinganKomunitas.addAll(it)
             postinganKomunitasAdapter.notifyDataSetChanged()
         }
     }

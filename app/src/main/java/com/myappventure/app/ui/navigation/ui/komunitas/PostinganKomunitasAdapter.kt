@@ -14,7 +14,7 @@ import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.Conten
 import com.myappventure.app.databinding.ItemPostinganBinding
 
 class PostinganKomunitasAdapter(
-    var postingan: MutableList<Content>,
+    var postinganKomunitas: MutableList<Content>,
     val onClick: () -> Unit,
     val onDetail: (Content) -> Unit,
     val onLike: (Int) -> Unit
@@ -30,13 +30,13 @@ class PostinganKomunitasAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val postingan = postingan[position]
+        val postinganKomunitas = postinganKomunitas[position]
         val imageList = ArrayList<SlideModel>()
-        if (postingan.user.fileName != null) {
+        if (postinganKomunitas.user.fileName != null) {
             holder.binding.imgProfile.visibility = View.GONE
             holder.binding.imgPhotoUser.visibility = View.VISIBLE
             Glide.with(holder.itemView)
-                .load(postingan.user.urlFileName)
+                .load(postinganKomunitas.user.urlFileName)
                 .error(R.drawable.ic_launcher_foreground)
                 .into(holder.binding.imgPhotoUser)
         } else {
@@ -44,10 +44,10 @@ class PostinganKomunitasAdapter(
             holder.binding.imgPhotoUser.visibility = View.GONE
         }
 
-        if (postingan.filePosts.isNotEmpty()){
+        if (postinganKomunitas.filePosts.isNotEmpty()) {
             holder.binding.imgSlider.visibility = View.VISIBLE
-            var file = postingan.filePosts
-            for ( f in file) {
+            var file = postinganKomunitas.filePosts
+            for (f in file) {
                 imageList.add(SlideModel(f.url, ScaleTypes.CENTER_CROP))
             }
             holder.binding.imgSlider.setImageList(imageList)
@@ -55,38 +55,38 @@ class PostinganKomunitasAdapter(
             holder.binding.imgSlider.visibility = View.GONE
         }
 
-        holder.binding.txtNamaUser.text = postingan.user.nama
-        holder.binding.txtWaktuPost.text = postingan.createdDate.toTimeAgo()
-        holder.binding.txtDeskripsi.text = postingan.text
-        holder.binding.txtJumlahLike.text = postingan.jumlahLike.toString()
-        holder.binding.txtJumlahKomentar.text = postingan.jumlahKomentar.toString()
-        if(postingan.user.id == idUser) {
+        holder.binding.txtNamaUser.text = postinganKomunitas.user.nama
+        holder.binding.txtWaktuPost.text = postinganKomunitas.createdDate.toTimeAgo()
+        holder.binding.txtDeskripsi.text = postinganKomunitas.text
+        holder.binding.txtJumlahLike.text = postinganKomunitas.jumlahLike.toString()
+        holder.binding.txtJumlahKomentar.text = postinganKomunitas.jumlahKomentar.toString()
+        if (postinganKomunitas.user.id == idUser) {
             holder.binding.btnIkuti.visibility = View.GONE
         }
         holder.binding.btnIkuti.setOnClickListener {
             onClick()
         }
         holder.binding.cardPostingan.setOnClickListener {
-            onDetail(postingan)
+            onDetail(postinganKomunitas)
         }
 
         if (idUser != null) {
             holder.binding.imgLike.setOnClickListener {
-                onLike(postingan.id)
+                onLike(postinganKomunitas.id)
             }
-            val find = postingan.likedBy.find { like ->
+            val find = postinganKomunitas.likedBy.find { like ->
                 like.user.id == idUser
             }
             holder.binding.imgLike.setImageResource(
                 if (find != null) {
                     R.drawable.ic_love_full_small
-                }else{
+                } else {
                     R.drawable.ic_like
                 }
             )
         }
     }
 
-    override fun getItemCount() = postingan.size
+    override fun getItemCount() = postinganKomunitas.size
 
 }

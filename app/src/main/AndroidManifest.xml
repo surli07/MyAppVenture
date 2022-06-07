@@ -27,8 +27,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.navigation.ui.home.detail_postingan.DetailPostinganActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".ui.navigation.ui.profile.unggahan.UnggahanSayaActivity"
             android:exported="false" />
@@ -71,6 +71,10 @@
         <activity
             android:name=".ui.navigation.ui.komunitas.PostinganKomunitasActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.navigation.ui.komunitas.DetailPostinganKomunitasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".ui.navigation.ui.community.SuksesNewCommunityActivity"
             android:exported="false" />
