@@ -22,7 +22,7 @@ class PostinganKomunitasViewModel @Inject constructor(
 
     val postinganKomunitasResult = MutableLiveData<PostinganKomunitasResponse>()
 
-    suspend fun newPost(files: List<File>?, text: String) {
+    suspend fun newPost(files: List<File>?, text: String, idKomunitas: Int) {
         val id = MySharedPref.idUser.toString()
         val filesMultipart = files?.map {
             val fileRequestBody = it.asRequestBody(getMimeType(it.path)!!.toMediaType())
@@ -33,7 +33,7 @@ class PostinganKomunitasViewModel @Inject constructor(
         }
         val text = text.toRequestBody("text/plain".toMediaType())
         val idUser = id.toRequestBody("text/plain".toMediaType())
-        val idKomunitas = id.toRequestBody("text/plain".toMediaType())
+        val idKomunitasBody = idKomunitas.toString().toRequestBody("text/plain".toMediaType())
         postinganKomunitasRepository.postinganKomunitas(
             onStart = {
                 showLoading()
@@ -45,7 +45,7 @@ class PostinganKomunitasViewModel @Inject constructor(
                 _message.postValue(it)
             },
             idUser,
-            idKomunitas,
+            idKomunitasBody,
             filesMultipart,
             text
         ).collect {

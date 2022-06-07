@@ -32,6 +32,7 @@ class PostinganKomunitasActivity : BaseActivity() {
     private val File.sizeInKb get() = size / 1024
     private val File.sizeInMb get() = sizeInKb / 1024
     private var selectedFiles = mutableListOf<File>()
+    private var idKomunitas: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,8 @@ class PostinganKomunitasActivity : BaseActivity() {
         binding.imgUpload.setOnClickListener {
             requestAccessForFile()
         }
+
+        idKomunitas = intent.getIntExtra("idKomunitas", 1000)
 
         binding.imgBack.setOnClickListener {
             val i = Intent(this, NavigationActivity::class.java)
@@ -77,10 +80,27 @@ class PostinganKomunitasActivity : BaseActivity() {
     private fun createPost() {
         lifecycleScope.launch {
             val text = binding.txtPostingan.text.toString()
-            if (selectedFiles.isNotEmpty())
-                viewModel.newPost(selectedFiles, text)
-            else
-                viewModel.newPost(null, text)
+            if (selectedFiles.isNotEmpty()) {
+                if (idKomunitas != -1 && idKomunitas != 1000)
+                    viewModel.newPost(selectedFiles, text, idKomunitas)
+                else
+                    Toast.makeText(
+                        this@PostinganKomunitasActivity,
+                        "idKomunitas : $idKomunitas",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+            } else {
+                if (idKomunitas != -1 && idKomunitas != 1000)
+                    viewModel.newPost(null, text, idKomunitas)
+                else
+                    Toast.makeText(
+                        this@PostinganKomunitasActivity,
+                        "idKomunitas : $idKomunitas",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+            }
         }
     }
 
@@ -118,7 +138,7 @@ class PostinganKomunitasActivity : BaseActivity() {
                     val filterFiles = files.filter {
                         val file = File(it.mediaPath)
                         if (it.mediaType == UwMediaPickerMediaType.IMAGE) {
-                            if(file.sizeInMb > 10.0){
+                            if (file.sizeInMb > 10.0) {
                                 Toast.makeText(
                                     this,
                                     "Maksimum foto yang dipilih harus < 20 MB",
@@ -127,14 +147,14 @@ class PostinganKomunitasActivity : BaseActivity() {
                             }
                             return@filter file.sizeInMb <= 10.0
                         } else if (it.mediaType == UwMediaPickerMediaType.VIDEO) {
-                            if(file.sizeInMb > 35.0){
+                            if (file.sizeInMb > 35.0) {
                                 Toast.makeText(
                                     this,
                                     "Maksimum video yang dipilih harus < 35MB",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
-                            return@filter  file.sizeInMb <= 35.0
+                            return@filter file.sizeInMb <= 35.0
                         }
                         return@filter false
                     }.map {

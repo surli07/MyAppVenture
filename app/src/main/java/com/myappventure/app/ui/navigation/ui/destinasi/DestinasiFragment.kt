@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.GridLayoutManager
 import com.myappventure.app.databinding.FragmentDestinasiBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -55,21 +53,12 @@ class DestinasiFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerPopularDestination.apply {
-            layoutManager = LinearLayoutManager(
+        binding.recyclerDestinasi.apply {
+            layoutManager = GridLayoutManager(
                 context,
-                RecyclerView.HORIZONTAL,
-                false
+                2
             )
             adapter = destinasiAdapter
-        }
-        binding.recyclerBali.apply {
-            layoutManager = LinearLayoutManager(
-                context,
-                RecyclerView.HORIZONTAL,
-                false
-            )
-            adapter = baliDestinasiAdapter
         }
         setupObserver()
     }

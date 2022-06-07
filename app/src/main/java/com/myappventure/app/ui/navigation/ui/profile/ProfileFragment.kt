@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.myappventure.app.R
@@ -35,10 +34,6 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -62,7 +57,6 @@ class ProfileFragment : Fragment() {
                 binding.imgPhotoUser.visibility = View.GONE
             }
 
-            binding.cardPenUpload.visibility = View.VISIBLE
             binding.Invite.visibility = View.VISIBLE
             binding.Logout.visibility = View.VISIBLE
             binding.recProfile.visibility = View.VISIBLE
@@ -92,8 +86,6 @@ class ProfileFragment : Fragment() {
             binding.txtMengikuti.setOnClickListener {
                 val intent = Intent(requireContext(), MainFollowActivity::class.java)
                 startActivity(intent)
-            }
-            binding.edtFoto.setOnClickListener {
             }
             binding.icNextP.setOnClickListener {
                 val intent = Intent(requireContext(), ProfileProfileActivity::class.java)

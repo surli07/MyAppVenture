@@ -8,8 +8,6 @@ import com.myappventure.app.data.remote.likePost.LikeResponse
 import com.myappventure.app.repository.PostinganKomunitasRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,9 +18,7 @@ class GetPostinganKomunitasViewModel @Inject constructor(
     val postingankomunitasResult = MutableLiveData<List<Content>>()
     val likeResult = MutableLiveData<LikeResponse>()
 
-    suspend fun getAllPost() {
-        val id = MySharedPref.idUser.toString()
-        val idKomunitas = id.toRequestBody("text/plain".toMediaType())
+    suspend fun getAllPost( idKomunitas : Int) {
         postinganKomunitasRepository.getPostinganKomunitas(
             onStart = {
                 _loading.postValue(true)

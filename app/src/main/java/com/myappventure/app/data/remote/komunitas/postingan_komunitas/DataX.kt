@@ -20,8 +20,12 @@ data class DataX(
     val jumlahKomentar: Int,
     @SerializedName("jumlahLike")
     val jumlahLike: Int,
+    @SerializedName("komentarBy")
+    val komentarBy: String,
+    @SerializedName("likedBy")
+    val likedBy: String,
     @SerializedName("postIn")
-    val postIn: String?,
+    val postIn: PostIn,
     @SerializedName("text")
     val text: String,
     @SerializedName("updated_date")
@@ -29,5 +33,5 @@ data class DataX(
     @SerializedName("urlFileName1")
     val urlFileName1: String,
     @SerializedName("user")
-    val user: UserX
-): Parcelable
+    val user: User
+) : Parcelable
