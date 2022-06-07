@@ -166,7 +166,7 @@ interface ApiService {
     suspend fun getPostinganKomunitas(
         @Query("page") page: Int,
         @Query("size") size: Int,
-        @Query("idKomunitas") idKomunitas: RequestBody,
+        @Query("idKomunitas") idKomunitas: Int,
     ): ApiResponse<GetPostinganKomunitasResponse>
 
     @GET("komunitas/detailkomunitas")

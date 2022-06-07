@@ -29,17 +29,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/imgKembali" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgProfile"
+        android:layout_width="117dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="40dp"
+        app:cardBackgroundColor="@color/abuabu"
+        app:cardCornerRadius="58.5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtProfileSaya">
+
+        <ImageView
+            android:id="@+id/imgFoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_person" />
+
+        <ImageView
+            android:id="@+id/imgFotoKomunitas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/txtUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Username"
         android:textColor="#329D9C"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/imgKembali"
-        app:layout_constraintTop_toBottomOf="@id/imgKembali"/>
+        app:layout_constraintTop_toBottomOf="@id/imgProfile"/>
 
     <EditText
         android:id="@+id/username"

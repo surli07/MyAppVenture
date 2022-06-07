@@ -29,6 +29,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardHead">
 
@@ -36,120 +37,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/txtPopularDestination"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerDestinasi"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Destinasi terpopuler untuk kamu"
-                android:textColor="#008C96"
-                android:textSize="16sp"
+                android:layout_height="0dp"
+                android:layout_marginTop="22dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerPopularDestination"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/txtPopularDestination"
-                app:layout_constraintTop_toBottomOf="@id/txtPopularDestination"
+                app:spanCount="2"
+                tools:itemCount="30"
                 tools:listitem="@layout/item_destinasi" />
-
-            <TextView
-                android:id="@+id/txtBali"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Bali "
-                android:textColor="#008C96"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@id/txtPopularDestination"
-                app:layout_constraintTop_toBottomOf="@id/recyclerPopularDestination" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerBali"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/txtBali"
-                app:layout_constraintTop_toBottomOf="@id/txtBali"
-                tools:listitem="@layout/item_bali_destinasi" />
-
-            <TextView
-                android:id="@+id/txtDIY"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Daerah Istimewa Yogyakarta"
-                android:textColor="#008C96"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@id/txtBali"
-                app:layout_constraintTop_toBottomOf="@id/recyclerBali" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerDIY"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toStartOf="@id/txtDIY"
-                app:layout_constraintTop_toBottomOf="@id/txtDIY"
-                tools:listitem="@layout/item_destinasi" />
-
-            <TextView
-                android:id="@+id/txtJawaTimur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Jawa Timur"
-                android:textColor="#008C96"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@id/txtBali"
-                app:layout_constraintTop_toBottomOf="@id/recyclerDIY" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerJawaTimur"
-                android:layout_width="0dp"
-                android:layout_height="158dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/txtDIY"
-                app:layout_constraintTop_toBottomOf="@id/txtJawaTimur" />
-
-            <TextView
-                android:id="@+id/txtJawaBarat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Jawa Barat"
-                android:textColor="#008C96"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@id/txtBali"
-                app:layout_constraintTop_toBottomOf="@id/recyclerJawaTimur" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerJawaBarat"
-                android:layout_width="0dp"
-                android:layout_height="158dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/txtDIY"
-                app:layout_constraintTop_toBottomOf="@id/txtJawaBarat" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/imgCreate"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/ic_create"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     android:id="@+id/itemDestinasi"
     android:layout_width="148dp"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="18dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardDestinasi"
@@ -74,7 +74,7 @@
     <Button
         android:id="@+id/btnDetail"
         android:layout_width="124dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="15dp"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/poppins_regular"

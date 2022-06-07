@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class DetailKomunitasActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailKomunitasBinding
-    private lateinit var detailPost: Content
+    private lateinit var detailKomunitas: Content
     private val postinganKomunitasViewModel: GetPostinganKomunitasViewModel by viewModels()
     private val postinganKomunitasAdapter = PostinganKomunitasAdapter(mutableListOf(), onClick = {
         if (!MySharedPref.isLoggedIn) {
@@ -35,7 +35,7 @@ class DetailKomunitasActivity : BaseActivity() {
             startActivity(i)
         },
         onLike = {
-            if (MySharedPref.isLoggedIn){
+            if (MySharedPref.isLoggedIn) {
                 lifecycleScope.launch {
                     postinganKomunitasViewModel.likePost(it)
                 }
@@ -46,7 +46,7 @@ class DetailKomunitasActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch {
-            postinganKomunitasViewModel.getAllPost()
+            postinganKomunitasViewModel.getAllPost(detailKomunitas.id)
         }
     }
 
@@ -56,15 +56,16 @@ class DetailKomunitasActivity : BaseActivity() {
         binding = ActivityDetailKomunitasBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnUnggah.setOnClickListener {
+        binding.btnUnggah.setOnClickListener { idKomunitas ->
             val i = Intent(this, PostinganKomunitasActivity::class.java)
+            i.putExtra("idKomunitas", detailKomunitas.id)
             startActivity(i)
         }
         binding.btnKembali.setOnClickListener {
             finish()
         }
         intent.getParcelableExtra<Content>("komunitas")?.let {
-            detailPost = it
+            detailKomunitas = it
             binding.txtDeskripsiKomunitas.text = it.deskripsi
             binding.txtNamaKomunitas.text = it.namaKomunitas
             binding.txtLinkGrup.text = it.linkKomunitas

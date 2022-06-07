@@ -54,7 +54,7 @@ class PostinganKomunitasRepository @Inject constructor(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-        idKomunitas: RequestBody,
+        idKomunitas: Int,
     ) = flow {
         val response = apiService.getPostinganKomunitas(0, 100, idKomunitas)
         response.suspendOnSuccess {

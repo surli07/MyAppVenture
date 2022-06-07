@@ -1,15 +1,20 @@
 package com.myappventure.app.data.remote.komunitas.postingan_komunitas
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class PostIn(
+    @SerializedName("accept")
+    val accept: Boolean,
     @SerializedName("banner")
     val banner: String,
     @SerializedName("created_date")
     val createdDate: String,
     @SerializedName("deleted_date")
-    val deletedDate: Any,
+    val deletedDate: String?,
     @SerializedName("deskripsi")
     val deskripsi: String,
     @SerializedName("fileName")
@@ -27,5 +32,5 @@ data class PostIn(
     @SerializedName("urlFileName")
     val urlFileName: String,
     @SerializedName("user")
-    val user: User
-)
+    val user: String
+) : Parcelable

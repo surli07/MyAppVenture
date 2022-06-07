@@ -1,13 +1,17 @@
 package com.myappventure.app.data.remote.komunitas.postingan_komunitas
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.myappventure.app.data.remote.getAllPostingan.FilePost
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class User(
     @SerializedName("authorities")
     val authorities: List<Authority>,
     @SerializedName("fileName")
-    val fileName: Any,
+    val fileName: List<FilePost>,
     @SerializedName("id")
     val id: Int,
     @SerializedName("nama")
@@ -22,4 +26,4 @@ data class User(
     val urlFileName: String,
     @SerializedName("username")
     val username: String
-)
+) : Parcelable

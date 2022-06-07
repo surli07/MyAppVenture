@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Data(
     @SerializedName("data")
-    val data : List<DataX>,
+    val `data`: DataX,
     @SerializedName("message")
     val message: String,
     @SerializedName("status")
