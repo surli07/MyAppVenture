@@ -55,6 +55,7 @@ class KomunitasActivity : AppCompatActivity() {
         komunitasSayaViewModel.komunitasSayaResult.observe(this) {
             komunitasAdapter.komunitasSaya.clear()
             komunitasAdapter.komunitasSaya.addAll(it)
+            komunitasAdapter.notifyDataSetChanged()
         }
     }
 }

@@ -54,6 +54,7 @@ class PengikutFragment : Fragment() {
         pengikutViewmodel.listFollowerResult.observe(viewLifecycleOwner) {
             pengikutAdapter.pengikut.clear()
             pengikutAdapter.pengikut.addAll(it)
+            pengikutAdapter.notifyDataSetChanged()
         }
     }
 }

@@ -64,7 +64,12 @@ class PostinganAdapter(
             holder.binding.btnIkuti.visibility = View.GONE
         }
         holder.binding.btnIkuti.setOnClickListener {
-            onClick()
+            holder.binding.btnMengikuti.visibility = View.VISIBLE
+            holder.binding.btnIkuti.visibility = View.GONE
+        }
+        holder.binding.btnMengikuti.setOnClickListener {
+            holder.binding.btnIkuti.visibility = View.VISIBLE
+            holder.binding.btnMengikuti.visibility = View.GONE
         }
         holder.binding.cardPostingan.setOnClickListener {
             onDetail(postingan)

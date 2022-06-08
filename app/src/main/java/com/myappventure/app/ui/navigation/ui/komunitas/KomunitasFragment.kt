@@ -73,6 +73,7 @@ class KomunitasFragment : Fragment() {
         komunitasViewModel.komunitasResult.observe(viewLifecycleOwner) {
             komunitasAdapter.komunitas.clear()
             komunitasAdapter.komunitas.addAll(it)
+            komunitasAdapter.notifyDataSetChanged()
         }
     }
 }

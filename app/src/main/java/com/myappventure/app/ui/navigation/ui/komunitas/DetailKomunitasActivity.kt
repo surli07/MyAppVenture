@@ -3,6 +3,7 @@ package com.myappventure.app.ui.navigation.ui.komunitas
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +23,7 @@ import kotlinx.coroutines.launch
 class DetailKomunitasActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailKomunitasBinding
     private lateinit var detailKomunitas: Content
+    private var donefollow = false
     private val joinKomunitasViewModel: FollowKomunitasViewModel by viewModels()
     private val postinganKomunitasViewModel: GetPostinganKomunitasViewModel by viewModels()
     private val postinganKomunitasAdapter = PostinganKomunitasAdapter(mutableListOf(), onClick = {
@@ -79,6 +81,20 @@ class DetailKomunitasActivity : BaseActivity() {
             } else {
                 binding.imgFotoKomunitas.visibility = View.GONE
             }
+            binding.btnIkuti.setOnClickListener {
+                binding.btnMengikuti.visibility = View.VISIBLE
+                binding.btnIkuti.visibility = View.GONE
+                lifecycleScope.launch {
+                    joinKomunitasViewModel.followKomunitas(detailKomunitas.id)
+                }
+            }
+            binding.btnMengikuti.setOnClickListener {
+                binding.btnIkuti.visibility = View.VISIBLE
+                binding.btnMengikuti.visibility = View.GONE
+                lifecycleScope.launch {
+                    joinKomunitasViewModel.followKomunitas(detailKomunitas.id)
+                }
+            }
         }
         binding.recyclerPostingan.apply {
             layoutManager = LinearLayoutManager(
@@ -88,11 +104,6 @@ class DetailKomunitasActivity : BaseActivity() {
             )
             adapter = postinganKomunitasAdapter
         }
-        binding.btnIkuti.setOnClickListener {
-            lifecycleScope.launch {
-                joinKomunitasViewModel.followKomunitas()
-            }
-        }
         setupObserver()
     }
 
@@ -100,6 +111,21 @@ class DetailKomunitasActivity : BaseActivity() {
         postinganKomunitasViewModel.postingankomunitasResult.observe(this) {
             postinganKomunitasAdapter.postinganKomunitas.clear()
             postinganKomunitasAdapter.postinganKomunitas.addAll(it)
+            postinganKomunitasAdapter.notifyDataSetChanged()
         }
+        joinKomunitasViewModel.joinKomunitasResult.observe(this) {
+            donefollow = !donefollow
+            if (donefollow) {
+                Toast.makeText(this, "Diikuti", Toast.LENGTH_SHORT).show()
+                binding.btnIkuti.visibility = View.GONE
+                binding.btnMengikuti.visibility = View.VISIBLE
+            } else {
+                Toast.makeText(this, "Batal Mengikuti", Toast.LENGTH_SHORT).show()
+                binding.btnIkuti.visibility = View.VISIBLE
+                binding.btnMengikuti.visibility = View.GONE
+            }
+            setResult(RESULT_OK)
+        }
+
     }
 }
