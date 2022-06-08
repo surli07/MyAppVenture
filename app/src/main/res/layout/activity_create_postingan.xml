@@ -111,7 +111,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPost"
-                android:layout_width="96dp"
+                android:layout_width="110dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/green"
                 android:fontFamily="@font/poppins_regular"
