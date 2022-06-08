@@ -146,7 +146,7 @@ interface ApiService {
     @POST("komunitas/join/")
     suspend fun followKomunitas(
         @Query("idUser") idUser: Int?,
-        @Query("idKomunitas") idKomunitas: RequestBody,
+        @Query("idKomunitas") idKomunitas: Int,
     ): ApiResponse<JoinKomunitasResponse>
 
     @GET("komunitas/komunitasuser/")

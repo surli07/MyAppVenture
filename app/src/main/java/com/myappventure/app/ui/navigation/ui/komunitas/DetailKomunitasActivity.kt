@@ -79,6 +79,11 @@ class DetailKomunitasActivity : BaseActivity() {
             } else {
                 binding.imgFotoKomunitas.visibility = View.GONE
             }
+            binding.btnIkuti.setOnClickListener {
+                lifecycleScope.launch {
+                    joinKomunitasViewModel.followKomunitas(detailKomunitas.id)
+                }
+            }
         }
         binding.recyclerPostingan.apply {
             layoutManager = LinearLayoutManager(
@@ -88,11 +93,6 @@ class DetailKomunitasActivity : BaseActivity() {
             )
             adapter = postinganKomunitasAdapter
         }
-        binding.btnIkuti.setOnClickListener {
-            lifecycleScope.launch {
-                joinKomunitasViewModel.followKomunitas()
-            }
-        }
         setupObserver()
     }
 
@@ -100,6 +100,7 @@ class DetailKomunitasActivity : BaseActivity() {
         postinganKomunitasViewModel.postingankomunitasResult.observe(this) {
             postinganKomunitasAdapter.postinganKomunitas.clear()
             postinganKomunitasAdapter.postinganKomunitas.addAll(it)
+            postinganKomunitasAdapter.notifyDataSetChanged()
         }
     }
 }

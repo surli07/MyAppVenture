@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
-import okhttp3.RequestBody
 import javax.inject.Inject
 
 class FollowKomunitasRepository  @Inject constructor(
@@ -22,7 +21,7 @@ class FollowKomunitasRepository  @Inject constructor(
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-        idKomunitas: RequestBody
+        idKomunitas: Int
     ) = flow {
         val response = apiService.followKomunitas(
             MySharedPref.idUser,

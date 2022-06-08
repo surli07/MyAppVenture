@@ -7,8 +7,6 @@ import com.myappventure.app.data.remote.komunitas.join_komunitas.Data
 import com.myappventure.app.repository.FollowKomunitasRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,9 +16,8 @@ class FollowKomunitasViewModel @Inject constructor(
 
     val id = MySharedPref.idUser.toString()
     val joinKomunitasResult = MutableLiveData<Data>()
-    val idKomunitas = id.toRequestBody("text/plain".toMediaType())
 
-    suspend fun followKomunitas() {
+    suspend fun followKomunitas(idKomunitas: Int) {
         followKomunitasRepository.followKomunitas(
             onStart = {
                 _loading.postValue(true)
