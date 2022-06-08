@@ -31,6 +31,4 @@ data class PostIn(
     val updatedDate: String,
     @SerializedName("urlFileName")
     val urlFileName: String,
-    @SerializedName("user")
-    val user: UserXX
 ) : Parcelable

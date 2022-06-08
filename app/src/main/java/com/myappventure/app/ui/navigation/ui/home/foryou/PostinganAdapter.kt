@@ -17,7 +17,7 @@ class PostinganAdapter(
     var postingan: MutableList<Content>,
     val onClick: () -> Unit,
     val onDetail: (Content) -> Unit,
-    val onLike: (Int) -> Unit
+    val onLike: (Int) -> Unit,
 ) : RecyclerView.Adapter<PostinganAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPostinganBinding) :
         RecyclerView.ViewHolder(binding.root)

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentKomunitasBinding
 import com.myappventure.app.ui.navigation.ui.community.NewCommunityActivity
-import com.myappventure.app.ui.navigation.ui.home.detail_postingan.DetailPostinganActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -74,7 +73,6 @@ class KomunitasFragment : Fragment() {
         komunitasViewModel.komunitasResult.observe(viewLifecycleOwner) {
             komunitasAdapter.komunitas.clear()
             komunitasAdapter.komunitas.addAll(it)
-            komunitasAdapter.notifyDataSetChanged()
         }
     }
 }

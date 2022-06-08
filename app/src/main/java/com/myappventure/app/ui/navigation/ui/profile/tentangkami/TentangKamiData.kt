@@ -1,6 +1,5 @@
 package com.myappventure.app.ui.navigation.ui.profile.tentangkami
 
-import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import com.myappventure.app.R
 import kotlinx.parcelize.Parcelize
@@ -14,54 +13,59 @@ data class TentangKamiData (
 
 fun dataTentangDummy() = listOf(
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.devlin,
+        "Devlin Aldyandi",
+        "PM"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.cicil,
+        "Cicilia Viyaya W",
+        "UI/UX Design"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.tiara,
+        "Tiara Azzelia P",
+        "UI/UX Design"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.rahmah,
+        "Rahmah Nur A",
+        "Front End Developer"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.imelda,
+        "Imelda Averina",
+        "Front End Developer"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.aras,
+        "M Arras Adazim",
+        "Back End Developer"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.rizky,
+        "M Rizky Wisesar",
+        "Back End Developer"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.shinta,
+        "Shinta Amyrul P",
+        "Android Developer"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.surli,
+        "Surli",
+        "Android Developer"
     ),
     TentangKamiData(
-        R.drawable.ic_launcher_background,
-        "nama",
-        "jabatan"
+        R.drawable.krisi,
+        "Krissy Vieri",
+        "QA Team"
+    ),
+    TentangKamiData(
+        R.drawable.dei,
+        "Daniella Deilova",
+        "QA Team"
     ),
 
 )

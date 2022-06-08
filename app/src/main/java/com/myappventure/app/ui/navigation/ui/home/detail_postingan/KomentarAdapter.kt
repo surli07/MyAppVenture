@@ -7,11 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myappventure.app.R
 import com.myappventure.app.TimeAgo.toTimeAgo
-import com.myappventure.app.data.local.MySharedPref
-import com.myappventure.app.data.remote.getAllPostingan.Content
 import com.myappventure.app.data.remote.getAllPostingan.KomentarBy
 import com.myappventure.app.databinding.ItemKomentarBinding
-import com.myappventure.app.ui.navigation.ui.home.foryou.PostinganAdapter
 
 class KomentarAdapter(
     var komentar: MutableList<KomentarBy>

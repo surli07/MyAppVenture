@@ -18,6 +18,7 @@ import com.myappventure.app.data.remote.komunitas.createkomunitas.CreateKomunita
 import com.myappventure.app.data.remote.komunitas.detail_komunitas.DetailKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.GetPostinganKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.join_komunitas.JoinKomunitasResponse
+import com.myappventure.app.data.remote.komunitas.komunitas_saya.KomunitasSayaResponse
 import com.myappventure.app.data.remote.komunitas.list_komunitas.ListKomunitasResponse
 import com.myappventure.app.data.remote.komunitas.postingan_komunitas.PostinganKomunitasResponse
 import com.myappventure.app.data.remote.likePost.LikeResponse
@@ -147,6 +148,13 @@ interface ApiService {
         @Query("idUser") idUser: Int?,
         @Query("idKomunitas") idKomunitas: RequestBody,
     ): ApiResponse<JoinKomunitasResponse>
+
+    @GET("komunitas/komunitasuser/")
+    suspend fun komunitasSaya(
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+        @Query("idUser") idUser: String,
+    ): ApiResponse<KomunitasSayaResponse>
 
     @GET("destinasi/detaildestinasi")
     suspend fun detailDestinasi(

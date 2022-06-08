@@ -14,7 +14,7 @@ import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.list_komunitas.Content
 import com.myappventure.app.databinding.ActivityDetailKomunitasBinding
 import com.myappventure.app.ui.login.LoginActivity
-import com.myappventure.app.ui.navigation.ui.home.detail_postingan.DetailPostinganActivity
+import com.myappventure.app.ui.navigation.ui.komunitas.follow.FollowKomunitasViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -22,6 +22,7 @@ import kotlinx.coroutines.launch
 class DetailKomunitasActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailKomunitasBinding
     private lateinit var detailKomunitas: Content
+    private val joinKomunitasViewModel: FollowKomunitasViewModel by viewModels()
     private val postinganKomunitasViewModel: GetPostinganKomunitasViewModel by viewModels()
     private val postinganKomunitasAdapter = PostinganKomunitasAdapter(mutableListOf(), onClick = {
         if (!MySharedPref.isLoggedIn) {
@@ -29,9 +30,9 @@ class DetailKomunitasActivity : BaseActivity() {
             startActivity(i)
         }
     },
-        onDetail = { postingan ->
-            val i = Intent(this, DetailPostinganActivity::class.java)
-            i.putExtra("postingan", postingan)
+        onDetail = { postinganKomunitas ->
+            val i = Intent(this, DetailPostinganKomunitasActivity::class.java)
+            i.putExtra("postinganKomunitas", postinganKomunitas)
             startActivity(i)
         },
         onLike = {
@@ -87,14 +88,18 @@ class DetailKomunitasActivity : BaseActivity() {
             )
             adapter = postinganKomunitasAdapter
         }
+        binding.btnIkuti.setOnClickListener {
+            lifecycleScope.launch {
+                joinKomunitasViewModel.followKomunitas()
+            }
+        }
         setupObserver()
     }
 
     override fun setupObserver() {
         postinganKomunitasViewModel.postingankomunitasResult.observe(this) {
-            postinganKomunitasAdapter.postingan.clear()
-            postinganKomunitasAdapter.postingan.addAll(it)
-            postinganKomunitasAdapter.notifyDataSetChanged()
+            postinganKomunitasAdapter.postinganKomunitas.clear()
+            postinganKomunitasAdapter.postinganKomunitas.addAll(it)
         }
     }
 }

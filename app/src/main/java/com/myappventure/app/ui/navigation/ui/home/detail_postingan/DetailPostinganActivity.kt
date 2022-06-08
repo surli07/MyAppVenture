@@ -145,16 +145,21 @@ class DetailPostinganActivity : BaseActivity() {
             }
         }
 
-        detailPostinganViewModel.komentarResult.observe(this){
-            if(it.status == "200"){
+        detailPostinganViewModel.komentarResult.observe(this) {
+            if (it.status == "200") {
                 jumlahKomentar++
                 binding.txtJumlahKomentar.text = jumlahKomentar.toString() + " Komentar"
                 val komentar = KomentarBy(
-                    it.data.createdDate, null,
-                    it.data.id, it.data.jumlahBalasKomentar, it.data.textKomentar, it.data.updatedDate, it.data.user
+                    it.data.createdDate,
+                    null,
+                    it.data.id,
+                    it.data.jumlahBalasKomentar,
+                    it.data.textKomentar,
+                    it.data.updatedDate,
+                    it.data.user
                 )
                 komentarAdapter.komentar.add(komentar)
-                komentarAdapter.notifyItemInserted(komentarAdapter.komentar.size -1)
+                komentarAdapter.notifyItemInserted(komentarAdapter.komentar.size - 1)
                 binding.edtKomentar.setText("")
             }
         }
