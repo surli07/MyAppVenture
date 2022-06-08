@@ -10,10 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.myappventure.app.R
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.databinding.FragmentForYouBinding
-import com.myappventure.app.databinding.ItemPostinganBinding
 import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.ui.navigation.ui.home.detail_postingan.DetailPostinganActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,7 +40,6 @@ class ForYouFragment : Fragment() {
                     postinganViewModel.likePost(it)
                 }
             }
-
         }
     )
 

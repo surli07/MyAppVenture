@@ -22,7 +22,7 @@ data class PostIn(
     @SerializedName("id")
     val id: Int,
     @SerializedName("jumlahAnggota")
-    val jumlahAnggota: Int?,
+    val jumlahAnggota: Int,
     @SerializedName("linkKomunitas")
     val linkKomunitas: String,
     @SerializedName("namaKomunitas")
@@ -31,6 +31,4 @@ data class PostIn(
     val updatedDate: String,
     @SerializedName("urlFileName")
     val urlFileName: String,
-    @SerializedName("user")
-    val user: UserXX
 ) : Parcelable

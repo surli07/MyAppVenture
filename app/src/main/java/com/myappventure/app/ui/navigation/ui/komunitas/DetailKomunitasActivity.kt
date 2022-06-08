@@ -14,6 +14,7 @@ import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.list_komunitas.Content
 import com.myappventure.app.databinding.ActivityDetailKomunitasBinding
 import com.myappventure.app.ui.login.LoginActivity
+import com.myappventure.app.ui.navigation.ui.komunitas.follow.FollowKomunitasViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -21,6 +22,7 @@ import kotlinx.coroutines.launch
 class DetailKomunitasActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailKomunitasBinding
     private lateinit var detailKomunitas: Content
+    private val joinKomunitasViewModel: FollowKomunitasViewModel by viewModels()
     private val postinganKomunitasViewModel: GetPostinganKomunitasViewModel by viewModels()
     private val postinganKomunitasAdapter = PostinganKomunitasAdapter(mutableListOf(), onClick = {
         if (!MySharedPref.isLoggedIn) {
@@ -30,7 +32,7 @@ class DetailKomunitasActivity : BaseActivity() {
     },
         onDetail = { postinganKomunitas ->
             val i = Intent(this, DetailPostinganKomunitasActivity::class.java)
-            i.putExtra( "postinganKomunitas", postinganKomunitas)
+            i.putExtra("postinganKomunitas", postinganKomunitas)
             startActivity(i)
         },
         onLike = {
@@ -86,6 +88,11 @@ class DetailKomunitasActivity : BaseActivity() {
             )
             adapter = postinganKomunitasAdapter
         }
+        binding.btnIkuti.setOnClickListener {
+            lifecycleScope.launch {
+                joinKomunitasViewModel.followKomunitas()
+            }
+        }
         setupObserver()
     }
 
@@ -93,7 +100,6 @@ class DetailKomunitasActivity : BaseActivity() {
         postinganKomunitasViewModel.postingankomunitasResult.observe(this) {
             postinganKomunitasAdapter.postinganKomunitas.clear()
             postinganKomunitasAdapter.postinganKomunitas.addAll(it)
-            postinganKomunitasAdapter.notifyDataSetChanged()
         }
     }
 }

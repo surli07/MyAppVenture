@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityTentangKamiBinding
 import com.myappventure.app.ui.navigation.NavigationActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TentangKamiActivity : BaseActivity() {
 
     private lateinit var binding: ActivityTentangKamiBinding
@@ -19,7 +21,7 @@ class TentangKamiActivity : BaseActivity() {
 
         binding.recylerAboutUs.apply {
             this.layoutManager = GridLayoutManager(
-                context, 2
+                context, 3
             )
             this.adapter = TentangKamiAdapter(dataTentangDummy())
         }

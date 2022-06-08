@@ -18,6 +18,7 @@ import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.detail_postingan_komunitas.Data
 import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.KomentarBy
+import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.User
 import com.myappventure.app.databinding.ActivityDetailPostinganBinding
 import com.myappventure.app.ui.navigation.ui.komunitas.follow.KomentarPostinganKomunitasAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -146,6 +147,13 @@ class DetailPostinganKomunitasActivity : BaseActivity() {
             if (it.status == "200") {
                 jumlahKomentar++
                 binding.txtJumlahKomentar.text = jumlahKomentar.toString() + " Komentar"
+                val user = User(
+                    it.data.user.fileName,
+                    it.data.user.id,
+                    it.data.user.nama,
+                    it.data.user.urlFileName,
+                    it.data.user.username
+                )
                 val komentar = KomentarBy(
                     it.data.createdDate,
                     null,
@@ -153,7 +161,7 @@ class DetailPostinganKomunitasActivity : BaseActivity() {
                     it.data.jumlahBalasKomentar,
                     it.data.textKomentar,
                     it.data.updatedDate,
-                    it.data.user
+                    user
                 )
                 komentarAdapter.komentar.add(komentar)
                 komentarAdapter.notifyItemInserted(komentarAdapter.komentar.size - 1)
