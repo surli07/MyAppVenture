@@ -31,7 +31,7 @@ class DetailDestinasiActivity : BaseActivity() {
             binding.txtHarga.text = it.harga
             binding.txtJam.text = it.waktu
             if (it.fileName.isNotEmpty()) {
-                binding.imgFoto.visibility = View.GONE
+                binding.imgFoto.visibility = View.VISIBLE
                 Glide.with(binding.imgFoto.context)
                     .load(it.urlFileName)
                     .error(R.drawable.ic_launcher_foreground)
