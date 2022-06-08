@@ -13,7 +13,6 @@ import com.myappventure.app.R
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.databinding.ActivityLoginBinding
 import com.myappventure.app.dialog.CustomLoadingDialog
-import com.myappventure.app.ui.ForgotPasswordActivity
 import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,11 +45,6 @@ class LoginActivity : BaseActivity() {
         }
         binding.txtDaftarDisini.setOnClickListener {
             val i = Intent(this, RegisterActivity::class.java)
-            startActivity(i)
-            finish()
-        }
-        binding.txtLupaKataSandi.setOnClickListener {
-            val i = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(i)
             finish()
         }

@@ -73,7 +73,7 @@ class DetailKomunitasActivity : BaseActivity() {
             binding.txtNamaKomunitas.text = it.namaKomunitas
             binding.txtLinkGrup.text = it.linkKomunitas
             if (it.fileName.isNotEmpty()) {
-                binding.imgFoto.visibility = View.GONE
+                binding.imgFoto.visibility = View.VISIBLE
                 Glide.with(binding.imgFotoKomunitas.context)
                     .load(it.urlFileName)
                     .error(R.drawable.ic_launcher_foreground)
