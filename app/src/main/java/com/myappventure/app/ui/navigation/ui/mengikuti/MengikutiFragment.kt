@@ -54,6 +54,7 @@ class MengikutiFragment : Fragment() {
         mengikutiViewmodel.listFollowingResult.observe(viewLifecycleOwner) {
             mengikutiAdapter.mengikuti.clear()
             mengikutiAdapter.mengikuti.addAll(it)
+            mengikutiAdapter.notifyDataSetChanged()
         }
     }
 }

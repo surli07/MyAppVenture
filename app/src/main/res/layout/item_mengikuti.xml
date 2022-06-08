@@ -24,31 +24,11 @@
         android:layout_marginStart="8dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="rayhan"
+        android:layout_marginTop="7dp"
         android:textColor="#3D3D3D"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/imgPengikut"
         app:layout_constraintTop_toTopOf="@id/imgPengikut" />
-
-    <ImageView
-        android:id="@+id/imgLencana"
-        android:layout_width="12dp"
-        android:layout_height="12dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/ic_lencana"
-        app:layout_constraintStart_toStartOf="@id/txtNamaPengikut"
-        app:layout_constraintTop_toBottomOf="@id/txtNamaPengikut" />
-
-    <TextView
-        android:id="@+id/txtTantangan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="10 Tantangan diselesaikan"
-        android:textColor="#DD9120"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@id/imgLencana"
-        app:layout_constraintTop_toTopOf="@id/imgLencana" />
 
     <Button
         android:id="@+id/btnIkuti"
