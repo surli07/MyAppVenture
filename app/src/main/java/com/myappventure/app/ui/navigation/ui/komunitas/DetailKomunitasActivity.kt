@@ -14,7 +14,9 @@ import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.data.local.MySharedPref
 import com.myappventure.app.data.remote.komunitas.list_komunitas.Content
 import com.myappventure.app.databinding.ActivityDetailKomunitasBinding
+import com.myappventure.app.dialog.CustomLoadingDialog
 import com.myappventure.app.ui.login.LoginActivity
+import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.komunitas.follow.FollowKomunitasViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -24,6 +26,7 @@ class DetailKomunitasActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailKomunitasBinding
     private lateinit var detailKomunitas: Content
     private var donefollow = false
+    private val viewModel: PostinganKomunitasViewModel by viewModels()
     private val joinKomunitasViewModel: FollowKomunitasViewModel by viewModels()
     private val postinganKomunitasViewModel: GetPostinganKomunitasViewModel by viewModels()
     private val postinganKomunitasAdapter = PostinganKomunitasAdapter(mutableListOf(), onClick = {
@@ -126,6 +129,20 @@ class DetailKomunitasActivity : BaseActivity() {
             }
             setResult(RESULT_OK)
         }
-
+        val loadingUi = CustomLoadingDialog(this)
+        viewModel.loading.observe(this) {
+            if (it) loadingUi.show() else loadingUi.dismiss()
+        }
+        viewModel.message.observe(this) {
+            showMessageToast(it)
+        }
+        viewModel.postinganKomunitasResult.observe(this) {
+            if (it.status == "200") {
+                val i = Intent(this, NavigationActivity::class.java)
+                startActivity(i)
+                finish()
+            }
+        }
     }
+
 }

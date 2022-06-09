@@ -27,8 +27,8 @@ data class Data(
     val komentarBy: List<KomentarBy>,
     @SerializedName("likedBy")
     val likedBy: List<LikedBy>,
-    //@SerializedName("postIn")
-    //val postIn: String?,
+//    @SerializedName("postIn")
+//    val postIn: PostIn,
     @SerializedName("text")
     val text: String,
     @SerializedName("updated_date")

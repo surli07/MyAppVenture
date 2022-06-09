@@ -16,7 +16,6 @@ import com.myappventure.app.ui.MainFollowActivity
 import com.myappventure.app.ui.login.LoginActivity
 import com.myappventure.app.ui.navigation.NavigationActivity
 import com.myappventure.app.ui.navigation.ui.profile.komunitas.KomunitasActivity
-import com.myappventure.app.ui.navigation.ui.profile.profile.ProfileProfileActivity
 import com.myappventure.app.ui.navigation.ui.profile.tentangkami.TentangKamiActivity
 import com.myappventure.app.ui.navigation.ui.profile.unggahan.UnggahanSayaActivity
 import kotlinx.coroutines.launch
@@ -57,12 +56,12 @@ class ProfileFragment : Fragment() {
                 binding.imgPhotoUser.visibility = View.GONE
             }
 
-            binding.Invite.visibility = View.VISIBLE
+//            binding.Invite.visibility = View.VISIBLE
             binding.Logout.visibility = View.VISIBLE
-            binding.recProfile.visibility = View.VISIBLE
-            binding.icProfil.visibility = View.VISIBLE
-            binding.txtProfil.visibility = View.VISIBLE
-            binding.icNextP.visibility = View.VISIBLE
+//            binding.recProfile.visibility = View.VISIBLE
+//            binding.icProfil.visibility = View.VISIBLE
+//            binding.txtProfil.visibility = View.VISIBLE
+//            binding.icNextP.visibility = View.VISIBLE
             binding.recYourPost.visibility = View.VISIBLE
             binding.icNextYP.visibility = View.VISIBLE
             binding.txtYourPost.visibility = View.VISIBLE
@@ -87,14 +86,14 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), MainFollowActivity::class.java)
                 startActivity(intent)
             }
-            binding.icNextP.setOnClickListener {
-                val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
-                startActivity(intent)
-            }
-            binding.txtProfil.setOnClickListener {
-                val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
-                startActivity(intent)
-            }
+//            binding.icNextP.setOnClickListener {
+//                val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
+//                startActivity(intent)
+//            }
+//            binding.txtProfil.setOnClickListener {
+//                val intent = Intent(requireContext(), ProfileProfileActivity::class.java)
+//                startActivity(intent)
+//            }
             binding.icNextYC.setOnClickListener {
                 val intent = Intent(requireContext(), KomunitasActivity::class.java)
                 startActivity(intent)
@@ -137,12 +136,12 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 startActivity(intent)
             }
-            binding.Invite.visibility = View.GONE
+//            binding.Invite.visibility = View.GONE
             binding.Logout.visibility = View.GONE
-            binding.recProfile.visibility = View.GONE
-            binding.icProfil.visibility = View.GONE
-            binding.txtProfil.visibility = View.GONE
-            binding.icNextP.visibility = View.GONE
+//            binding.recProfile.visibility = View.GONE
+//            binding.icProfil.visibility = View.GONE
+//            binding.txtProfil.visibility = View.GONE
+//            binding.icNextP.visibility = View.GONE
             binding.recYourPost.visibility = View.GONE
             binding.icNextYP.visibility = View.GONE
             binding.txtYourPost.visibility = View.GONE

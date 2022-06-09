@@ -92,58 +92,58 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/recProfile"
-        android:layout_width="299dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/rec_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/recProfile"-->
+<!--        android:layout_width="299dp"-->
+<!--        android:layout_height="39dp"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:src="@drawable/rec_profile"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_chainStyle="packed"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
-    <ImageView
-        android:id="@+id/icProfil"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_profile"
-        app:layout_constraintStart_toStartOf="@id/recProfile"
-        app:layout_constraintTop_toTopOf="@id/recProfile" />
+<!--    <ImageView-->
+<!--        android:id="@+id/icProfil"-->
+<!--        android:layout_width="18dp"-->
+<!--        android:layout_height="18dp"-->
+<!--        android:layout_marginStart="14dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:src="@drawable/ic_profile"-->
+<!--        app:layout_constraintStart_toStartOf="@id/recProfile"-->
+<!--        app:layout_constraintTop_toTopOf="@id/recProfile" />-->
 
-    <TextView
-        android:id="@+id/txtProfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Profil Saya"
-        android:textColor="@color/tosca"
-        app:layout_constraintStart_toEndOf="@id/icProfil"
-        app:layout_constraintTop_toTopOf="@id/icProfil" />
+<!--    <TextView-->
+<!--        android:id="@+id/txtProfil"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:fontFamily="@font/poppins_semibold"-->
+<!--        android:text="Profil Saya"-->
+<!--        android:textColor="@color/tosca"-->
+<!--        app:layout_constraintStart_toEndOf="@id/icProfil"-->
+<!--        app:layout_constraintTop_toTopOf="@id/icProfil" />-->
 
-    <ImageView
-        android:id="@+id/icNextP"
-        android:layout_width="8dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="@id/recProfile"
-        app:layout_constraintTop_toTopOf="@id/icProfil" />
+<!--    <ImageView-->
+<!--        android:id="@+id/icNextP"-->
+<!--        android:layout_width="8dp"-->
+<!--        android:layout_height="14dp"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:layout_marginEnd="18dp"-->
+<!--        android:src="@drawable/ic_next"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/recProfile"-->
+<!--        app:layout_constraintTop_toTopOf="@id/icProfil" />-->
 
     <ImageView
         android:id="@+id/recYourPost"
         android:layout_width="299dp"
         android:layout_height="39dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/rec_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recProfile" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/icYourPost"
@@ -260,40 +260,40 @@
         app:layout_constraintEnd_toEndOf="@id/recTentangKita"
         app:layout_constraintTop_toTopOf="@id/icTentangKita" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/Invite"
-        android:layout_width="299dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="@color/tosca"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recTentangKita">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/Invite"-->
+<!--        android:layout_width="299dp"-->
+<!--        android:layout_height="43dp"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:layout_marginBottom="12dp"-->
+<!--        android:backgroundTint="@color/tosca"-->
+<!--        app:cardCornerRadius="8dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/recTentangKita">-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Undang Teman"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="7dp"-->
+<!--            android:fontFamily="@font/poppins_semibold"-->
+<!--            android:text="Undang Teman"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="16sp" />-->
+<!--    </androidx.cardview.widget.CardView>-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/Logout"
         android:layout_width="299dp"
         android:layout_height="43dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="110dp"
         android:backgroundTint="@color/tosca"
         app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Invite">
+        app:layout_constraintTop_toBottomOf="@id/recTentangKita">
 
         <TextView
             android:layout_width="match_parent"

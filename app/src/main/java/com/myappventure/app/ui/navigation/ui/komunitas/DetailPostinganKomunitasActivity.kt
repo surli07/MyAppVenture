@@ -16,7 +16,7 @@ import com.myappventure.app.R
 import com.myappventure.app.TimeAgo.toTimeAgo
 import com.myappventure.app.base.BaseActivity
 import com.myappventure.app.data.local.MySharedPref
-import com.myappventure.app.data.remote.komunitas.detail_postingan_komunitas.Data
+import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.Content
 import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.KomentarBy
 import com.myappventure.app.data.remote.komunitas.get_postingan_komunitas.User
 import com.myappventure.app.databinding.ActivityDetailPostinganBinding
@@ -29,7 +29,7 @@ class DetailPostinganKomunitasActivity : BaseActivity() {
 
     private lateinit var binding: ActivityDetailPostinganBinding
     private val detailPostinganKomunitasViewModel: DetailPostinganKomunitasViewModel by viewModels()
-    private lateinit var detailPost: Data
+    private lateinit var detailPost: Content
     private var jumlahLike = 0
     private var jumlahKomentar = 0
     private var komentarAdapter = KomentarPostinganKomunitasAdapter(mutableListOf())
@@ -47,7 +47,7 @@ class DetailPostinganKomunitasActivity : BaseActivity() {
             validateText()
         }
 
-        intent.getParcelableExtra<Data>("postinganKomunitas")?.let {
+        intent.getParcelableExtra<Content>("postinganKomunitas")?.let {
             detailPost = it
             jumlahLike = it.jumlahLike
             jumlahKomentar = it.jumlahKomentar

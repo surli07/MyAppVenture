@@ -20,13 +20,13 @@
         android:id="@+id/txtTittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Buat Postingan Baru"
         android:textColor="@color/black"
         android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@id/imgBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
@@ -112,7 +112,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPost"
                 android:layout_width="110dp"
-                android:layout_height="40dp"
+                android:layout_height="43dp"
                 android:backgroundTint="@color/green"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Posting"
